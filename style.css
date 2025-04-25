@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(3, 3, 59);
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Navigation Bar */
+header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgb(41, 41, 141);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.left {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.right ul {
+    display: flex;
+    list-style: none;
+    margin-top: 12px;
+}
+
+.right ul li {
+    margin: 0 15px;
+}
+
+.right ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.right ul li a:hover {
+    color: rgb(181, 181, 216);
+}
+
+nav ul li a:hover {
+    color: rgb(181, 181, 216);
+    font-size: 1.03rem;
+}
+.buttons button:hover
+{
+    background-color:#3c2651; 
+}
+
+.purpleColor {
+    color: rgb(124, 89, 237);
+
+}
+
+
+#element {
+    color: rgb(124, 89, 237);
+
+}
+
+
+/* Mobile Navigation */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: rgb(41, 41, 141);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.mobile-nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+.mobile-nav ul li {
+    margin: 10px 0;
+}
+
+.mobile-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* Hero Section  */
+.firstsection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 230px 20px;
+}
+
+.leftsection {
+    font-size: 1.8rem;
+    text-align: center;
+    max-width: 400px;
+    font-weight: 500;
+}
+
+.leftsection .buttons {
+    margin-top: 20px;
+}
+
+.leftsection .btn {
+    padding: 10px 15px;
+    background-color: rgb(63, 63, 127);
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.leftsection .btn:hover {
+    background-color: #3c2651;
+}
+
+.rightsection {
+    text-align: center;
+}
+
+.rightsection img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* About Section */
+.secondsection {
+    max-width: 80vw;
+    margin: auto;
+    text-align: center;
+}
+.aboutme p{
+    text-align: justify;
+    font-size: larger;
+}
+.aboutme h2 {
+    margin: 20px 0px;
+}
+
+
+/* Skills */
+.skill {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 55px;
+    margin-top: 30px;
+}
+
+.skill img {
+    height: 80px;
+    border-radius: 20px;
+}
+.skill p{
+    text-align: center;
+    margin-top: 15px;
+}
+.progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    height: 10px;
+    border-radius: 5px;
+}
+.progress {
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
+
+
+/* Footer */
+footer {
+    background-color: #14171c;
+    text-align: center;
+    padding: 20px;
+    
+}
+.footer ul li{
+    text-decoration: none;
+    list-style: none;
+    
+    
+}
+.footer-first p{
+    text-align: center;
+    
+}
+
+.footer ul{
+    display: flex;
+    justify-content: space-around;
+
+}
+.footer-rights {
+    color: grey;
+    margin-top: 10px;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: row;
+    }
+
+    .right ul {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .mobile-nav.active {
+        display: flex;
+    }
+
+    .firstsection {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 100px 20px;
+    }
+    .rightsection img{
+        margin-bottom: 20px;
+    }
+    .aboutme p{
+        margin-bottom: 50px;
+    }
+
+    .leftsection {
+        font-size: 1.5rem;
+    }
+
+    .skill {
+        justify-content: center;
+    }
+    
+}
