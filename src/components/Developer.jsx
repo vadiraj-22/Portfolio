@@ -33,11 +33,19 @@ const Developer = ({ animationName = 'idle', ...props }) => {
 
   useEffect(() => {
     if (actions[animationName]) {
-      actions[animationName].reset().fadeIn(0.5).play();
+      try {
+        actions[animationName].reset().fadeIn(0.5).play();
+      } catch (error) {
+        console.warn('Animation error:', error.message);
+      }
     }
     return () => {
       if (actions[animationName]) {
-        actions[animationName].fadeOut(0.5);
+        try {
+          actions[animationName].fadeOut(0.5);
+        } catch (error) {
+          console.warn('Animation cleanup error:', error.message);
+        }
       }
     };
   }, [animationName, actions]);
