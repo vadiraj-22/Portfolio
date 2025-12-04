@@ -63,7 +63,7 @@ export const myProjects = [
     subdesc:
       'Built as a full-stack application with React 19, Vite, TailwindCSS, Node.js, Express, and integrated with Clerk authentication, OpenAI API, Cloudinary for image processing, and Neon PostgreSQL database for optimal performance and scalability.',
     href: 'https://quick-ai-gray.vercel.app/',
-    texture: '/textures/project/project1.mp4',
+    texture: '/textures/project/quick AI.mp4',
     logo: '/assets/quickAI.svg',
     logoStyle: {
       backgroundColor: '#1a1a2e',
@@ -106,7 +106,7 @@ export const myProjects = [
     desc: 'Clean Street is a comprehensive civic engagement platform that empowers citizens to report, track, and manage street cleanliness and infrastructure issues. Features include complaint submission with geolocation mapping, image uploads, priority-based issue tracking, volunteer assignment system, upvote/downvote mechanism, real-time status updates, admin dashboard with analytics, and community commenting - all built to streamline urban maintenance and civic participation.',
     subdesc: 'Built as a full-stack application with React 19, Vite, TailwindCSS, Node.js, Express, and integrated with JWT authentication, Cloudinary for image processing, MongoDB with geospatial indexing, Leaflet for interactive maps, and Recharts for data visualization. Developed as part of Infosys Springboard Virtual Internship 6.0.',
     href: 'https://clean-street.vercel.app/',
-    texture: '/textures/project/project2.mp4',
+    texture: '/textures/project/clean_street.mp4',
     logo: '/assets/cleanStreet.png',
     logoStyle: {
       backgroundColor: '#0f172a',
