@@ -198,7 +198,7 @@ export const workExperiences = [
 {
   id: 2,
     name: 'Edunet Foundation',
-      pos: 'AI intern',
+      pos: 'AI Azure intern',
         duration: 'Augest 2025 - September 2025',
           title: "Successfully completed a 4-week internship on AI Azure under a Microsoft initiative implemented by Edunet Foundation in collaboration with AICTE.",
             icon: '/assets/edunetfoundation_logo.jpg',
