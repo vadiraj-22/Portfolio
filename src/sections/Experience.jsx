@@ -15,7 +15,7 @@ const WorkExperience = () => {
         <p className="head-text">My Work Experience</p>
 
         <div className="work-container">
-          <div className="work-canvas">
+          <div className="work-canvas relative">
             <Canvas>
               <ambientLight intensity={7} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
@@ -26,6 +26,14 @@ const WorkExperience = () => {
                 <Developer position-y={-3} scale={3} animationName={animationName} />
               </Suspense>
             </Canvas>
+            <div className='absolute bottom-4 left-0 right-0 flex justify-center'>
+              <lord-icon
+                src="https://cdn.lordicon.com/evxithfv.json"
+                trigger="loop"
+                colors="primary:#ffffff,secondary:#08a88a"
+                style={{width: '40px', height: '40px'}}>
+              </lord-icon>
+            </div>
           </div>
 
           <div className="work-content">
