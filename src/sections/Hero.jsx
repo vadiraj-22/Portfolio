@@ -89,9 +89,17 @@ const Hero = () => {
                     </Suspense>
                 </Canvas>
                 <div className='absolute bottom-7 left-0 right-0 w-full z-10 c-space'>
-                    <a href="#about" className='w-fit'>
-                       <Button name ="Lets work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96 " />
-                    </a>
+                    <div className='flex flex-col items-center gap-2'>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/evxithfv.json"
+                            trigger="loop"
+                            colors="primary:#ffffff,secondary:#08a88a"
+                            style={{width: '50px', height: '50px'}}>
+                        </lord-icon>
+                        <a href="#about" className='w-fit'>
+                           <Button name ="Lets work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96 " />
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

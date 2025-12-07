@@ -13,7 +13,7 @@ const HackerRoom = (props) => {
 
     // Use useLoader instead of useTexture to avoid state update issues
     const monitortxt = useLoader(THREE.TextureLoader, 'textures/desk/monitor.png');
-    const screenTxt = useLoader(THREE.TextureLoader, 'textures/desk/screen.png');
+    const screenTxt = useLoader(THREE.TextureLoader, 'textures/desk/screen1.jpg');
 
     return (
         <group {...props} dispose={null}>

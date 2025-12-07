@@ -10,7 +10,9 @@ const projectCount = myProjects.length;
 
 const Projects = () => {
     const [selectedProjectindex, setselectedProjectindex] = useState(0)
+    const [isExpanded, setIsExpanded] = useState(false)
     const currentProject = myProjects[selectedProjectindex];
+    
     const handleNavigation = (direction) => {
         setselectedProjectindex((prevIndex) => {
             if (direction === 'previous') {
@@ -19,6 +21,27 @@ const Projects = () => {
                 return prevIndex === projectCount - 1 ? 0 : prevIndex + 1;
             }
         })
+        setIsExpanded(false) // Reset expansion when changing projects
+    }
+    
+    const getCombinedText = () => {
+        const combinedText = `${currentProject.desc} ${currentProject.subdesc}`;
+        const words = combinedText.split(' ');
+        
+        if (isExpanded) {
+            return combinedText;
+        }
+        
+        if (words.length <= 40) {
+            return combinedText;
+        }
+        
+        return words.slice(0, 40).join(' ') + '...';
+    }
+    
+    const shouldShowReadMore = () => {
+        const combinedText = `${currentProject.desc} ${currentProject.subdesc}`;
+        return combinedText.split(' ').length > 40;
     }
 
     return (
@@ -34,8 +57,17 @@ const Projects = () => {
                     </div>
                     <div className='flex flex-col gap-5 text-white-600 my-5'>
                         <p className='text-white text-2xl font-semibold animatedText'>{currentProject.title}</p>
-                        <p className='animatedText'>{currentProject.desc}</p>
-                        <p className='animatedText'>{currentProject.subdesc}</p>
+                        <p className='animatedText'>
+                            {getCombinedText()}
+                        </p>
+                        {shouldShowReadMore() && (
+                            <button 
+                                onClick={() => setIsExpanded(!isExpanded)} 
+                                className='text-white-800 cursor-pointer underline hover:text-white transition-colors text-left w-fit'
+                            >
+                                {isExpanded ? 'Read Less' : 'Read More'}
+                            </button>
+                        )}
                     </div>
                     <div className='flex gap-5 flex-wrap justify-between items-center'>
                         <div className=' flex items-center gap-3'>{currentProject.tags.map((tag, index) => (
@@ -61,7 +93,7 @@ const Projects = () => {
                         </button>
                     </div>
                 </div>
-                <div className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full'>
+                <div className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full relative'>
                     <Canvas>
                         <ambientLight intensity={Math.PI} />
                         <directionalLight position={[10, 10, 5]} />
@@ -74,6 +106,14 @@ const Projects = () => {
                         </Center>
                         <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
                     </Canvas>
+                    <div className='absolute bottom-4 left-0 right-0 flex justify-center'>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/evxithfv.json"
+                            trigger="loop"
+                            colors="primary:#ffffff,secondary:#08a88a"
+                            style={{width: '40px', height: '40px'}}>
+                        </lord-icon>
+                    </div>
                 </div>
             </div>
         </section>

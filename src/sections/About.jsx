@@ -1,10 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Globe from 'react-globe.gl';
 
 import Button from '../components/Button.jsx';
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
+  const globeEl = useRef();
+
+  useEffect(() => {
+    if (globeEl.current) {
+      globeEl.current.pointOfView({ lat: 20.5937, lng: 78.9629, altitude: 2.5 }, 1000);
+    }
+  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(' vadirajjoshi22504@gmail.com');
@@ -25,7 +32,7 @@ const About = () => {
             <div>
               <p className="grid-headtext">Hi, I’m Vadiraj Joshi</p>
               <p className="grid-subtext">
-                With 2 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic
+                I have honed my skills in both frontend and backend dev, creating dynamic
                 and responsive websites.
               </p>
             </div>
@@ -50,6 +57,7 @@ const About = () => {
           <div className="grid-container">
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
               <Globe
+                ref={globeEl}
                 height={426}
                 width={426}
                 backgroundColor="rgba(0, 0, 0, 0)"
@@ -58,7 +66,7 @@ const About = () => {
                 showGraticules
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
                 bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                labelsData={[{ lat: 40, lng: -100, text: 'Rjieka, Croatia', color: 'white', size: 15 }]}
+                labelsData={[{ lat: 15.3173, lng: 75.7139, text: 'Karnataka, India', color: 'white', size: 15 }]}
               />
             </div>
             <div>

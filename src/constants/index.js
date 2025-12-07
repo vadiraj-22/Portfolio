@@ -104,7 +104,7 @@ export const myProjects = [
   {
     title: 'Clean Street - Smart Civic Issue Management',
     desc: 'Clean Street is a comprehensive civic engagement platform that empowers citizens to report, track, and manage street cleanliness and infrastructure issues. Features include complaint submission with geolocation mapping, image uploads, priority-based issue tracking, volunteer assignment system, upvote/downvote mechanism, real-time status updates, admin dashboard with analytics, and community commenting - all built to streamline urban maintenance and civic participation.',
-    subdesc: 'Built as a full-stack application with React 19, Vite, TailwindCSS, Node.js, Express, and integrated with JWT authentication, Cloudinary for image processing, MongoDB with geospatial indexing, Leaflet for interactive maps, and Recharts for data visualization. Developed as part of Infosys Springboard Virtual Internship 6.0.',
+    subdesc: 'Built as a full-stack application with React 19, Vite, TailwindCSS, Node.js, Express, and integrated with JWT authentication, Cloudinary for image processing, MongoDB with geospatial indexing, Leaflet for interactive maps. Developed as part of Infosys Springboard Virtual Internship 6.0.',
     href: 'https://clean-street.vercel.app/',
     texture: '/textures/project/clean_street.mp4',
     logo: '/assets/cleanStreet.png',
@@ -156,7 +156,7 @@ export const myProjects = [
       border: '0.2px solid #166534',
       boxShadow: '0px 0px 60px 0px #22c55e4D',
     },
-    spotlight: '/assets/spotlight2.png',
+    spotlight: '/assets/spotlight3.png',
     tags: [
       {
         id: 1,
@@ -170,7 +170,45 @@ export const myProjects = [
       },
 
     ],
-  }
+  },
+
+  {
+  title: 'K72 - Modern Portfolio & Design Studio Clone',
+  desc: 'K72 is a cutting-edge portfolio and design studio platform showcasing creative work through immersive visual experiences. Features include smooth scroll animations with GSAP, dynamic project galleries with hover interactions, responsive grid layouts, image preloading for seamless transitions, custom typography with Lausanne font family, mobile-optimized navigation, parallax effects, and an elegant minimalist design system - all crafted to deliver a premium browsing experience that highlights creative excellence.',
+  subdesc: 'Built with React 19, Vite for lightning-fast builds, GSAP with ScrollTrigger for advanced animations, TailwindCSS for utility-first styling, and optimized asset delivery. Implements modern web performance techniques including lazy loading, code splitting, and responsive image optimization for exceptional user experience across all devices.',
+  href: 'https://k72-project-3ig8.onrender.com/',
+  texture: '/textures/project/project4.mp4',
+  logo: '/assets/K72.png',
+  logoStyle: {
+    backgroundColor: '#000000',
+    border: '0.2px solid #333333',
+    boxShadow: '0px 0px 60px 0px rgba(255, 255, 255, 0.15)',
+  },
+  spotlight: '/assets/spotlight4.png',
+  tags: [
+    {
+      id: 1,
+      name: 'React.js',
+      path: '/assets/react.svg',
+    },
+    {
+      id: 2,
+      name: 'Vite',
+      path: '/assets/vite.svg',
+    },
+    {
+      id: 3,
+      name: 'GSAP',
+      path: '/assets/gsap.jpg',
+    },
+    {
+      id: 4,
+      name: 'TailwindCSS',
+      path: '/assets/tailwindcss.png',
+    },
+  ],
+},
+
 
 ];
 
