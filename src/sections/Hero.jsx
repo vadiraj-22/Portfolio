@@ -57,8 +57,12 @@ const Hero = () => {
     return (
         <section className='min-h-screen w-full flex flex-col relative'>
             <div className='mx-auto sm:mt-36 mt-20 c-space gap-3 w-full '>
-                <p className='sm:text-2xl text-2xl font-medium text-white text-center font-generalsans'>Hi, I am Vadiraj <span className='waving-hand'>✋</span> </p>
-                <p className='hero_tag text-gray_gradient'> Building Websites and Tools</p>
+                <p className='sm:text-2xl text-2xl font-medium text-white text-center font-generalsans'>Hi, I am Vadiraj Joshi <span className='waving-hand'>✋</span> </p>
+                <p className='hero_tag text-gray_gradient'>
+                    Full Stack Web Application Developer
+                </p>
+
+
             </div>
 
             <div className='w-full h-full absolute inset-0'>
@@ -94,10 +98,10 @@ const Hero = () => {
                             src="https://cdn.lordicon.com/evxithfv.json"
                             trigger="loop"
                             colors="primary:#ffffff,secondary:#08a88a"
-                            style={{width: '50px', height: '50px'}}>
+                            style={{ width: '50px', height: '50px' }}>
                         </lord-icon>
                         <a href="#about" className='w-fit'>
-                           <Button name ="Lets work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96 " />
+                            <Button name="Lets work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96 " />
                         </a>
                     </div>
                 </div>
