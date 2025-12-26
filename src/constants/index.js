@@ -142,21 +142,20 @@ export const myProjects = [
       },
     ],
   },
-
-  {
-    title: 'PassOp - Secure Password Manager',
-    desc: 'PassOp is a modern and secure password management application that simplifies the way you store and manage your credentials. Built with security and user experience in mind, it provides a seamless interface for storing website URLs, usernames, and passwords with local storage encryption.',
+{
+    title: 'SafePass - Password Security Suite',
+    desc: 'SafePass is a professional password management application designed to secure your digital life. Features include a cryptographic password generator, breach checker powered by Have I Been Pwned, and a secure vault for managing credentials - all protected by robust JWT authentication and MongoDB.',
     subdesc:
-      'With PassOp, users can securely manage all their passwords in one place, featuring instant copy-to-clipboard functionality, password visibility toggles, and a beautiful modern UI. Built with React and TailwindCSS for optimal performance and responsiveness.',
-    href: 'https://passop-1x5a.onrender.com',
-    texture: '/textures/project/project2.mp4',
-    logo: '/assets/key.png',
+      'Built as a full-stack application with React 19, Vite, TailwindCSS 4, Node.js, Express, and MongoDB. Includes secure password hashing with bcrypt, JWT-based protected routes, and a modern dark-themed UI for an optimal user experience.',
+    href: 'https://safepass-60b0.onrender.com/',
+    texture: '/textures/project/project5.mp4',
+    logo: '/assets/safepass.png',
     logoStyle: {
-      backgroundColor: '#052e16',
-      border: '0.2px solid #166534',
-      boxShadow: '0px 0px 60px 0px #22c55e4D',
+      backgroundColor: '#0f172a', // Slate-900 for a security/dark theme vibe
+      border: '0.2px solid #3b82f6', // Blue border
+      boxShadow: '0px 0px 60px 0px rgba(59, 130, 246, 0.3)', // Blue glow
     },
-    spotlight: '/assets/spotlight3.png',
+    spotlight: '/assets/spotlight2.png',
     tags: [
       {
         id: 1,
@@ -168,9 +167,23 @@ export const myProjects = [
         name: 'TailwindCSS',
         path: '/assets/tailwindcss.png',
       },
-
+      {
+        id: 3,
+        name: 'Node.js',
+        path: '/assets/nodejs.png',
+      },
+      {
+        id: 4,
+        name: 'Express.js',
+        path: '/assets/express.png', // Assuming asset exists or following pattern
+      },
+      {
+        id: 5,
+        name: 'MongoDB',
+        path: '/assets/mongodb.png', // Assuming asset exists or following pattern
+      },
     ],
-  },
+},
 
   {
   title: 'K72 - Modern Portfolio & Design Studio Clone',
@@ -208,6 +221,8 @@ export const myProjects = [
     },
   ],
 },
+
+
 
 
 ];
