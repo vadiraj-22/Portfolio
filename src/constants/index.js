@@ -147,7 +147,7 @@ export const myProjects = [
     desc: 'SafePass is a professional password management application designed to secure your digital life. Features include a cryptographic password generator, breach checker powered by Have I Been Pwned, and a secure vault for managing credentials - all protected by robust JWT authentication and MongoDB.',
     subdesc:
       'Built as a full-stack application with React 19, Vite, TailwindCSS 4, Node.js, Express, and MongoDB. Includes secure password hashing with bcrypt, JWT-based protected routes, and a modern dark-themed UI for an optimal user experience.',
-    href: 'https://safepass-60b0.onrender.com/',
+    href: 'https://safepass-ewqi.onrender.com/',
     texture: '/textures/project/project5.mp4',
     logo: '/assets/safepass.png',
     logoStyle: {
