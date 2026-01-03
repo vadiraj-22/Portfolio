@@ -20,16 +20,16 @@ const Target = (props) => {
     return (
         <mesh {...props} ref={targetRef}>
             {/* Target stand - using simple geometry as fallback */}
-            <group rotation={[0, Math.PI / 5, 0]} scale={1.5}>
+            <group rotation={[0, Math.PI / 5, 0]} scale={2}>
                 {/* Base */}
                 <mesh position={[0, 0, 0]}>
                     <cylinderGeometry args={[0.5, 0.5, 0.1, 32]} />
-                    <meshStandardMaterial color="#4a4a4a" metalness={0.8} roughness={0.2} />
+                    <meshStandardMaterial color="#f2f2f2" metalness={0.8} roughness={0.2} />
                 </mesh>
                 {/* Stand */}
                 <mesh position={[0, 0.75, 0]}>
                     <cylinderGeometry args={[0.05, 0.05, 1.5, 16]} />
-                    <meshStandardMaterial color="#2a2a2a" metalness={0.6} roughness={0.3} />
+                    <meshStandardMaterial color="#f2f2f2" metalness={0.6} roughness={0.3} />
                 </mesh>
                 {/* Target rings */}
                 <group position={[0, 1.5, 0]}>
