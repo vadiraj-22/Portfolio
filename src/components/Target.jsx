@@ -8,10 +8,11 @@ const Target = (props) => {
     useGSAP(() => {
         if (targetRef.current) {
             gsap.to(targetRef.current.position, {
-                y: targetRef.current.position.y + 0.5,
+                y: "+=0.5",
                 duration: 1.5,
                 yoyo: true,
-                repeat: -1
+                repeat: -1,
+                ease: "power2.inOut"
             })
         }
     })
@@ -46,7 +47,7 @@ const Target = (props) => {
                     </mesh>
                     <mesh>
                         <circleGeometry args={[0.2, 32]} />
-                        <meshStandardMaterial color="#ffff00" side={2} />
+                        <meshStandardMaterial color="#ffffff" side={2} />
                     </mesh>
                 </group>
             </group>

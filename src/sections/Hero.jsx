@@ -1,7 +1,7 @@
 import { PerspectiveCamera } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
-import HackerRoom from '../components/HackerRoom'
+import DesktopPC from '../components/DesktopPC'
 import CanvasLoader from '../components/CanvasLoader'
 import { useMediaQuery } from 'react-responsive'
 import { calculateSizes } from '../constants'
@@ -72,10 +72,10 @@ const Hero = () => {
                         <PerspectiveCamera makeDefault position={[0, 0, 20]} />
 
                         <HeroCamera isMobile={isMobile}>
-                            <HackerRoom
+                            <DesktopPC
                                 scale={sizes.deskScale}
                                 position={sizes.deskPosition}
-                                rotation={[0, 3.2, 0]}
+                                rotation={[0, 0, 0]}
                             />
                         </HeroCamera>
 
@@ -88,8 +88,22 @@ const Hero = () => {
 
                         </group>
 
-                        <ambientLight intensity={1} />
-                        <directionalLight position={[10, 10, 10]} intensity={0.5} />
+                        <ambientLight intensity={0.3} />
+                        <directionalLight position={[10, 10, 10]} intensity={0.3} />
+                        
+                        {/* Additional environmental lighting */}
+                        <hemisphereLight 
+                            skyColor="#ffffff" 
+                            groundColor="#444444" 
+                            intensity={0.4} 
+                        />
+                        
+                        {/* Rim lighting for better definition */}
+                        <directionalLight 
+                            position={[-10, 5, -10]} 
+                            intensity={0.2} 
+                            color="#4a90e2"
+                        />
                     </Suspense>
                 </Canvas>
                 <div className='absolute bottom-7 left-0 right-0 w-full z-10 c-space'>
