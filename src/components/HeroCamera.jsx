@@ -25,8 +25,13 @@ const HeroCamera = ({ children, isMobile }) => {
         easing.damp3(state.camera.position, [0, cameraY, cameraZ], 0.25, delta);
 
         if (!isMobile) {
-            // Enhanced rotation with scroll influence
-            const baseRotationY = Math.max(-0.3, Math.min(0.3, -state.pointer.y/2.5));
+            // Enhanced rotation with scroll influence and constrained Y rotation
+            const rawRotationY = -state.pointer.y/2.5;
+            // Constrain Y rotation to prevent showing bottom of model (start from 5 degrees minimum)
+            const minRotationY = Math.PI / 36; // 5 degrees minimum (prevents bottom view)
+            const maxRotationY = 0.3; // Maximum upward rotation
+            const baseRotationY = Math.max(minRotationY, Math.min(maxRotationY, rawRotationY));
+            
             const scrollRotationX = scrollProgress * 0.2; // Additional X rotation based on scroll
             const pointerRotationX = -state.pointer.x/2.5;
             
