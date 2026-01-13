@@ -13,6 +13,10 @@ const Footer = () => {
                     <img src="/assets/github.svg" alt="github" className='w-1/2 h-1/2' />
                 </a>
 
+                <a href="https://linkedin.com/in/vadiraj-joshi220504" target="_blank" rel="noopener noreferrer" className='social-icon'>
+                    <img src="/assets/linkedin.svg" alt="linkedin" className='w-1/2 h-1/2' />
+                </a>
+
                 {/* <div className='social-icon'>
                     <img src="/assets/instagram.svg" alt="github" className='w-1/2 h-1/2' />
                 </div>
@@ -21,7 +25,7 @@ const Footer = () => {
                     <img src="/assets/twitter.svg" alt="github" className='w-1/2 h-1/2' />
                 </div> */}
             </div>
-            <p className='text-white-500'>  @2025  Vadiraj Joshi, All right Reserved.</p>
+            <p className='text-white-500'>  @{new Date().getFullYear()}  Vadiraj Joshi, All right Reserved.</p>
         </section>
     )
 }
