@@ -17,11 +17,11 @@ const Footer = () => {
                     <img src="/assets/linkedin.svg" alt="linkedin" className='w-1/2 h-1/2' />
                 </a>
 
-                {/* <div className='social-icon'>
-                    <img src="/assets/instagram.svg" alt="github" className='w-1/2 h-1/2' />
-                </div>
+                <a href="https://leetcode.com/u/Vadiraj_22/" target="_blank" rel="noopener noreferrer" className='social-icon'>
+                    <img src="/assets/leetcode.svg" alt="leetcode" className='w-1/2 h-1/2' />
+                </a>
 
-                <div className='social-icon'>
+                {/* <div className='social-icon'>
                     <img src="/assets/twitter.svg" alt="github" className='w-1/2 h-1/2' />
                 </div> */}
             </div>
