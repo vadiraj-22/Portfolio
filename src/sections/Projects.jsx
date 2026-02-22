@@ -12,7 +12,7 @@ const Projects = () => {
     const [selectedProjectindex, setselectedProjectindex] = useState(0)
     const [isExpanded, setIsExpanded] = useState(false)
     const currentProject = myProjects[selectedProjectindex];
-    
+
     const handleNavigation = (direction) => {
         setselectedProjectindex((prevIndex) => {
             if (direction === 'previous') {
@@ -23,22 +23,22 @@ const Projects = () => {
         })
         setIsExpanded(false) // Reset expansion when changing projects
     }
-    
+
     const getCombinedText = () => {
         const combinedText = `${currentProject.desc} ${currentProject.subdesc}`;
         const words = combinedText.split(' ');
-        
+
         if (isExpanded) {
             return combinedText;
         }
-        
+
         if (words.length <= 40) {
             return combinedText;
         }
-        
+
         return words.slice(0, 40).join(' ') + '...';
     }
-    
+
     const shouldShowReadMore = () => {
         const combinedText = `${currentProject.desc} ${currentProject.subdesc}`;
         return combinedText.split(' ').length > 40;
@@ -61,8 +61,8 @@ const Projects = () => {
                             {getCombinedText()}
                         </p>
                         {shouldShowReadMore() && (
-                            <button 
-                                onClick={() => setIsExpanded(!isExpanded)} 
+                            <button
+                                onClick={() => setIsExpanded(!isExpanded)}
                                 className='text-white-800 cursor-pointer underline hover:text-white transition-colors text-left w-fit'
                             >
                                 {isExpanded ? 'Read Less' : 'Read More'}
@@ -93,7 +93,7 @@ const Projects = () => {
                         </button>
                     </div>
                 </div>
-                <div className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full relative'>
+                <div className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full relative hidden lg:block'>
                     <Canvas>
                         <ambientLight intensity={Math.PI} />
                         <directionalLight position={[10, 10, 5]} />
@@ -111,7 +111,7 @@ const Projects = () => {
                             src="https://cdn.lordicon.com/evxithfv.json"
                             trigger="loop"
                             colors="primary:#ffffff,secondary:#08a88a"
-                            style={{width: '40px', height: '40px'}}>
+                            style={{ width: '40px', height: '40px' }}>
                         </lord-icon>
                     </div>
                 </div>

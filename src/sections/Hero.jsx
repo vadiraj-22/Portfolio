@@ -5,10 +5,6 @@ import DesktopPC from '../components/DesktopPC'
 import CanvasLoader from '../components/CanvasLoader'
 import { useMediaQuery } from 'react-responsive'
 import { calculateSizes } from '../constants'
-import Target from '../components/Target'
-import ReactLogo from '../components/ReactLogo'
-import Cube from '../components/Cube'
-import Rings from '../components/Rings'
 import HeroCamera from '../components/HeroCamera'
 import Button from '../components/Button'
 
@@ -75,26 +71,20 @@ const Hero = () => {
                             <DesktopPC
                                 scale={sizes.deskScale}
                                 position={sizes.deskPosition}
-                                rotation={[0, 0, 0]}
+                                rotation={[0.15, 0, 0]}
                             />
                         </HeroCamera>
 
 
-                        <group>
-                            {!isMobile && <Target position={sizes.targetPosition} />}
-                            {!isMobile && <ReactLogo position={sizes.reactLogoPosition} />}
-                            {!isMobile && <Cube position={sizes.cubePosition} />}
-                            {!isMobile && <Rings position={sizes.ringPosition} />}
 
-                        </group>
 
                         {/* Soft ambient light for overall scene illumination */}
                         <ambientLight intensity={0.6} color="#ffff00" />
-                        
+
                         {/* Top-down white light to illuminate keyboard and CPU */}
-                        <directionalLight 
-                            position={[0, 15, 5]} 
-                            intensity={0.8} 
+                        <directionalLight
+                            position={[0, 15, 5]}
+                            intensity={0.8}
                             color="#ffffff"
                             castShadow
                             shadow-mapSize={[2048, 2048]}
@@ -104,56 +94,56 @@ const Hero = () => {
                             shadow-camera-top={10}
                             shadow-camera-bottom={-10}
                         />
-                        
+
                         {/* Additional soft top lighting for keyboard area */}
-                        <directionalLight 
-                            position={[0, 12, 8]} 
-                            intensity={0.4} 
+                        <directionalLight
+                            position={[0, 12, 8]}
+                            intensity={0.4}
                             color="#f8f9fa"
                         />
-                        
+
                         {/* Subtle side lighting for depth */}
                         <directionalLight position={[10, 8, 10]} intensity={0.2} />
-                        
+
                         {/* Environmental hemisphere lighting */}
-                        <hemisphereLight 
-                            skyColor="#ffffff" 
-                            groundColor="#333333" 
-                            intensity={0.3} 
+                        <hemisphereLight
+                            skyColor="#ffffff"
+                            groundColor="#333333"
+                            intensity={0.3}
                         />
-                        
+
                         {/* Rim lighting for better definition */}
-                        <directionalLight 
-                            position={[-8, 6, -8]} 
-                            intensity={0.15} 
+                        <directionalLight
+                            position={[-8, 6, -8]}
+                            intensity={0.15}
                             color="#4a90e2"
                         />
-                        
+
                         {/* Front lighting to separate CPU from black background */}
-                        <directionalLight 
-                            position={[0, 5, 15]} 
-                            intensity={0.6} 
+                        <directionalLight
+                            position={[0, 5, 15]}
+                            intensity={0.6}
                             color="#ffffff"
                         />
-                        
+
                         {/* Additional front-angled light for better definition */}
-                        <directionalLight 
-                            position={[5, 3, 12]} 
-                            intensity={0.5} 
+                        <directionalLight
+                            position={[5, 3, 12]}
+                            intensity={0.5}
                             color="#f0f0f0"
                         />
-                        
+
                         {/* Left front light for CPU separation */}
-                        <directionalLight 
-                            position={[-8, 4, 10]} 
-                            intensity={0.4} 
+                        <directionalLight
+                            position={[-8, 4, 10]}
+                            intensity={0.4}
                             color="#ffffff"
                         />
-                        
+
                         {/* Right front light for balanced illumination */}
-                        <directionalLight 
-                            position={[8, 4, 10]} 
-                            intensity={0.4} 
+                        <directionalLight
+                            position={[8, 4, 10]}
+                            intensity={0.4}
                             color="#ffffff"
                         />
                     </Suspense>
