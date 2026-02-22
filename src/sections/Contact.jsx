@@ -22,15 +22,15 @@ const Contact = () => {
   };
 
   //service_n25dt9o
-//template_lfg3c09
+  //template_lfg3c09
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
     emailjs
       .send(
-       'service_n25dt9o',
-       'template_utt0vni',
+        'service_n25dt9o',
+        'template_utt0vni',
         {
           from_name: form.name,
           to_name: 'JavaScript Mastery',
@@ -78,7 +78,7 @@ const Contact = () => {
         <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
 
         <div className="contact-container">
-          <h3 className="head-text mt-10">Let's talk</h3>
+          <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-gray_gradient mt-10">Let's talk</h3>
           <p className="text-lg text-white-600 mt-3">
             Whether you’re looking to build a new website, improve your existing platform, or bring a unique project to
             life, I’m here to help.

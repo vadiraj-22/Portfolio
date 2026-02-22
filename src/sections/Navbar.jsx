@@ -4,12 +4,12 @@ import { navLinks } from '../constants/index.js'
 const Navbar = () => {
     const [isOpen, setisOpen] = useState(false)
 
-    const NavItems = ()=>{
+    const NavItems = () => {
         return (
             <ul className="nav-ul">
-                {navLinks.map(({id,href,name})=>(
+                {navLinks.map(({ id, href, name }) => (
                     <li key={id} className='nav-li'>
-                        <a href={href} className='nav-li_a' onClick={()=>{}}>
+                        <a href={href} className='nav-li_a' onClick={() => { }}>
                             {name}
                         </a>
                     </li>
@@ -18,11 +18,11 @@ const Navbar = () => {
         )
     }
 
-    const toggleMenu = () =>setisOpen((prevIsOpen)=> !prevIsOpen);
+    const toggleMenu = () => setisOpen((prevIsOpen) => !prevIsOpen);
     return (
-        <header className='fixed top-0 left-0 right-0 z-30 bg-black/90'>
+        <header className='fixed top-0 left-0 right-0 z-30 bg-[rgba(30,30,35,0.55)] backdrop-blur-xl border-b border-white/10 shadow-lg'>
             <div className='max-w-7xl mx-auto '>
-                <div className='flex justify-between items-center py-5 mx-auto c-space'>
+                <div className='flex justify-between items-center py-3 mx-auto c-space'>
                     <a href="/" className='text-neutral-400 font-bold text-xl hover:text-white transition-colors'> Vadiraj Joshi - Portfolio</a>
                     <button onClick={toggleMenu} className='text-neutral-400 hover:text-white focus:outline-none sm:hidden flex' >
                         <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle" className='w-6 h-6' />

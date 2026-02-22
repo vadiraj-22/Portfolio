@@ -142,7 +142,7 @@ export const myProjects = [
       },
     ],
   },
-{
+  {
     title: 'SafePass - Password Security Suite',
     desc: 'SafePass is a professional password management application designed to secure your digital life. Features include a cryptographic password generator, breach checker powered by Have I Been Pwned, and a secure vault for managing credentials - all protected by robust JWT authentication and MongoDB.',
     subdesc:
@@ -183,44 +183,44 @@ export const myProjects = [
         path: '/assets/mongodb.png', // Assuming asset exists or following pattern
       },
     ],
-},
+  },
 
   {
-  title: 'K72 - Modern Portfolio & Design Studio Clone',
-  desc: 'K72 is a cutting-edge portfolio and design studio platform showcasing creative work through immersive visual experiences. Features include smooth scroll animations with GSAP, dynamic project galleries with hover interactions, responsive grid layouts, image preloading for seamless transitions, custom typography with Lausanne font family, mobile-optimized navigation, parallax effects, and an elegant minimalist design system - all crafted to deliver a premium browsing experience that highlights creative excellence.',
-  subdesc: 'Built with React 19, Vite for lightning-fast builds, GSAP with ScrollTrigger for advanced animations, TailwindCSS for utility-first styling, and optimized asset delivery. Implements modern web performance techniques including lazy loading, code splitting, and responsive image optimization for exceptional user experience across all devices.',
-  href: 'https://k72-project-3ig8.onrender.com/',
-  texture: '/textures/project/project4.mp4',
-  logo: '/assets/K72.png',
-  logoStyle: {
-    backgroundColor: '#000000',
-    border: '0.2px solid #333333',
-    boxShadow: '0px 0px 60px 0px rgba(255, 255, 255, 0.15)',
+    title: 'K72 - Modern Portfolio & Design Studio Clone',
+    desc: 'K72 is a cutting-edge portfolio and design studio platform showcasing creative work through immersive visual experiences. Features include smooth scroll animations with GSAP, dynamic project galleries with hover interactions, responsive grid layouts, image preloading for seamless transitions, custom typography with Lausanne font family, mobile-optimized navigation, parallax effects, and an elegant minimalist design system - all crafted to deliver a premium browsing experience that highlights creative excellence.',
+    subdesc: 'Built with React 19, Vite for lightning-fast builds, GSAP with ScrollTrigger for advanced animations, TailwindCSS for utility-first styling, and optimized asset delivery. Implements modern web performance techniques including lazy loading, code splitting, and responsive image optimization for exceptional user experience across all devices.',
+    href: 'https://k72-project-3ig8.onrender.com/',
+    texture: '/textures/project/project4.mp4',
+    logo: '/assets/K72.png',
+    logoStyle: {
+      backgroundColor: '#000000',
+      border: '0.2px solid #333333',
+      boxShadow: '0px 0px 60px 0px rgba(255, 255, 255, 0.15)',
+    },
+    spotlight: '/assets/spotlight4.png',
+    tags: [
+      {
+        id: 1,
+        name: 'React.js',
+        path: '/assets/react.svg',
+      },
+      {
+        id: 2,
+        name: 'Vite',
+        path: '/assets/vite.svg',
+      },
+      {
+        id: 3,
+        name: 'GSAP',
+        path: '/assets/gsap.jpg',
+      },
+      {
+        id: 4,
+        name: 'TailwindCSS',
+        path: '/assets/tailwindcss.png',
+      },
+    ],
   },
-  spotlight: '/assets/spotlight4.png',
-  tags: [
-    {
-      id: 1,
-      name: 'React.js',
-      path: '/assets/react.svg',
-    },
-    {
-      id: 2,
-      name: 'Vite',
-      path: '/assets/vite.svg',
-    },
-    {
-      id: 3,
-      name: 'GSAP',
-      path: '/assets/gsap.jpg',
-    },
-    {
-      id: 4,
-      name: 'TailwindCSS',
-      path: '/assets/tailwindcss.png',
-    },
-  ],
-},
 
 
 
@@ -248,14 +248,14 @@ export const workExperiences = [
     icon: '/assets/infosys_springboard_logo.jpg',
     animation: 'victory',
   },
-{
-  id: 2,
+  {
+    id: 2,
     name: 'Edunet Foundation',
-      pos: 'AI Azure intern',
-        duration: 'Augest 2025 - September 2025',
-          title: "Successfully completed a 4-week internship on AI Azure under a Microsoft initiative implemented by Edunet Foundation in collaboration with AICTE.",
-            icon: '/assets/edunetfoundation_logo.jpg',
-              animation: 'clapping',
+    pos: 'AI Azure intern',
+    duration: 'Augest 2025 - September 2025',
+    title: "Successfully completed a 4-week internship on AI Azure under a Microsoft initiative implemented by Edunet Foundation in collaboration with AICTE.",
+    icon: '/assets/edunetfoundation_logo.jpg',
+    animation: 'clapping',
   },
 
 ];

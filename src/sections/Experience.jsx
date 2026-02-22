@@ -15,7 +15,7 @@ const WorkExperience = () => {
         <p className="head-text">My Work Experience</p>
 
         <div className="work-container">
-          <div className="work-canvas relative">
+          <div className="work-canvas relative hidden lg:block">
             <Canvas>
               <ambientLight intensity={7} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
@@ -31,12 +31,12 @@ const WorkExperience = () => {
                 src="https://cdn.lordicon.com/evxithfv.json"
                 trigger="loop"
                 colors="primary:#ffffff,secondary:#08a88a"
-                style={{width: '40px', height: '40px'}}>
+                style={{ width: '40px', height: '40px' }}>
               </lord-icon>
             </div>
           </div>
 
-          <div className="work-content">
+          <div className="work-content col-span-full lg:col-span-2">
             <div className="sm:py-10 py-5 sm:px-5 px-2.5">
               {workExperiences.map((item, index) => (
                 <div
