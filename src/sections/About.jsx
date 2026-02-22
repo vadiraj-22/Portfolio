@@ -126,9 +126,13 @@ const About = () => {
           </div>
         </div>
 
+
         {/* ── Wide Card: Tech Stack Marquee (replaces "My Passion for Coding") ── */}
         <div className="xl:col-span-2 xl:row-span-4">
           <div className="grid-container">
+            <div>
+              <p className="grid-headtext">Tech Stack</p>
+            </div>
             {(() => {
               const D = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
               /* ── Row 1: Programming Languages ── */
@@ -212,7 +216,6 @@ const About = () => {
               );
             })()}
             <div>
-              <p className="grid-headtext">Tech Stack</p>
               <p className="grid-subtext">
                 Proficient in <span className="text-white font-medium">Java, JavaScript, TypeScript, C &amp; Python</span> for problem-solving and application development.
                 On the frontend I build with <span className="text-white font-medium">React, Next.js, HTML5, CSS3, Tailwind CSS &amp; Bootstrap</span>.
