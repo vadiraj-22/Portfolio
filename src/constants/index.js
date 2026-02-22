@@ -16,6 +16,11 @@ export const navLinks = [
   },
   {
     id: 4,
+    name: 'Projects',
+    href: '#projects',
+  },
+  {
+    id: 5,
     name: 'Contact',
     href: '#contact',
   },
@@ -148,7 +153,7 @@ export const myProjects = [
     subdesc:
       'Built as a full-stack application with React 19, Vite, TailwindCSS 4, Node.js, Express, and MongoDB. Includes secure password hashing with bcrypt, JWT-based protected routes, and a modern dark-themed UI for an optimal user experience.',
     href: 'https://safepass-ewqi.onrender.com/',
-    texture: '/textures/project/project5.mp4',
+    texture: '/textures/project/safepass.mp4',
     logo: '/assets/safepass.png',
     logoStyle: {
       backgroundColor: '#0f172a', // Slate-900 for a security/dark theme vibe
@@ -186,11 +191,11 @@ export const myProjects = [
   },
 
   {
-    title: 'K72 - Modern Portfolio & Design Studio Clone',
+    title: 'K72 - Modern Organization Portfolio & Design Studio Clone',
     desc: 'K72 is a cutting-edge portfolio and design studio platform showcasing creative work through immersive visual experiences. Features include smooth scroll animations with GSAP, dynamic project galleries with hover interactions, responsive grid layouts, image preloading for seamless transitions, custom typography with Lausanne font family, mobile-optimized navigation, parallax effects, and an elegant minimalist design system - all crafted to deliver a premium browsing experience that highlights creative excellence.',
     subdesc: 'Built with React 19, Vite for lightning-fast builds, GSAP with ScrollTrigger for advanced animations, TailwindCSS for utility-first styling, and optimized asset delivery. Implements modern web performance techniques including lazy loading, code splitting, and responsive image optimization for exceptional user experience across all devices.',
     href: 'https://k72-project-3ig8.onrender.com/',
-    texture: '/textures/project/project4.mp4',
+    texture: '/textures/project/k72.mp4',
     logo: '/assets/K72.png',
     logoStyle: {
       backgroundColor: '#000000',
