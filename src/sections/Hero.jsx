@@ -7,6 +7,8 @@ import { useMediaQuery } from 'react-responsive'
 import { calculateSizes } from '../constants'
 import HeroCamera from '../components/HeroCamera'
 import Button from '../components/Button'
+import PerspectiveGrid from '../components/PerspectiveGrid'
+import VignetteOverlay from '../components/VignetteOverlay'
 
 const Hero = () => {
     // const x = useControls('HackerRoom', {
@@ -52,8 +54,8 @@ const Hero = () => {
 
     return (
         <section className='min-h-screen w-full flex flex-col relative'>
-            <div className='mx-auto sm:mt-36 mt-20 c-space gap-3 w-full '>
-                <p className='sm:text-3xl text-2xl font-medium  text-white text-center font-generalsans'>Hi, I am Vadiraj Joshi <span className='waving-hand'>✋</span> </p>
+            <div className='mx-auto sm:mt-36 mt-20 c-space gap-3 w-full relative z-20'>
+                <p className='sm:text-2xl text-2xl font-medium  text-white text-center font-generalsans'>Hi, I am Vadiraj Joshi <span className='waving-hand'>✋</span> </p>
                 <p className='hero_tag text-gray_gradient '>
                     Full Stack Web Application Developer
                 </p>
@@ -66,6 +68,18 @@ const Hero = () => {
                 <Canvas className='w-full h-full '>
                     <Suspense fallback={<CanvasLoader />}>
                         <PerspectiveCamera makeDefault position={[0, 0, 20]} />
+
+                        {/* Vignette Overlay - Behind everything */}
+                        <VignetteOverlay position={[0, 0, -25]} />
+
+                        {/* Perspective Grid Background */}
+                        <PerspectiveGrid 
+                            size={100} 
+                            divisions={60} 
+                            color1="#d0d0d0" 
+                            color2="#a8a8a8"
+                            position={[0, -6, -10]}
+                        />
 
                         <HeroCamera isMobile={isMobile}>
                             <DesktopPC
@@ -148,6 +162,17 @@ const Hero = () => {
                         />
                     </Suspense>
                 </Canvas>
+                
+                {/* Left and Right Edge Vignette Overlays */}
+                <div className='absolute inset-0 pointer-events-none'>
+                    {/* Left edge fade to black */}
+                    <div className='absolute left-0 top-0 bottom-0 w-1/4 bg-gradient-to-r from-black to-transparent'></div>
+                    {/* Right edge fade to black */}
+                    <div className='absolute right-0 top-0 bottom-0 w-1/4 bg-gradient-to-l from-black to-transparent'></div>
+                    {/* Top edge fade to black - much stronger and taller */}
+                    <div className='absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-black via-black/80 via-black/40 to-transparent'></div>
+                </div>
+                
                 <div className='absolute bottom-7 left-0 right-0 w-full z-10 c-space'>
                     <div className='flex flex-col items-center gap-2'>
                         <lord-icon
