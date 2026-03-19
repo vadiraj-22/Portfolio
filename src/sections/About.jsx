@@ -89,7 +89,7 @@ const About = () => {
                   Full Stack Developer experienced in building scalable web and AI-powered applications
                   using the MERN stack and modern cloud technologies. Strong foundation in React, Node.js,
                   MongoDB, Express.js and PostgreSQL with solid problem-solving skills and Data Structures
-                  &amp; Algorithms <span className="text-white font-semibold">(400+ LeetCode in Java)</span>.
+                  &amp; Algorithms <span className="text-white font-semibold">(450+ LeetCode in Java)</span>.
                 </p>
               </div>
             </div>
