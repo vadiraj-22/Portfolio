@@ -89,7 +89,7 @@ const About = () => {
                   Full Stack Developer experienced in building scalable web and AI-powered applications
                   using the MERN stack and modern cloud technologies. Strong foundation in React, Node.js,
                   MongoDB, Express.js and PostgreSQL with solid problem-solving skills and Data Structures
-                  &amp; Algorithms <span className="text-white font-semibold">(450+ LeetCode in Java)</span>.
+                  &amp; Algorithms <span className="text-white font-semibold">(490+ LeetCode in Java)</span>.
                 </p>
               </div>
             </div>
@@ -157,15 +157,13 @@ const About = () => {
                 { label: 'Node.js', logo: `${D}/nodejs/nodejs-original.svg` },
                 { label: 'Express.js', logo: `${D}/express/express-original.svg`, invert: true },
                 { label: 'REST APIs', logo: `${D}/swagger/swagger-original.svg` },
-                { label: 'Python', logo: `${D}/python/python-original.svg` },
-                { label: 'Node.js', logo: `${D}/nodejs/nodejs-original.svg` },
-                { label: 'Express.js', logo: `${D}/express/express-original.svg`, invert: true },
-              ];
-              /* ── Row 4: Databases & Tools ── */
-              const row4 = [
                 { label: 'MongoDB', logo: `${D}/mongodb/mongodb-original.svg` },
                 { label: 'PostgreSQL', logo: `${D}/postgresql/postgresql-original.svg` },
                 { label: 'MySQL/SQL', logo: `${D}/mysql/mysql-original.svg` },
+              ];
+              /* ── Row 4: Databases & Tools ── */
+              const row4 = [
+
                 { label: 'Docker', logo: `${D}/docker/docker-original.svg` },
                 { label: 'Git', logo: `${D}/git/git-original.svg` },
                 { label: 'GitHub', logo: `${D}/github/github-original.svg`, invert: true },
