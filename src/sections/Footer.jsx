@@ -25,7 +25,7 @@ const Footer = () => {
                     <img src="/assets/twitter.svg" alt="github" className='w-1/2 h-1/2' />
                 </div> */}
             </div>
-            <p className='text-white-500 mx-auto'>  @{new Date().getFullYear()}  Vadiraj Joshi, All right Reserved.</p>
+            <p className='text-white-500 mx-auto'>© {new Date().getFullYear()} Vadiraj Joshi. All rights reserved.</p>
         </section>
     )
 }

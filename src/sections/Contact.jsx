@@ -33,7 +33,7 @@ const Contact = () => {
         'template_utt0vni',
         {
           from_name: form.name,
-          to_name: 'JavaScript Mastery',
+          to_name: 'Vadiraj Joshi',
           from_email: form.email,
           to_email: 'vadirajjoshi22504@gmail.com',
           message: form.message,
@@ -80,8 +80,7 @@ const Contact = () => {
         <div className="contact-container">
           <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-gray_gradient mt-10">Let's talk</h3>
           <p className="text-lg text-white-600 mt-3">
-            Whether you’re looking to build a new website, improve your existing platform, or bring a unique project to
-            life, I’m here to help.
+            Looking for a full-stack developer, have a project idea, or want to discuss a collaboration? Drop me a message and I’ll get back to you promptly.
           </p>
 
           <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">

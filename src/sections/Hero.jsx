@@ -55,9 +55,9 @@ const Hero = () => {
     return (
         <section className='min-h-screen w-full flex flex-col relative'>
             <div className='mx-auto sm:mt-36 mt-20 c-space gap-3 w-full relative z-20'>
-                <p className='sm:text-2xl text-2xl font-medium  text-white text-center font-generalsans'>Hi, I am Vadiraj Joshi <span className='waving-hand'>✋</span> </p>
+                <p className='sm:text-2xl text-2xl font-medium  text-white text-center font-generalsans'>Hi, I'm Vadiraj Joshi <span className='waving-hand'>✋</span> </p>
                 <p className='hero_tag text-gray_gradient '>
-                    Full Stack Web Application Developer
+                    Full-Stack Developer — MERN &amp; AI-Powered Web Apps
                 </p>
 
 
@@ -182,7 +182,7 @@ const Hero = () => {
                             style={{ width: '50px', height: '50px' }}>
                         </lord-icon>
                         <a href="#about" className='w-fit'>
-                            <Button name="Lets work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96 " />
+                            <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96 " />
                         </a>
                     </div>
                 </div>

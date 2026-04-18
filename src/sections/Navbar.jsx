@@ -24,7 +24,7 @@ const Navbar = () => {
             <div className='max-w-7xl mx-auto '>
                 <div className='flex justify-between items-center py-4 mx-auto c-space'>
                     <a href="/" className='text-white font-logo text-xl sm:text-2xl hover:text-neutral-300 transition-colors flex items-center'> 
-                        Vadiraj Joshi - Portfolio
+                        Vadiraj Joshi
                     </a>
                     <button onClick={toggleMenu} className='text-neutral-400 hover:text-white focus:outline-none sm:hidden flex' >
                         <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle" className='w-6 h-6' />

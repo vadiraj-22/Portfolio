@@ -63,10 +63,10 @@ export const clientReviews = [
 
 export const myProjects = [
   {
-    title: 'Quick AI - All-in-One AI Assistant',
-    desc: 'Quick AI is a comprehensive AI-powered platform that brings multiple AI tools under one roof. Features include AI article writing, blog title generation, AI image generation, intelligent background removal, object removal from images, and resume review - all powered by cutting-edge OpenAI API and Cloudinary technologies.',
+    title: 'Quick AI — All-in-One AI Assistant',
+    desc: 'Most AI tools live in separate apps. Quick AI consolidates six AI-powered features — article writing, blog title generation, image generation, background removal, object removal, and resume review — into a single platform so users have one login and one workflow.',
     subdesc:
-      'Built as a full-stack application with React 19, Vite, TailwindCSS, Node.js, Express, and integrated with Clerk authentication, OpenAI API, Cloudinary for image processing, and Neon PostgreSQL database for optimal performance and scalability.',
+      'Full-stack app built with React 19, Vite, Tailwind CSS, Node.js, and Express. Integrated OpenAI API for text generation, Cloudinary for server-side image processing, Clerk for authentication, and Neon PostgreSQL for persistent storage. Deployed on Vercel (frontend) and Render (API).',
     href: 'https://quick-ai-gray.vercel.app/',
     texture: '/textures/project/quick AI.mp4',
     logo: '/assets/quickAI.svg',
@@ -107,9 +107,9 @@ export const myProjects = [
     ],
   },
   {
-    title: 'Clean Street - Smart Civic Issue Management',
-    desc: 'Clean Street is a comprehensive civic engagement platform that empowers citizens to report, track, and manage street cleanliness and infrastructure issues. Features include complaint submission with geolocation mapping, image uploads, priority-based issue tracking, volunteer assignment system, upvote/downvote mechanism, real-time status updates, admin dashboard with analytics, and community commenting - all built to streamline urban maintenance and civic participation.',
-    subdesc: 'Built as a full-stack application with React 19, Vite, TailwindCSS, Node.js, Express, and integrated with JWT authentication, Cloudinary for image processing, MongoDB with geospatial indexing, Leaflet for interactive maps. Developed as part of Infosys Springboard Virtual Internship 6.0.',
+    title: 'CleanStreet — Smart Civic Issue Reporting',
+    desc: 'Residents had no efficient way to report potholes, garbage, or broken infrastructure to their municipality. CleanStreet gives citizens a geo-tagged complaint system with image uploads, priority tracking, volunteer assignment, upvoting, real-time status updates, and an admin dashboard with analytics — turning passive complaints into actionable civic workflows.',
+    subdesc: 'Built with React 19, Vite, Tailwind CSS, Node.js, Express, MongoDB with geospatial indexing, JWT authentication, Cloudinary for image uploads, and Leaflet for interactive maps. Developed during an 8-week Infosys Springboard Virtual Internship using Agile sprints.',
     href: 'https://clean-street.vercel.app/',
     texture: '/textures/project/clean_street.mp4',
     logo: '/assets/cleanStreet.png',
@@ -148,10 +148,10 @@ export const myProjects = [
     ],
   },
   {
-    title: 'SafePass - Password Security Suite',
-    desc: 'SafePass is a professional password management application designed to secure your digital life. Features include a cryptographic password generator, breach checker powered by Have I Been Pwned, and a secure vault for managing credentials - all protected by robust JWT authentication and MongoDB.',
+    title: 'SafePass — Password Security Suite',
+    desc: 'Weak and reused passwords remain one of the biggest security risks online. SafePass combines a cryptographic password generator, a breach checker powered by the Have I Been Pwned API, and a secure credential vault — giving users one place to strengthen and manage their passwords.',
     subdesc:
-      'Built as a full-stack application with React 19, Vite, TailwindCSS 4, Node.js, Express, and MongoDB. Includes secure password hashing with bcrypt, JWT-based protected routes, and a modern dark-themed UI for an optimal user experience.',
+      'Full-stack MERN app with React 19, Vite, Tailwind CSS 4, Node.js, Express, and MongoDB. Implements bcrypt password hashing, JWT-based route protection, and a polished dark-themed UI.',
     href: 'https://safepass-ewqi.onrender.com/',
     texture: '/textures/project/safepass.mp4',
     logo: '/assets/safepass.png',
@@ -191,9 +191,9 @@ export const myProjects = [
   },
 
   {
-    title: 'K72 - Modern Organization Portfolio & Design Studio Clone',
-    desc: 'K72 is a cutting-edge portfolio and design studio platform showcasing creative work through immersive visual experiences. Features include smooth scroll animations with GSAP, dynamic project galleries with hover interactions, responsive grid layouts, image preloading for seamless transitions, custom typography with Lausanne font family, mobile-optimized navigation, parallax effects, and an elegant minimalist design system - all crafted to deliver a premium browsing experience that highlights creative excellence.',
-    subdesc: 'Built with React 19, Vite for lightning-fast builds, GSAP with ScrollTrigger for advanced animations, TailwindCSS for utility-first styling, and optimized asset delivery. Implements modern web performance techniques including lazy loading, code splitting, and responsive image optimization for exceptional user experience across all devices.',
+    title: 'K72 — Design Studio Portfolio Clone',
+    desc: 'A high-fidelity recreation of the K72 design studio website, focused on performance-driven animations and immersive visual storytelling. Includes scroll-triggered GSAP animations, parallax effects, dynamic project galleries with hover interactions, responsive grid layouts, and image preloading for seamless transitions.',
+    subdesc: 'Built with React 19, Vite, GSAP with ScrollTrigger, and Tailwind CSS. Uses lazy loading, code splitting, responsive image optimization, and custom typography with Lausanne font family to deliver a premium browsing experience across all devices.',
     href: 'https://k72-project-3ig8.onrender.com/',
     texture: '/textures/project/k72.mp4',
     logo: '/assets/K72.png',
@@ -249,16 +249,16 @@ export const workExperiences = [
     name: 'Infosys Springboard',
     pos: 'Full Stack Development Intern',
     duration: 'September 2025 - November 2025',
-    title: "Developed CleanStreet a full-stack MERN application for real-time street cleanliness reporting with geo-tagged complaints, location-based volunteer assignment, and admin analytics. Built with React, Vite, Node.js, Express, MongoDB, Tailwind CSS, and Leaflet Maps using Agile methodology over 8 weeks.",
+    title: "Built CleanStreet, a full-stack MERN application for real-time civic issue reporting. Implemented geo-tagged complaint submission, location-based volunteer assignment, priority-based tracking, and an admin analytics dashboard. Stack: React, Vite, Node.js, Express, MongoDB, Tailwind CSS, and Leaflet Maps. Followed Agile sprints over 8 weeks.",
     icon: '/assets/infosys_springboard_logo.jpg',
     animation: 'victory',
   },
   {
     id: 2,
     name: 'Edunet Foundation',
-    pos: 'AI Azure intern',
-    duration: 'Augest 2025 - September 2025',
-    title: "Successfully completed a 4-week internship on AI Azure under a Microsoft initiative implemented by Edunet Foundation in collaboration with AICTE.",
+    pos: 'AI/Azure Intern',
+    duration: 'August 2025 - September 2025',
+    title: "Completed a 4-week internship focused on AI and Azure cloud services, delivered as a Microsoft initiative through Edunet Foundation in collaboration with AICTE. Gained hands-on experience with Azure AI services and cloud deployment workflows.",
     icon: '/assets/edunetfoundation_logo.jpg',
     animation: 'clapping',
   },
