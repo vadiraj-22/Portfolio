@@ -7,19 +7,23 @@ import Clients from './sections/Clients'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import Experience from './sections/Experience'
+import TechCursor from '@/components/ui/tech-cursor'
 
 const App = () => {
   return (
-    <main className='max-w-7xl mx-auto '>
-      <Navbar/>
-      <Hero/>
-      <About/>
-      <Projects/>
-      {/* <Clients/> */}
-      <Experience/>
-      <Contact/>
-      <Footer />
-    </main>
+    <>
+      <TechCursor />
+      <main className='max-w-7xl mx-auto '>
+        <Navbar/>
+        <Hero/>
+        <About/>
+        <Projects/>
+        {/* <Clients/> */}
+        <Experience/>
+        <Contact/>
+        <Footer />
+      </main>
+    </>
   )
 }
 
