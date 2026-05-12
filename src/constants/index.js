@@ -107,12 +107,12 @@ export const myProjects = [
     ],
   },
   {
-    title: 'CleanStreet — Smart Civic Issue Reporting',
+    title: 'CivicFix - Digitizing Municipal Services for Smart Cities',
     desc: 'Residents had no efficient way to report potholes, garbage, or broken infrastructure to their municipality. CleanStreet gives citizens a geo-tagged complaint system with image uploads, priority tracking, volunteer assignment, upvoting, real-time status updates, and an admin dashboard with analytics — turning passive complaints into actionable civic workflows.',
     subdesc: 'Built with React 19, Vite, Tailwind CSS, Node.js, Express, MongoDB with geospatial indexing, JWT authentication, Cloudinary for image uploads, and Leaflet for interactive maps. Developed during an 8-week Infosys Springboard Virtual Internship using Agile sprints.',
-    href: 'https://clean-street.vercel.app/',
+    href: 'https://civicfix-three.vercel.app/',
     texture: '/textures/project/clean_street.mp4',
-    logo: '/assets/cleanStreet.png',
+    logo: '/assets/civicfix.png',
     logoStyle: {
       backgroundColor: '#0f172a',
       border: '0.2px solid #1e293b',
@@ -189,7 +189,47 @@ export const myProjects = [
       },
     ],
   },
-
+{
+  title: 'LaTexume — LaTeX-Powered ATS Resume Builder',
+  desc: 'Professional resume builder leveraging LaTeX to create ATS-optimized resumes using Jake\'s Resume template — the industry standard trusted by engineers at Google, Meta, Amazon, and Microsoft. Zero LaTeX knowledge required.',
+  subdesc: 'Full-stack application built with React 18, Vite 5, Tailwind CSS 3, Node.js, and Express. Features instant PDF generation, clickable links, and publication-quality typography through LaTeX compilation.',
+  href: 'https://latexume.vercel.app/',
+  texture: '/textures/project/latexume.mp4',
+  logo: '/assets/latexume.svg',
+  logoStyle: {
+    backgroundColor: '#000000', // Black background matching the app theme
+    border: '0.2px solid #A6FF5D', // Signature lime green border
+    boxShadow: '0px 0px 60px 0px rgba(166, 255, 93, 0.3)', // Lime green glow
+  },
+  spotlight: '/assets/spotlight3.png',
+  tags: [
+    {
+      id: 1,
+      name: 'React.js',
+      path: '/assets/react.svg',
+    },
+    {
+      id: 2,
+      name: 'TailwindCSS',
+      path: '/assets/tailwindcss.png',
+    },
+    {
+      id: 3,
+      name: 'Node.js',
+      path: '/assets/nodejs.png',
+    },
+    {
+      id: 4,
+      name: 'Express.js',
+      path: '/assets/express.png',
+    },
+    {
+      id: 5,
+      name: 'LaTeX',
+      path: '/assets/latex.jpg', // You may need to add this asset
+    },
+  ],
+},
   {
     title: 'K72 — Design Studio Portfolio Clone',
     desc: 'A high-fidelity recreation of the K72 design studio website, focused on performance-driven animations and immersive visual storytelling. Includes scroll-triggered GSAP animations, parallax effects, dynamic project galleries with hover interactions, responsive grid layouts, and image preloading for seamless transitions.',

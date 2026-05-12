@@ -20,11 +20,11 @@ const Navbar = () => {
 
     const toggleMenu = () => setisOpen((prevIsOpen) => !prevIsOpen);
     return (
-        <header className='fixed top-0 left-0 right-0 z-30 bg-[rgba(30,30,35,0.55)] backdrop-blur-xl border-b border-white/10 shadow-lg'>
-            <div className='max-w-7xl mx-auto '>
+        <header className='fixed top-6 left-20 right-20 rounded-full z-20 bg-[rgba(60,60,65,0.5)] backdrop-blur-2xl border border-white/20 shadow-2xl overflow-hidden'>
+            <div className='max-w-7xl mx-auto'>
                 <div className='flex justify-between items-center py-4 mx-auto c-space'>
-                    <a href="/" className='text-white font-logo text-xl sm:text-2xl hover:text-neutral-300 transition-colors flex items-center'> 
-                        Vadiraj Joshi
+                    <a href="/" className='text-white font-logo text-xl sm:text-2xl hover:text-orange-400 transition-colors flex items-center'> 
+                        Vadiraj Joshi - Portfolio
                     </a>
                     <button onClick={toggleMenu} className='text-neutral-400 hover:text-white focus:outline-none sm:hidden flex' >
                         <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle" className='w-6 h-6' />
