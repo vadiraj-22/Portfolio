@@ -54,7 +54,7 @@ const Hero = () => {
 
     return (
         <section className='min-h-screen w-full flex flex-col relative'>
-            <div className='mx-auto sm:mt-36 mt-20 c-space gap-3 w-full relative z-20'>
+            <div className='mx-auto sm:mt-36 mt-32 c-space gap-3 w-full relative z-20'>
                 <p className='sm:text-2xl text-2xl font-medium  text-white text-center font-generalsans'>Hi, I'm Vadiraj Joshi <span className='waving-hand'>✋</span> </p>
                 <p className='hero_tag text-gray_gradient '>
                     Full-Stack Developer — MERN &amp; AI-Powered Web Apps

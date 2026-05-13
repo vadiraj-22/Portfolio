@@ -1,15 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { navLinks } from '../constants/index.js'
 
 const Navbar = () => {
     const [isOpen, setisOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Collapse navbar when scrolled down more than 50px on mobile only
+            if (window.innerWidth < 640) {
+                setIsScrolled(window.scrollY > 50)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        window.addEventListener('resize', handleScroll)
+        
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+            window.removeEventListener('resize', handleScroll)
+        }
+    }, [])
 
     const NavItems = () => {
         return (
             <ul className="nav-ul">
                 {navLinks.map(({ id, href, name }) => (
                     <li key={id} className='nav-li'>
-                        <a href={href} className='nav-li_a' onClick={() => { }}>
+                        <a href={href} className='nav-li_a' onClick={() => setisOpen(false)}>
                             {name}
                         </a>
                     </li>
@@ -19,28 +37,82 @@ const Navbar = () => {
     }
 
     const toggleMenu = () => setisOpen((prevIsOpen) => !prevIsOpen);
+    
     return (
-        <header className='fixed top-6 left-20 right-20 rounded-full z-20 bg-[rgba(60,60,65,0.5)] backdrop-blur-2xl border border-white/20 shadow-2xl overflow-hidden'>
-            <div className='max-w-7xl mx-auto'>
-                <div className='flex justify-between items-center py-4 mx-auto c-space'>
-                    <a href="/" className='text-white font-logo text-xl sm:text-2xl hover:text-orange-400 transition-colors flex items-center'> 
-                        Vadiraj Joshi - Portfolio
-                    </a>
-                    <button onClick={toggleMenu} className='text-neutral-400 hover:text-white focus:outline-none sm:hidden flex' >
+        <>
+            {/* Desktop and tablet navbar - always full width */}
+            <header 
+                className='hidden sm:block fixed top-6 left-20 right-20 rounded-full z-50 bg-[rgba(60,60,65,0.9)] shadow-2xl overflow-hidden'
+                style={{ backdropFilter: 'blur(40px)', WebkitBackdropFilter: 'blur(40px)' }}
+            >
+                <div className='max-w-7xl mx-auto'>
+                    <div className='flex justify-between items-center py-4 mx-auto c-space'>
+                        <a href="/" className='text-white font-logo text-xl sm:text-2xl hover:text-orange-400 transition-colors flex items-center'> 
+                            Vadiraj Joshi - Portfolio
+                        </a>
+                        <nav className='flex'>
+                            <NavItems />
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            {/* Mobile navbar - collapses on scroll */}
+            <header 
+                className={`sm:hidden fixed top-6 z-50 bg-[rgba(60,60,65,0.9)] shadow-2xl transition-all duration-300 ${
+                    isScrolled 
+                        ? 'left-auto right-4 rounded-full w-14 h-14 flex items-center justify-center' 
+                        : 'left-4 right-4 rounded-full overflow-hidden'
+                }`}
+                style={{ backdropFilter: 'blur(40px)', WebkitBackdropFilter: 'blur(40px)' }}
+            >
+                {!isScrolled && (
+                    <div className='max-w-7xl mx-auto'>
+                        <div className='flex items-center justify-between py-4 mx-auto c-space'>
+                            <a 
+                                href="/" 
+                                className='text-white font-logo text-xl hover:text-orange-400 transition-colors flex items-center'
+                            > 
+                                Vadiraj Joshi - Portfolio
+                            </a>
+                            <button 
+                                onClick={toggleMenu} 
+                                className='text-neutral-400 hover:text-white focus:outline-none flex' 
+                            >
+                                <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle" className='w-6 h-6' />
+                            </button>
+                        </div>
+                    </div>
+                )}
+                
+                {isScrolled && (
+                    <button 
+                        onClick={toggleMenu} 
+                        className='text-neutral-400 hover:text-white focus:outline-none flex' 
+                    >
                         <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle" className='w-6 h-6' />
                     </button>
-
-                    <nav className='sm:flex hidden '>
+                )}
+            </header>
+            
+            {/* Floating menu window for mobile only */}
+            <div 
+                className={`fixed z-40 sm:hidden transition-all duration-300 ease-in-out ${
+                    isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                } ${
+                    isScrolled ? 'top-24 right-4' : 'top-24 left-4 right-4'
+                }`}
+            >
+                <div 
+                    className='bg-[rgba(30,30,35,0.98)] rounded-2xl shadow-2xl border border-white/10 overflow-hidden'
+                    style={{ backdropFilter: 'blur(60px)', WebkitBackdropFilter: 'blur(60px)' }}
+                >
+                    <nav className='p-5'>
                         <NavItems />
                     </nav>
                 </div>
             </div>
-            <div className={`nav-sidebar ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
-                <nav className='p-5'>
-                    <NavItems />
-                </nav>
-            </div>
-        </header>
+        </>
     )
 }
 

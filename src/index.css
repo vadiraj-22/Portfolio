@@ -42,7 +42,7 @@ body {
   }
 
   .nav-li_a {
-    @apply text-lg md:text-base hover:text-orange-400 transition-colors font-medium p-2;
+    @apply text-xl sm:text-lg md:text-base hover:text-orange-400 transition-colors font-medium p-2;
   }
 
   .nav-sidebar {

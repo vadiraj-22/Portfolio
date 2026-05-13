@@ -45,6 +45,10 @@ const TechCursor = () => {
   const techImagesRef = useRef([]);
 
   useEffect(() => {
+    // Disable cursor on mobile/touch devices
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isMobile) return;
+
     // Preload images
     const loadImages = async () => {
       techImagesRef.current = await Promise.all(
@@ -146,7 +150,7 @@ const TechCursor = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-50"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-40 hidden sm:block"
     />
   );
 };
