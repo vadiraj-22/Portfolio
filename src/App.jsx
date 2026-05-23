@@ -8,8 +8,11 @@ import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import Experience from './sections/Experience'
 import TechCursor from '@/components/ui/tech-cursor'
+import { useSmoothScroll } from './hooks/useSmoothScroll'
 
 const App = () => {
+  useSmoothScroll()
+
   return (
     <>
       <TechCursor />

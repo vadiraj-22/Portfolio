@@ -22,12 +22,61 @@ const Navbar = () => {
         }
     }, [])
 
+    /**
+     * Intercept anchor clicks and hand them off to Lenis so the scroll is
+     * smooth and the section lands just below the navbar with breathing room.
+     * Falls back to native scrollIntoView if Lenis isn't ready yet.
+     */
+    const handleNavClick = (e, href) => {
+        e.preventDefault()
+        setisOpen(false)
+
+        // href is like "#about" — strip the "#"
+        const targetId = href.replace('#', '')
+        const target = document.getElementById(targetId)
+        if (!target) return
+
+        // Measure the actual rendered navbar height dynamically.
+        // The desktop header is hidden on mobile so we pick whichever is visible.
+        const desktopHeader = document.querySelector('header.hidden.sm\\:block')
+        const mobileHeader  = document.querySelector('header.sm\\:hidden')
+        const activeHeader  = window.innerWidth >= 640 ? desktopHeader : mobileHeader
+        const navbarBottom  = activeHeader
+            ? activeHeader.getBoundingClientRect().bottom
+            : 96  // safe fallback
+
+        // Extra breathing room below the navbar (px)
+        const gap = 24
+
+        // Lenis offset is relative to the element's top edge.
+        // Negative = scroll stops that many px BEFORE the element,
+        // so the element appears that many px below the viewport top.
+        const offset = -(navbarBottom + gap)
+
+        const lenis = window.__lenis
+        if (lenis) {
+            lenis.scrollTo(target, {
+                offset,
+                duration: 1.4,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            })
+        } else {
+            // Fallback — account for navbar manually
+            const top = target.getBoundingClientRect().top + window.scrollY - navbarBottom - gap
+            window.scrollTo({ top, behavior: 'smooth' })
+        }
+    }
+
     const NavItems = () => {
         return (
             <ul className="nav-ul">
                 {navLinks.map(({ id, href, name }) => (
                     <li key={id} className='nav-li'>
-                        <a href={href} className='nav-li_a' onClick={() => setisOpen(false)}>
+                        <a
+                            href={href}
+                            className='nav-li_a'
+                            onClick={(e) => handleNavClick(e, href)}
+                        >
                             {name}
                         </a>
                     </li>

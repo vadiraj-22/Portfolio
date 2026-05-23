@@ -4,9 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior: smooth is handled by Lenis — do not set it here */
 
 body {
   background: #010103;
@@ -38,11 +36,13 @@ body {
   }
 
   .nav-li {
-    @apply text-white hover:text-orange-400 font-nav hover:bg-white/10 p-1 rounded-3xl max-sm:hover:bg-black-500 max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5 transition-all duration-300;
+    @apply text-white font-nav p-1 rounded-3xl max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5 transition-all duration-300;
   }
 
   .nav-li_a {
-    @apply text-xl sm:text-lg md:text-base hover:text-orange-400 transition-colors font-medium p-2;
+    @apply text-xl sm:text-lg md:text-base font-medium p-2 px-3 rounded-2xl transition-all duration-300
+           text-white/80
+           hover:text-black hover:bg-white;
   }
 
   .nav-sidebar {
