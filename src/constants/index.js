@@ -111,7 +111,7 @@ export const myProjects = [
     desc: 'Residents had no efficient way to report potholes, garbage, or broken infrastructure to their municipality. CleanStreet gives citizens a geo-tagged complaint system with image uploads, priority tracking, volunteer assignment, upvoting, real-time status updates, and an admin dashboard with analytics — turning passive complaints into actionable civic workflows.',
     subdesc: 'Built with React 19, Vite, Tailwind CSS, Node.js, Express, MongoDB with geospatial indexing, JWT authentication, Cloudinary for image uploads, and Leaflet for interactive maps. Developed during an 8-week Infosys Springboard Virtual Internship using Agile sprints.',
     href: 'https://civicfix-three.vercel.app/',
-    texture: '/textures/project/clean_street.mp4',
+    texture: '/textures/project/civicFix.mp4',
     logo: '/assets/civicfix.png',
     logoStyle: {
       backgroundColor: '#0f172a',
