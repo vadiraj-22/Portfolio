@@ -286,21 +286,21 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 export const workExperiences = [
   {
     id: 1,
+    name: 'Invicto',
+    pos: 'Backend and Automation Intern',
+    duration: 'May 2026 - Present',
+    title: "Developing scalable web scraping and automation scripts utilizing JavaScript and Puppeteer to streamline internal processes. Building secure REST APIs using Node.js and Express to handle seamless data integration. Designing responsive front-end interfaces with HTML and CSS to clearly display extracted data and required automation results.",
+    icon: '/assets/invicto.png',
+    animation: 'clapping',
+  },
+  {
+    id: 2,
     name: 'Infosys Springboard',
     pos: 'Full Stack Development Intern',
     duration: 'September 2025 - November 2025',
     title: "Built CleanStreet, a full-stack MERN application for real-time civic issue reporting. Implemented geo-tagged complaint submission, location-based volunteer assignment, priority-based tracking, and an admin analytics dashboard. Stack: React, Vite, Node.js, Express, MongoDB, Tailwind CSS, and Leaflet Maps. Followed Agile sprints over 8 weeks.",
     icon: '/assets/infosys_springboard_logo.jpg',
     animation: 'victory',
-  },
-  {
-    id: 2,
-    name: 'Edunet Foundation',
-    pos: 'AI/Azure Intern',
-    duration: 'August 2025 - September 2025',
-    title: "Completed a 4-week internship focused on AI and Azure cloud services, delivered as a Microsoft initiative through Edunet Foundation in collaboration with AICTE. Gained hands-on experience with Azure AI services and cloud deployment workflows.",
-    icon: '/assets/edunetfoundation_logo.jpg',
-    animation: 'clapping',
   },
 
 ];
