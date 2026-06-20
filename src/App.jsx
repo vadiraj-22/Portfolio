@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './sections/Navbar'
+import NavbarGlass from './sections/NavbarGlass'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import Projects from './sections/Projects'
@@ -17,7 +17,7 @@ const App = () => {
     <>
       <TechCursor />
       <main className='max-w-7xl mx-auto '>
-        <Navbar/>
+        <NavbarGlass/>
         <Hero/>
         <About/>
         <Projects/>

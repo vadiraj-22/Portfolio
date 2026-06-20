@@ -235,6 +235,15 @@ body {
   }
 }
 
+@keyframes moveBackground {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 0% -1000%;
+  }
+}
+
 /* ── Core Stack Section ── */
 
 .core-stack-card {
