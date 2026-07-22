@@ -1,0 +1,16 @@
+{
+  "name": "Vadiraj Joshi Portfolio",
+  "short_name": "Vadiraj Portfolio",
+  "description": "Portfolio of Vadiraj Joshi — Full-Stack Developer specializing in MERN Stack, React, Node.js, and AI Web Applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#010103",
+  "theme_color": "#010103",
+  "icons": [
+    {
+      "src": "/assets/document.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

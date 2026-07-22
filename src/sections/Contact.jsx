@@ -78,7 +78,7 @@ const Contact = () => {
         <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
 
         <div className="contact-container">
-          <h3 className="text-xl sm:text-2xl md:text-4xl font-semibold text-gray_gradient mt-10">Let's talk</h3>
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-semibold text-gray_gradient mt-10">Let's Talk — Contact Vadiraj Joshi</h2>
           <p className="text-lg text-white-600 mt-3">
             Looking for a full-stack developer, have a project idea, or want to discuss a collaboration? Drop me a message and I’ll get back to you promptly.
           </p>

@@ -2,7 +2,7 @@
 
 A modern, interactive 3D portfolio website showcasing my projects, skills, and experience as a Full Stack Developer. Built with cutting-edge web technologies including React Three Fiber for immersive 3D experiences.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://portfolio-jk7i.onrender.com)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://vadirajjoshiportfolio.vercel.app)
 [![GitHub](https://img.shields.io/badge/github-vadiraj--22-blue)](https://github.com/vadiraj-22)
 
 ## ✨ Features
@@ -148,7 +148,7 @@ Modern portfolio clone with smooth scroll animations and immersive visual experi
 
 Feel free to reach out through the contact form on the website or connect with me on:
 
-- **Portfolio**: [https://portfolio-jk7i.onrender.com](https://portfolio-jk7i.onrender.com)
+- **Portfolio**: [https://vadirajjoshiportfolio.vercel.app](https://vadirajjoshiportfolio.vercel.app)
 - **GitHub**: [@vadiraj-22](https://github.com/vadiraj-22)
 
 ## 📄 License

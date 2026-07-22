@@ -9,16 +9,16 @@ const Footer = () => {
                 <p>Privacy Policy</p>
             </div>
             <div className='flex mx-auto gap-3'>
-                <a href="https://github.com/vadiraj-22" target="_blank" rel="noopener noreferrer" className='social-icon'>
-                    <img src="/assets/github.svg" alt="github" className='w-1/2 h-1/2' />
+                <a href="https://github.com/vadiraj-22" target="_blank" rel="noopener noreferrer" className='social-icon' aria-label="Vadiraj Joshi on GitHub">
+                    <img src="/assets/github.svg" alt="GitHub icon" className='w-1/2 h-1/2' />
                 </a>
 
-                <a href="https://linkedin.com/in/vadiraj-joshi220504" target="_blank" rel="noopener noreferrer" className='social-icon'>
-                    <img src="/assets/linkedin.svg" alt="linkedin" className='w-1/2 h-1/2' />
+                <a href="https://linkedin.com/in/vadiraj-joshi220504" target="_blank" rel="noopener noreferrer" className='social-icon' aria-label="Vadiraj Joshi on LinkedIn">
+                    <img src="/assets/linkedin.svg" alt="LinkedIn icon" className='w-1/2 h-1/2' />
                 </a>
 
-                <a href="https://leetcode.com/u/Vadiraj_22/" target="_blank" rel="noopener noreferrer" className='social-icon'>
-                    <img src="/assets/leetcode.svg" alt="leetcode" className='w-1/2 h-1/2' />
+                <a href="https://leetcode.com/u/Vadiraj_22/" target="_blank" rel="noopener noreferrer" className='social-icon' aria-label="Vadiraj Joshi on LeetCode">
+                    <img src="/assets/leetcode.svg" alt="LeetCode icon" className='w-1/2 h-1/2' />
                 </a>
 
                 {/* <div className='social-icon'>

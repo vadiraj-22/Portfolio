@@ -87,7 +87,7 @@ const About = () => {
               </div>
               {/* ── Text below ── */}
               <div className="flex-1 flex flex-col justify-start gap-3 text-center">
-                <p className="grid-headtext !text-xl xl:!text-2xl">Hi, I'm Vadiraj Joshi</p>
+                <h2 className="grid-headtext !text-xl xl:!text-2xl">About Me — Vadiraj Joshi</h2>
                 <p className="grid-subtext !text-sm xl:!text-base leading-relaxed text-justify">
                   I build full-stack web applications with React, Node.js, Express, and MongoDB. My recent
                   work focuses on integrating AI services — like OpenAI and Cloudinary — into production
@@ -120,7 +120,7 @@ const About = () => {
               />
             </div>
             <div className="mt-3 space-y-2">
-              <p className="grid-headtext !text-sm text-center">Open to remote &amp; on-site opportunities</p>
+              <h3 className="grid-headtext !text-sm text-center">Open to Remote &amp; On-site Opportunities</h3>
               <p className="grid-subtext !text-xs text-center">Based in Karnataka, India. Comfortable working across time zones and available for remote roles worldwide.</p>
             </div>
           </div>
@@ -137,7 +137,7 @@ const About = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <p className="grid-headtext !text-xl">Let's Connect</p>
+                <h3 className="grid-headtext !text-xl">Let's Connect</h3>
                 <p className="grid-subtext !text-xs">Open to collaborations, opportunities, and tech discussions</p>
               </div>
 
@@ -206,7 +206,7 @@ const About = () => {
           <div className="grid-container">
             {/* Header */}
             <div className="mb-1">
-              <p className="grid-headtext text-2xl">Core Stack</p>
+              <h2 className="grid-headtext text-2xl">Core Stack &amp; Technologies</h2>
               <p className="grid-subtext text-sm" style={{ marginTop: '0.5rem' }}>
                 Technologies I use to build full-stack and AI-powered web applications
               </p>
