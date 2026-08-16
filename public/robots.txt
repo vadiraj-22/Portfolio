@@ -1,6 +1,24 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+Disallow: /*.json$
 
-# Sitemap URL
+# Search Crawlers & AI Indexers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Sitemap Location
 Sitemap: https://vadirajjoshiportfolio.vercel.app/sitemap.xml
+

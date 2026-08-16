@@ -77,14 +77,14 @@ const Contact = () => {
       <div className="relative min-h-screen flex items-center justify-center flex-col">
         <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
 
-        <div className="contact-container">
-          <h2 className="text-xl sm:text-2xl md:text-4xl font-semibold text-gray_gradient mt-10">Let's Talk — Contact Vadiraj Joshi</h2>
-          <p className="text-lg text-white-600 mt-3">
+        <div className="contact-container pt-6 pb-12 sm:pb-16">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray_gradient mt-4 sm:mt-6">Let's Talk — Contact Vadiraj Joshi</h2>
+          <p className="text-base sm:text-lg text-white-600 mt-2">
             Looking for a full-stack developer, have a project idea, or want to discuss a collaboration? Drop me a message and I’ll get back to you promptly.
           </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
-            <label className="space-y-3">
+          <form ref={formRef} onSubmit={handleSubmit} className="mt-6 sm:mt-8 flex flex-col space-y-5 pb-6 sm:pb-10">
+            <label className="space-y-2">
               <span className="field-label">Full Name</span>
               <input
                 type="text"
@@ -97,7 +97,7 @@ const Contact = () => {
               />
             </label>
 
-            <label className="space-y-3">
+            <label className="space-y-2">
               <span className="field-label">Email address</span>
               <input
                 type="email"
@@ -110,20 +110,20 @@ const Contact = () => {
               />
             </label>
 
-            <label className="space-y-3">
+            <label className="space-y-2">
               <span className="field-label">Your message</span>
               <textarea
                 name="message"
                 value={form.message}
                 onChange={handleChange}
                 required
-                rows={5}
+                rows={3}
                 className="field-input"
                 placeholder="Share your thoughts or inquiries..."
               />
             </label>
 
-            <button className="field-btn" type="submit" disabled={loading}>
+            <button className="field-btn mb-4 sm:mb-8" type="submit" disabled={loading}>
               {loading ? 'Sending...' : 'Send Message'}
 
               <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />

@@ -68,7 +68,7 @@ export const myProjects = [
     subdesc:
       'Full-stack app built with React 19, Vite, Tailwind CSS, Node.js, and Express. Integrated OpenAI API for text generation, Cloudinary for server-side image processing, Clerk for authentication, and Neon PostgreSQL for persistent storage. Deployed on Vercel (frontend) and Render (API).',
     href: 'https://quick-ai-gray.vercel.app/',
-    texture: '/textures/project/quick AI.mp4',
+    texture: '/textures/project/Quick AI.mp4',
     logo: '/assets/quickAI.svg',
     logoStyle: {
       backgroundColor: '#1a1a2e',
@@ -111,7 +111,7 @@ export const myProjects = [
     desc: 'Residents had no efficient way to report potholes, garbage, or broken infrastructure to their municipality. CleanStreet gives citizens a geo-tagged complaint system with image uploads, priority tracking, volunteer assignment, upvoting, real-time status updates, and an admin dashboard with analytics — turning passive complaints into actionable civic workflows.',
     subdesc: 'Built with React 19, Vite, Tailwind CSS, Node.js, Express, MongoDB with geospatial indexing, JWT authentication, Cloudinary for image uploads, and Leaflet for interactive maps. Developed during an 8-week Infosys Springboard Virtual Internship using Agile sprints.',
     href: 'https://civicfix-three.vercel.app/',
-    texture: '/textures/project/civicFix.mp4',
+    texture: '/textures/project/CivicFix.mp4',
     logo: '/assets/civicfix.png',
     logoStyle: {
       backgroundColor: '#0f172a',
@@ -153,7 +153,7 @@ export const myProjects = [
     subdesc:
       'Full-stack MERN app with React 19, Vite, Tailwind CSS 4, Node.js, Express, and MongoDB. Implements bcrypt password hashing, JWT-based route protection, and a polished dark-themed UI.',
     href: 'https://safepass-ewqi.onrender.com/',
-    texture: '/textures/project/safepass.mp4',
+    texture: '/textures/project/SafePass.mp4',
     logo: '/assets/safepass.png',
     logoStyle: {
       backgroundColor: '#0f172a', // Slate-900 for a security/dark theme vibe
@@ -194,7 +194,7 @@ export const myProjects = [
   desc: 'Professional resume builder leveraging LaTeX to create ATS-optimized resumes using Jake\'s Resume template — the industry standard trusted by engineers at Google, Meta, Amazon, and Microsoft. Zero LaTeX knowledge required.',
   subdesc: 'Full-stack application built with React 18, Vite 5, Tailwind CSS 3, Node.js, and Express. Features instant PDF generation, clickable links, and publication-quality typography through LaTeX compilation.',
   href: 'https://latexume.vercel.app/',
-  texture: '/textures/project/latexume.mp4',
+  texture: '/textures/project/laTexume.mp4',
   logo: '/assets/latexume.svg',
   logoStyle: {
     backgroundColor: '#000000', // Black background matching the app theme
@@ -236,7 +236,7 @@ export const myProjects = [
     subdesc: 'Built with React 19, Vite, GSAP with ScrollTrigger, and Tailwind CSS. Uses lazy loading, code splitting, responsive image optimization, and custom typography with Lausanne font family to deliver a premium browsing experience across all devices.',
     href: 'https://k72-project-3ig8.onrender.com/',
     texture: '/textures/project/k72.mp4',
-    logo: '/assets/K72.png',
+    logo: '/assets/project-logo5.png',
     logoStyle: {
       backgroundColor: '#000000',
       border: '0.2px solid #333333',
@@ -274,8 +274,8 @@ export const myProjects = [
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
   return {
-    deskScale: isSmall ? 0.7 : isMobile ? 0.5 : 1.08,
-    deskPosition: isMobile ? [1, -2.0, 0] : [1.5, -3.2, 0],
+    deskScale: isSmall ? 0.85 : isMobile ? 0.65 : 1.28,
+    deskPosition: isMobile ? [1, -2.5, 0] : [1.5, -3.6, 0],
     cubePosition: isSmall ? [3, -5, 0] : isMobile ? [7, -5, 0] : isTablet ? [8, -5, 0] : [14, -5.5, 0],
     reactLogoPosition: isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12.5, 4, 0],
     ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-25, 10, 0],

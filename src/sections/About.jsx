@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Globe from 'react-globe.gl';
 
 import Button from '../components/Button.jsx';
+import { useInView } from '../hooks/useInView.js';
 
 const TARGET_LAT = 15.3173;
 const TARGET_LNG = 75.7139;
@@ -9,54 +10,42 @@ const TARGET_LNG = 75.7139;
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
   const globeEl = useRef();
-  const sectionRef = useRef();
+  const [sectionRef, isInView] = useInView();
   const autoRotateRef = useRef(null);
   const hasSnappedRef = useRef(false);
 
-  /* ── Scroll-triggered rotation ── */
+  /* ── Viewport-triggered rotation & snap ── */
   useEffect(() => {
-    const onScroll = () => {
-      if (!sectionRef.current || !globeEl.current || hasSnappedRef.current) return;
+    if (!isInView || !globeEl.current || hasSnappedRef.current) return;
 
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowH = window.innerHeight;
+    hasSnappedRef.current = true;
 
-      // Start rotating once the section is 40% scrolled into view
-      if (rect.top < windowH * 0.6) {
-        hasSnappedRef.current = true;
+    if (globeEl.current.controls) {
+      globeEl.current.controls().autoRotate = true;
+      globeEl.current.controls().autoRotateSpeed = 4;
+    }
 
-        // Start with rotation at the current zoom level
+    autoRotateRef.current = setTimeout(() => {
+      if (globeEl.current) {
         if (globeEl.current.controls) {
-          globeEl.current.controls().autoRotate = true;
-          globeEl.current.controls().autoRotateSpeed = 4;
+          globeEl.current.controls().autoRotate = false;
         }
-
-        // After 1.8s of spinning, stop and snap to Karnataka, India
-        autoRotateRef.current = setTimeout(() => {
-          if (globeEl.current) {
-            if (globeEl.current.controls) {
-              globeEl.current.controls().autoRotate = false;
-            }
-            // Show Karnataka with marker visible, not too zoomed
-            globeEl.current.pointOfView(
-              { lat: TARGET_LAT, lng: TARGET_LNG, altitude: 2.2 },
-              1200,
-            );
-          }
-        }, 1800);
+        globeEl.current.pointOfView(
+          { lat: TARGET_LAT, lng: TARGET_LNG, altitude: 2.2 },
+          1200,
+        );
       }
-    };
+    }, 1800);
 
-    // Set initial position - moderate zoom level to avoid cutting
+    return () => {
+      if (autoRotateRef.current) clearTimeout(autoRotateRef.current);
+    };
+  }, [isInView]);
+
+  useEffect(() => {
     if (globeEl.current) {
       globeEl.current.pointOfView({ lat: 0, lng: 0, altitude: 2.2 }, 0);
     }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (autoRotateRef.current) clearTimeout(autoRotateRef.current);
-    };
   }, []);
 
   const handleCopy = () => {
@@ -81,7 +70,8 @@ const About = () => {
               <div className="w-full flex justify-center">
                 <img
                   src="assets/vadiraj.jpg"
-                  alt="Vadiraj Joshi"
+                  alt="Vadiraj Joshi — Full-Stack MERN &amp; AI Developer"
+                  loading="lazy"
                   className="w-64 h-64 object-cover rounded-2xl shadow-lg ring-2 ring-white/10"
                 />
               </div>

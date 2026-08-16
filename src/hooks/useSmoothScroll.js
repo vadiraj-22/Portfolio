@@ -30,7 +30,7 @@ export function useSmoothScroll() {
     // Drive Lenis via GSAP's ticker so they share the same rAF loop
     const onTick = (time) => lenis.raf(time * 1000)
     gsap.ticker.add(onTick)
-    gsap.ticker.lagSmoothing(0)
+    gsap.ticker.lagSmoothing(500, 33)
 
     return () => {
       lenis.destroy()

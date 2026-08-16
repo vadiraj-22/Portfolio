@@ -4,11 +4,13 @@ import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
 import DemoComputer from '../components/DemoComputer';
+import { useInView } from '../hooks/useInView';
 
 
 const projectCount = myProjects.length;
 
 const Projects = () => {
+    const [containerRef, isInView] = useInView()
     const [selectedProjectindex, setselectedProjectindex] = useState(0)
     const [isExpanded, setIsExpanded] = useState(false)
     const currentProject = myProjects[selectedProjectindex];
@@ -50,10 +52,10 @@ const Projects = () => {
             <div className='grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full'>
                 <div className='flex flex-col gap-5 shadow-2xl shadow-black-200 sm:p-10 relative py-10 px-5 '>
                     <div className='absolute top-0 right-0'>
-                        <img src={currentProject.spotlight} alt={`${currentProject.title} spotlight background`} className='w-full h-96 object-cover rounded-xl' />
+                        <img src={currentProject.spotlight} alt={`${currentProject.title} spotlight background`} loading="lazy" className='w-full h-96 object-cover rounded-xl' />
                     </div>
                     <div className='p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-lg' style={currentProject.logoStyle}>
-                        <img src={currentProject.logo} alt={`${currentProject.title} logo`} className='w-10 h-10 shadow-sm' />
+                        <img src={currentProject.logo} alt={`${currentProject.title} logo`} loading="lazy" className='w-10 h-10 shadow-sm' />
                     </div>
                     <div className='flex flex-col gap-5 text-white-600 my-5'>
                         <h3 className='text-white text-2xl font-semibold animatedText'>{currentProject.title}</h3>
@@ -64,6 +66,7 @@ const Projects = () => {
                             <button
                                 onClick={() => setIsExpanded(!isExpanded)}
                                 className='text-white-800 cursor-pointer underline hover:text-white transition-colors text-left w-fit'
+                                aria-label={isExpanded ? 'Collapse description' : 'Expand description'}
                             >
                                 {isExpanded ? 'Read Less' : 'Read More'}
                             </button>
@@ -72,29 +75,39 @@ const Projects = () => {
                     <div className='flex gap-5 flex-wrap justify-between items-center'>
                         <div className=' flex items-center gap-3'>{currentProject.tags.map((tag, index) => (
                             <div key={index} className='tech-logo'>
-                                <img src={tag.path} alt={tag.name} />
+                                <img src={tag.path} alt={`${tag.name} icon`} loading="lazy" />
                             </div>
                         ))}</div>
-                        <a className='flex gap-2 items-center cursor-pointer text-white-600' href={currentProject.href} target='_blank' rel='noreferrer'>
+                        <a 
+                            className='flex gap-2 items-center cursor-pointer text-white-600 hover:text-white transition-colors' 
+                            href={currentProject.href} 
+                            target='_blank' 
+                            rel='noopener noreferrer'
+                            aria-label={`Check live site for ${currentProject.title}`}
+                        >
                             <p>Check live site</p>
-                            <img src="/assets/arrow-up.png" alt="arrow" className='w-3 h-3' />
+                            <img src="/assets/arrow-up.png" alt="external link arrow" className='w-3 h-3' />
                         </a>
                     </div>
                     <div className='flex justify-between items-center mt-7'>
-                        <button className='arrow-btn ' onClick={() => {
-                            handleNavigation('previous')
-                        }}>
-                            <img src="/assets/left-arrow.png" alt="left-arrow" className='w-4 h-4' />
+                        <button 
+                            className='arrow-btn' 
+                            onClick={() => handleNavigation('previous')}
+                            aria-label="Previous Project"
+                        >
+                            <img src="/assets/left-arrow.png" alt="previous project arrow" className='w-4 h-4' />
                         </button>
-                        <button className='arrow-btn ' onClick={() => {
-                            handleNavigation('next')
-                        }}>
-                            <img src="/assets/right-arrow.png" alt="right-arrow" className='w-4 h-4' />
+                        <button 
+                            className='arrow-btn' 
+                            onClick={() => handleNavigation('next')}
+                            aria-label="Next Project"
+                        >
+                            <img src="/assets/right-arrow.png" alt="next project arrow" className='w-4 h-4' />
                         </button>
                     </div>
                 </div>
-                <div className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full relative hidden lg:block'>
-                    <Canvas>
+                <div ref={containerRef} className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full relative hidden lg:block'>
+                    <Canvas frameloop={isInView ? 'always' : 'never'} dpr={[1, 1.5]}>
                         <ambientLight intensity={Math.PI} />
                         <directionalLight position={[10, 10, 5]} />
                         <Center>

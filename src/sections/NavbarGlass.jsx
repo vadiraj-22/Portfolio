@@ -124,7 +124,7 @@ const NavbarGlass = () => {
                         > 
                             Vadiraj Joshi - Portfolio
                         </a>
-                        <nav className='flex'>
+                        <nav className='flex' aria-label="Desktop Navigation">
                             <NavItems />
                         </nav>
                     </div>
@@ -174,8 +174,9 @@ const NavbarGlass = () => {
                             <button 
                                 onClick={toggleMenu} 
                                 className='text-neutral-200 hover:text-white focus:outline-none flex relative z-30 flex-shrink-0' 
+                                aria-label="Toggle mobile navigation menu"
                             >
-                                <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle" className='w-6 h-6 drop-shadow-lg' />
+                                <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle menu" className='w-6 h-6 drop-shadow-lg' />
                             </button>
                         </div>
                     </div>
@@ -185,8 +186,9 @@ const NavbarGlass = () => {
                     <button 
                         onClick={toggleMenu} 
                         className='text-neutral-200 hover:text-white focus:outline-none flex relative z-30 w-full h-full items-center justify-center' 
+                        aria-label="Toggle mobile navigation menu"
                     >
-                        <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle" className='w-6 h-6 drop-shadow-lg' />
+                        <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle menu" className='w-6 h-6 drop-shadow-lg' />
                     </button>
                 )}
             </header>

@@ -9,43 +9,10 @@ import HeroCamera from '../components/HeroCamera'
 import Button from '../components/Button'
 import PerspectiveGrid from '../components/PerspectiveGrid'
 import VignetteOverlay from '../components/VignetteOverlay'
+import { useInView } from '../hooks/useInView'
 
 const Hero = () => {
-    // const x = useControls('HackerRoom', {
-    //     positionX: {
-    //         value: 2.5,
-    //         min: -10,
-    //         max: 10
-    //     },
-    //     positionY: {
-    //         value: 2.5,
-    //         min: -10,
-    //         max: 10
-    //     },
-    //     positionZ: {
-    //         value: 2.5,
-    //         min: -10,
-    //         max: 10
-    //     },
-    //     rotationX: {
-    //         value: 0,
-    //         min: -10,
-    //         max: 10
-    //     }, rotationY: {
-    //         value: 0,
-    //         min: -10,
-    //         max: 10
-    //     }, rotationZ: {
-    //         value: 0,
-    //         min: -10,
-    //         max: 10
-    //     },
-    //     scale :{
-    //         value:1,
-    //         min:0.1,
-    //         max:10
-    //     }
-    // })
+    const [heroRef, isInView] = useInView()
     const isSmall = useMediaQuery({ maxWidth: 440 });
     const isMobile = useMediaQuery({ maxWidth: 768 });
     const isTablet = useMediaQuery({ maxWidth: 768, minWidth: 1024 });
@@ -53,19 +20,19 @@ const Hero = () => {
     const sizes = calculateSizes(isSmall, isMobile, isTablet)
 
     return (
-        <section id="home" className='min-h-screen w-full flex flex-col relative'>
+        <section ref={heroRef} id="home" className='min-h-screen w-full flex flex-col relative' aria-label="Hero Section">
             <div className='mx-auto sm:mt-36 mt-32 c-space gap-3 w-full relative z-20'>
-                <h1 className='sm:text-2xl text-2xl font-medium  text-white text-center font-generalsans'>Hi, I'm Vadiraj Joshi <span className='waving-hand'>✋</span> </h1>
+                <h1 className='sm:text-2xl text-2xl font-medium  text-white text-center font-generalsans'>
+                    Hi, I'm Vadiraj Joshi <span className='waving-hand'>✋</span>
+                </h1>
                 <p className='hero_tag text-gray_gradient '>
                     Full-Stack Developer — MERN &amp; AI-Powered Web Apps
                 </p>
-
-
             </div>
 
             <div className='w-full h-full absolute inset-0'>
                 {/* <Leva /> */}
-                <Canvas className='w-full h-full '>
+                <Canvas className='w-full h-full' frameloop={isInView ? 'always' : 'never'} dpr={[1, 1.5]}>
                     <Suspense fallback={<CanvasLoader />}>
                         <PerspectiveCamera makeDefault position={[0, 0, 20]} />
 
@@ -85,7 +52,7 @@ const Hero = () => {
                             <DesktopPC
                                 scale={sizes.deskScale}
                                 position={sizes.deskPosition}
-                                rotation={[0.15, 0, 0]}
+                                rotation={[0.03, 0, 0]}
                             />
                         </HeroCamera>
 
@@ -101,7 +68,7 @@ const Hero = () => {
                             intensity={0.8}
                             color="#ffffff"
                             castShadow
-                            shadow-mapSize={[2048, 2048]}
+                            shadow-mapSize={[1024, 1024]}
                             shadow-camera-far={50}
                             shadow-camera-left={-10}
                             shadow-camera-right={10}
@@ -163,14 +130,14 @@ const Hero = () => {
                     </Suspense>
                 </Canvas>
                 
-                {/* Left and Right Edge Vignette Overlays */}
+                {/* Left, Right, and Top Edge Vignette Overlays */}
                 <div className='absolute inset-0 pointer-events-none'>
                     {/* Left edge fade to black */}
-                    <div className='absolute left-0 top-0 bottom-0 w-1/4 bg-gradient-to-r from-black to-transparent'></div>
+                    <div className='absolute left-0 top-0 bottom-0 w-1/4 bg-gradient-to-r from-black/90 to-transparent'></div>
                     {/* Right edge fade to black */}
-                    <div className='absolute right-0 top-0 bottom-0 w-1/4 bg-gradient-to-l from-black to-transparent'></div>
-                    {/* Top edge fade to black - much stronger and taller */}
-                    <div className='absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-black via-black/80 via-black/40 to-transparent'></div>
+                    <div className='absolute right-0 top-0 bottom-0 w-1/4 bg-gradient-to-l from-black/90 to-transparent'></div>
+                    {/* Top edge fade - gentle subtle blend to preserve 3D screen depth and backlight */}
+                    <div className='absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-black/70 via-black/20 to-transparent'></div>
                 </div>
                 
                 <div className='absolute bottom-7 left-0 right-0 w-full z-10 c-space'>

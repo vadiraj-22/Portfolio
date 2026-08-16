@@ -5,8 +5,10 @@ import { OrbitControls } from '@react-three/drei';
 import Developer from '../components/Developer.jsx';
 import CanvasLoader from '../components/Loading.jsx';
 import { workExperiences } from '../constants/index.js';
+import { useInView } from '../hooks/useInView.js';
 
 const WorkExperience = () => {
+  const [containerRef, isInView] = useInView();
   const [animationName, setAnimationName] = useState('idle');
 
   return (
@@ -15,8 +17,8 @@ const WorkExperience = () => {
         <h2 className="head-text">My Work Experience</h2>
 
         <div className="work-container">
-          <div className="work-canvas relative hidden lg:block">
-            <Canvas>
+          <div ref={containerRef} className="work-canvas relative hidden lg:block">
+            <Canvas frameloop={isInView ? 'always' : 'never'} dpr={[1, 1.5]}>
               <ambientLight intensity={7} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
               <directionalLight position={[10, 10, 10]} intensity={1} />
@@ -47,18 +49,18 @@ const WorkExperience = () => {
                   className="work-content_container group">
                   <div className="flex flex-col h-full justify-start items-center py-2">
                     <div className="work-content_logo">
-                      <img className="w-full h-full" src={item.icon} alt={`${item.name} logo`} />
+                      <img className="w-full h-full object-contain" src={item.icon} alt={`${item.name} logo`} loading="lazy" />
                     </div>
 
                     <div className="work-content_bar" />
                   </div>
 
                   <div className="sm:p-5 px-2.5 py-5">
-                    <h3 className="font-bold text-white-800">{item.name}</h3>
-                    <p className="text-sm mb-5">
-                      {item.pos} -- <span>{item.duration}</span>
+                    <h3 className="font-bold text-white-800 text-lg">{item.name}</h3>
+                    <p className="text-sm mb-5 text-gray-400">
+                      <span className="font-medium text-white-600">{item.pos}</span> — <time className="italic text-gray-400">{item.duration}</time>
                     </p>
-                    <p className="group-hover:text-white transition-all ease-in-out duration-500">{item.title}</p>
+                    <p className="group-hover:text-white transition-all ease-in-out duration-500 leading-relaxed">{item.title}</p>
                   </div>
                 </div>
               ))}

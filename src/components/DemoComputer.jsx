@@ -6,17 +6,24 @@ import { useRef, useEffect } from 'react';
 import { useGLTF, useAnimations, useVideoTexture } from '@react-three/drei';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import * as THREE from 'three';
 
 const DemoComputer = (props) => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF('/models/computer.glb');
   const { actions } = useAnimations(animations, group);
 
-  const txt = useVideoTexture(props.texture ? props.texture : '/textures/project/project1.mp4');
+  const txt = useVideoTexture(props.texture ? props.texture : '/textures/project/Quick AI.mp4');
 
   useEffect(() => {
     if (txt) {
       txt.flipY = false;
+      txt.colorSpace = THREE.SRGBColorSpace;
+      txt.minFilter = THREE.LinearFilter;
+      txt.magFilter = THREE.LinearFilter;
+      txt.generateMipmaps = false;
+      txt.anisotropy = 16;
+      txt.needsUpdate = true;
     }
   }, [txt]);
 

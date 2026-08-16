@@ -79,6 +79,9 @@ const TechCursor = () => {
       canvas.height = window.innerHeight;
 
       const particles = particlesRef.current;
+      let animId = null;
+      let isRunning = false;
+      let lastSpawn = 0;
 
       const animate = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -93,12 +96,27 @@ const TechCursor = () => {
           }
         }
 
-        requestAnimationFrame(animate);
+        if (particles.length > 0) {
+          animId = requestAnimationFrame(animate);
+        } else {
+          isRunning = false;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
       };
 
-      animate();
+      const startAnimation = () => {
+        if (!isRunning) {
+          isRunning = true;
+          animId = requestAnimationFrame(animate);
+        }
+      };
 
       const onMove = (e) => {
+        const now = performance.now();
+        if (now - lastSpawn < 35) return; // Throttle to max 1 particle per 35ms (~28 fps max)
+        lastSpawn = now;
+
+        if (techImagesRef.current.length === 0) return;
         const randomIcon =
           techImagesRef.current[
             Math.floor(Math.random() * techImagesRef.current.length)
@@ -129,18 +147,20 @@ const TechCursor = () => {
         };
 
         particles.push(particle);
+        startAnimation();
       };
 
-      window.addEventListener("mousemove", onMove);
+      window.addEventListener("mousemove", onMove, { passive: true });
 
       const handleResize = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
       };
 
-      window.addEventListener("resize", handleResize);
+      window.addEventListener("resize", handleResize, { passive: true });
 
       return () => {
+        if (animId) cancelAnimationFrame(animId);
         window.removeEventListener("mousemove", onMove);
         window.removeEventListener("resize", handleResize);
       };

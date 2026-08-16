@@ -1,24 +1,14 @@
 import { useFrame } from '@react-three/fiber';
 import { easing } from 'maath';
-import { useRef, useEffect, useState } from 'react'
-
+import { useRef } from 'react';
 
 const HeroCamera = ({ children, isMobile }) => {
     const groupRef = useRef();
-    const [scrollY, setScrollY] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     useFrame((state, delta) => {
-        // Calculate scroll-based camera movement
-        const scrollProgress = Math.min(scrollY / window.innerHeight, 1);
+        // Calculate scroll-based camera movement directly from window.scrollY
+        const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+        const scrollProgress = Math.min(currentScrollY / (window.innerHeight || 1), 1);
         const cameraY = scrollProgress * 2; // Move camera up as we scroll down
         const cameraZ = 20 - scrollProgress * 2; // Move camera closer as we scroll
         
