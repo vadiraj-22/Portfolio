@@ -1,5 +1,6 @@
-import { useGLTF, useVideoTexture } from '@react-three/drei';
-import { useRef, useEffect, useMemo, useState } from 'react';
+import { useGLTF } from '@react-three/drei';
+import { useRef, useEffect, useMemo, useState, useCallback } from 'react';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { myProjects } from '../constants';
 
@@ -8,74 +9,166 @@ const defaultPlaylist = [
     ...myProjects.map((p) => p.texture).filter(Boolean),
 ];
 
+/**
+ * Creates and configures a video element for texture use.
+ * Returns the video element ready for Three.js VideoTexture.
+ */
+const createVideoElement = (src) => {
+    const video = document.createElement('video');
+    video.src = src;
+    video.crossOrigin = 'anonymous';
+    video.loop = false;
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    return video;
+};
+
+/**
+ * Creates a properly configured THREE.VideoTexture
+ */
+const createVideoTexture = (video) => {
+    const texture = new THREE.VideoTexture(video);
+    texture.flipY = false;
+    texture.center.set(0.5, 0.5);
+    texture.rotation = 0;
+    texture.repeat.set(1, -1);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.generateMipmaps = false;
+    texture.anisotropy = 16;
+    texture.needsUpdate = true;
+    return texture;
+};
+
 const DesktopPC = ({ playlist = defaultPlaylist, ...props }) => {
     const { nodes, scene } = useGLTF('/models/desktop_pc/scene.gltf');
     const groupRef = useRef();
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const currentTexturePath = playlist[currentIndex] || playlist[0];
+    const [activeTexture, setActiveTexture] = useState(null);
+
+    // Refs for video pool management
+    const currentVideoRef = useRef(null);
+    const nextVideoRef = useRef(null);
+    const textureRef = useRef(null);
+    const screenMaterialRef = useRef(null);
 
     const rootObject = useMemo(() => {
         return nodes.Scene || nodes.Sketchfab_Scene || nodes.Sketchfab_model || nodes.RootNode || scene;
     }, [nodes, scene]);
 
-    const safeVideoUrl = useMemo(() => encodeURI(currentTexturePath), [currentTexturePath]);
-
-    // Video texture for main hero computer display
-    const txt = useVideoTexture(safeVideoUrl, {
-        unsuspend: 'canplay',
-        muted: true,
-        loop: false,
-        start: true,
-    });
-
-    // Play video at 2x speed and continuously cycle through project demos
-    useEffect(() => {
-        if (!txt) return;
-
-        const videoEl = txt.image;
-        if (videoEl) {
-            videoEl.playbackRate = 2.0; // 2x playback speed
-
-            const handleEnded = () => {
-                setCurrentIndex((prev) => {
-                    if (playlist.length <= 1) return 0;
-                    let randomIndex = Math.floor(Math.random() * playlist.length);
-                    while (randomIndex === prev) {
-                        randomIndex = Math.floor(Math.random() * playlist.length);
-                    }
-                    return randomIndex;
-                });
-            };
-
-            videoEl.addEventListener('ended', handleEnded);
-
-            // Ensure video plays at 2x speed
-            videoEl.play().catch(() => {});
-
-            return () => {
-                videoEl.removeEventListener('ended', handleEnded);
-            };
+    // Get next random index (different from current)
+    const getNextIndex = useCallback((current) => {
+        if (playlist.length <= 1) return 0;
+        let next = Math.floor(Math.random() * playlist.length);
+        while (next === current) {
+            next = Math.floor(Math.random() * playlist.length);
         }
-    }, [txt, playlist]);
+        return next;
+    }, [playlist.length]);
 
-    useEffect(() => {
-        if (txt) {
-            txt.flipY = false;
-            txt.center.set(0.5, 0.5);
-            txt.rotation = 0;
-            txt.repeat.set(1, -1);
-            txt.colorSpace = THREE.SRGBColorSpace;
-            txt.minFilter = THREE.LinearFilter;
-            txt.magFilter = THREE.LinearFilter;
-            txt.generateMipmaps = false;
-            txt.anisotropy = 16;
-            txt.needsUpdate = true;
+    // Pre-buffer the next video
+    const preBufferNext = useCallback((currentIdx) => {
+        const nextIdx = getNextIndex(currentIdx);
+        const nextSrc = encodeURI(playlist[nextIdx]);
+
+        // Clean up old next video
+        if (nextVideoRef.current) {
+            nextVideoRef.current.pause();
+            nextVideoRef.current.src = '';
+            nextVideoRef.current.load();
         }
-    }, [txt]);
 
+        const nextVideo = createVideoElement(nextSrc);
+        nextVideo._playlistIndex = nextIdx;
+        nextVideo.load();
+        nextVideoRef.current = nextVideo;
+    }, [playlist, getNextIndex]);
+
+    // Initialize first video
     useEffect(() => {
-        if (rootObject && txt) {
+        const src = encodeURI(playlist[currentIndex]);
+        const video = createVideoElement(src);
+
+        const onCanPlay = () => {
+            video.playbackRate = 2.0;
+            const texture = createVideoTexture(video);
+            textureRef.current = texture;
+            setActiveTexture(texture);
+            video.play().catch(() => {});
+
+            // Pre-buffer the next video
+            preBufferNext(currentIndex);
+        };
+
+        const onEnded = () => {
+            // Swap to pre-buffered next video instantly
+            if (nextVideoRef.current) {
+                const nextVideo = nextVideoRef.current;
+                const nextIdx = nextVideo._playlistIndex;
+
+                // Clean up current
+                if (currentVideoRef.current) {
+                    currentVideoRef.current.pause();
+                    currentVideoRef.current.src = '';
+                    currentVideoRef.current.load();
+                }
+
+                // Make next become current
+                currentVideoRef.current = nextVideo;
+                nextVideoRef.current = null;
+
+                nextVideo.playbackRate = 2.0;
+                const newTexture = createVideoTexture(nextVideo);
+
+                // Dispose old texture
+                if (textureRef.current) {
+                    textureRef.current.dispose();
+                }
+                textureRef.current = newTexture;
+                setActiveTexture(newTexture);
+                setCurrentIndex(nextIdx);
+
+                nextVideo.play().catch(() => {});
+
+                // Set up ended listener for the new current video
+                nextVideo.addEventListener('ended', onEnded);
+
+                // Pre-buffer the next one
+                preBufferNext(nextIdx);
+            }
+        };
+
+        video.addEventListener('canplay', onCanPlay, { once: true });
+        video.addEventListener('ended', onEnded);
+        currentVideoRef.current = video;
+        video.load();
+
+        return () => {
+            video.removeEventListener('canplay', onCanPlay);
+            video.removeEventListener('ended', onEnded);
+            video.pause();
+            video.src = '';
+            video.load();
+
+            if (nextVideoRef.current) {
+                nextVideoRef.current.pause();
+                nextVideoRef.current.src = '';
+                nextVideoRef.current.load();
+            }
+
+            if (textureRef.current) {
+                textureRef.current.dispose();
+            }
+        };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []); // Only run once on mount
+
+    // Apply texture to screen mesh
+    useEffect(() => {
+        if (rootObject && activeTexture) {
             rootObject.traverse((child) => {
                 if (child.isMesh) {
                     if (
@@ -83,18 +176,27 @@ const DesktopPC = ({ playlist = defaultPlaylist, ...props }) => {
                         child.name.includes('SCREEN') ||
                         child.material?.name === 'Material.074_30'
                     ) {
-                        if (child.material && child.material.isMaterial) {
-                            child.material.dispose();
+                        if (screenMaterialRef.current) {
+                            screenMaterialRef.current.dispose();
                         }
-                        child.material = new THREE.MeshBasicMaterial({
-                            map: txt,
+                        const mat = new THREE.MeshBasicMaterial({
+                            map: activeTexture,
                             toneMapped: false,
                         });
+                        child.material = mat;
+                        screenMaterialRef.current = mat;
                     }
                 }
             });
         }
-    }, [rootObject, txt]);
+    }, [rootObject, activeTexture]);
+
+    // Keep texture updating each frame
+    useFrame(() => {
+        if (textureRef.current && currentVideoRef.current && !currentVideoRef.current.paused) {
+            textureRef.current.needsUpdate = true;
+        }
+    });
 
     if (!rootObject) return null;
 

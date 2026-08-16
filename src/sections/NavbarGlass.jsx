@@ -105,13 +105,13 @@ const NavbarGlass = () => {
                 />
                 <div
                     className="absolute inset-0 z-10 rounded-[2rem] group-hover:rounded-[2.5rem] transition-all duration-700"
-                    style={{ background: "rgba(255, 255, 255, 0.15)" }}
+                    style={{ background: "rgba(255, 255, 255, 0.05)" }}
                 />
                 <div
                     className="absolute inset-0 z-20 rounded-[2rem] group-hover:rounded-[2.5rem] overflow-hidden transition-all duration-700"
                     style={{
                         boxShadow:
-                            "inset 2px 2px 1px 0 rgba(255, 255, 255, 0.4), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.4)",
+                            "inset 2px 2px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.08)",
                     }}
                 />
 
@@ -151,13 +151,13 @@ const NavbarGlass = () => {
                 />
                 <div
                     className={`absolute inset-0 z-10 ${isScrolled ? 'rounded-full' : 'rounded-[2rem]'}`}
-                    style={{ background: "rgba(255, 255, 255, 0.15)" }}
+                    style={{ background: "rgba(255, 255, 255, 0.05)" }}
                 />
                 <div
                     className={`absolute inset-0 z-20 overflow-hidden ${isScrolled ? 'rounded-full' : 'rounded-[2rem]'}`}
                     style={{
                         boxShadow:
-                            "inset 2px 2px 1px 0 rgba(255, 255, 255, 0.4), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.4)",
+                            "inset 2px 2px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.08)",
                     }}
                 />
 

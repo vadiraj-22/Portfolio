@@ -313,17 +313,16 @@ const About = () => {
                         </div>
                       </div>
                     ))}
-                  </div>
-
-                  {/* Secondary — "Also worked with" */}
-                  <div className="core-stack-secondary">
-                    <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-wider mb-3">
-                      Also worked with
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {secondary.map((tech) => (
-                        <TechBadge key={tech.name} tech={tech} size="small" />
-                      ))}
+                    {/* Secondary — "Also worked with" */}
+                    <div className="core-stack-secondary">
+                      <p className="text-[#9ca3af] text-xs font-semibold uppercase tracking-wider mb-3">
+                        Also worked with
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {secondary.map((tech) => (
+                          <TechBadge key={tech.name} tech={tech} size="small" />
+                        ))}
+                      </div>
                     </div>
                   </div>
 
