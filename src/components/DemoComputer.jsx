@@ -13,7 +13,7 @@ const DemoComputer = (props) => {
   const { nodes, materials, animations } = useGLTF('/models/computer.glb');
   const { actions } = useAnimations(animations, group);
 
-  const txt = useVideoTexture(props.texture ? props.texture : '/textures/project/Quick AI.mp4');
+  const txt = useVideoTexture(props.texture ? props.texture : 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899007/Quick_AI_uftoda.mp4');
 
   useEffect(() => {
     if (txt) {

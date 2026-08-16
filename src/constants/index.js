@@ -68,7 +68,7 @@ export const myProjects = [
     subdesc:
       'Full-stack app built with React 19, Vite, Tailwind CSS, Node.js, and Express. Integrated OpenAI API for text generation, Cloudinary for server-side image processing, Clerk for authentication, and Neon PostgreSQL for persistent storage. Deployed on Vercel (frontend) and Render (API).',
     href: 'https://quick-ai-gray.vercel.app/',
-    texture: '/textures/project/Quick AI.mp4',
+    texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899007/Quick_AI_uftoda.mp4',
     logo: '/assets/quickAI.svg',
     logoStyle: {
       backgroundColor: '#1a1a2e',
@@ -111,7 +111,7 @@ export const myProjects = [
     desc: 'Residents had no efficient way to report potholes, garbage, or broken infrastructure to their municipality. CleanStreet gives citizens a geo-tagged complaint system with image uploads, priority tracking, volunteer assignment, upvoting, real-time status updates, and an admin dashboard with analytics — turning passive complaints into actionable civic workflows.',
     subdesc: 'Built with React 19, Vite, Tailwind CSS, Node.js, Express, MongoDB with geospatial indexing, JWT authentication, Cloudinary for image uploads, and Leaflet for interactive maps. Developed during an 8-week Infosys Springboard Virtual Internship using Agile sprints.',
     href: 'https://civicfix-three.vercel.app/',
-    texture: '/textures/project/CivicFix.mp4',
+    texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899010/CivicFix_ac5txt.mp4',
     logo: '/assets/civicfix.png',
     logoStyle: {
       backgroundColor: '#0f172a',
@@ -153,7 +153,7 @@ export const myProjects = [
     subdesc:
       'Full-stack MERN app with React 19, Vite, Tailwind CSS 4, Node.js, Express, and MongoDB. Implements bcrypt password hashing, JWT-based route protection, and a polished dark-themed UI.',
     href: 'https://safepass-ewqi.onrender.com/',
-    texture: '/textures/project/SafePass.mp4',
+    texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899052/Safepass_brjtpk.mp4',
     logo: '/assets/safepass.png',
     logoStyle: {
       backgroundColor: '#0f172a', // Slate-900 for a security/dark theme vibe
@@ -194,7 +194,7 @@ export const myProjects = [
   desc: 'Professional resume builder leveraging LaTeX to create ATS-optimized resumes using Jake\'s Resume template — the industry standard trusted by engineers at Google, Meta, Amazon, and Microsoft. Zero LaTeX knowledge required.',
   subdesc: 'Full-stack application built with React 18, Vite 5, Tailwind CSS 3, Node.js, and Express. Features instant PDF generation, clickable links, and publication-quality typography through LaTeX compilation.',
   href: 'https://latexume.vercel.app/',
-  texture: '/textures/project/laTexume.mp4',
+  texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899007/laTexume_wvsc8t.mp4',
   logo: '/assets/latexume.svg',
   logoStyle: {
     backgroundColor: '#000000', // Black background matching the app theme
@@ -235,7 +235,7 @@ export const myProjects = [
     desc: 'A high-fidelity recreation of the K72 design studio website, focused on performance-driven animations and immersive visual storytelling. Includes scroll-triggered GSAP animations, parallax effects, dynamic project galleries with hover interactions, responsive grid layouts, and image preloading for seamless transitions.',
     subdesc: 'Built with React 19, Vite, GSAP with ScrollTrigger, and Tailwind CSS. Uses lazy loading, code splitting, responsive image optimization, and custom typography with Lausanne font family to deliver a premium browsing experience across all devices.',
     href: 'https://k72-project-3ig8.onrender.com/',
-    texture: '/textures/project/k72.mp4',
+    texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899019/k72_u3gydj.mp4',
     logo: '/assets/project-logo5.png',
     logoStyle: {
       backgroundColor: '#000000',

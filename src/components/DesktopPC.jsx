@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { myProjects } from '../constants';
 
 const defaultPlaylist = [
-    '/textures/project/mainPC.mp4',
+    'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899016/mainPC_nlvdkx.mp4',
     ...myProjects.map((p) => p.texture).filter(Boolean),
 ];
 
