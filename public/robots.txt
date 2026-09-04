@@ -20,5 +20,4 @@ User-agent: ClaudeBot
 Allow: /
 
 # Sitemap Location
-Sitemap: https://vadirajjoshiportfolio.vercel.app/sitemap.xml
-
+Sitemap: https://vadirajjoshiportfolio.in/sitemap.xml

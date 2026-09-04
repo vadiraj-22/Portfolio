@@ -5,21 +5,21 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://vadirajjoshiportfolio.vercel.app/</loc>
+    <loc>https://vadirajjoshiportfolio.in/</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://vadirajjoshiportfolio.vercel.app/assets/vadiraj.jpg</image:loc>
+      <image:loc>https://vadirajjoshiportfolio.in/assets/vadiraj.jpg</image:loc>
       <image:title>Vadiraj Joshi — Full-Stack MERN &amp; AI Developer</image:title>
       <image:caption>Vadiraj Joshi Profile Portrait</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://vadirajjoshiportfolio.vercel.app/assets/quickAI.svg</image:loc>
+      <image:loc>https://vadirajjoshiportfolio.in/assets/quickAI.svg</image:loc>
       <image:title>Quick AI Project Logo</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://vadirajjoshiportfolio.vercel.app/assets/civicfix.png</image:loc>
+      <image:loc>https://vadirajjoshiportfolio.in/assets/civicfix.png</image:loc>
       <image:title>CivicFix Project Logo</image:title>
     </image:image>
   </url>

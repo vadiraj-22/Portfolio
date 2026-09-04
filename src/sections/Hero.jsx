@@ -22,8 +22,9 @@ const Hero = () => {
     return (
         <section ref={heroRef} id="home" className='min-h-screen w-full flex flex-col relative' aria-label="Hero Section">
             <div className='mx-auto sm:mt-36 mt-32 c-space gap-3 w-full relative z-20'>
-                <h1 className='sm:text-2xl text-2xl font-medium  text-white text-center font-generalsans'>
-                    Hi, I'm Vadiraj Joshi <span className='waving-hand'>✋</span>
+                <h1 className='sm:text-2xl text-2xl font-medium text-white text-center font-generalsans'>
+                    Hi, I'm <span className="font-bold">Vadiraj Joshi</span> <span className='waving-hand'>✋</span>
+                    <span className="sr-only"> - Welcome to my Developer Portfolio</span>
                 </h1>
                 <p className='hero_tag text-gray_gradient '>
                     Full-Stack Developer — MERN &amp; AI-Powered Web Apps
