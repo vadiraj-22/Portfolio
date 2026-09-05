@@ -6,9 +6,14 @@
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://vadirajjoshiportfolio.in/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://vadirajjoshiportfolio.in/assets/logo.png</image:loc>
+      <image:title>Vadiraj Joshi Official Logo</image:title>
+      <image:caption>Official Circular Avatar Logo for Vadiraj Joshi Portfolio</image:caption>
+    </image:image>
     <image:image>
       <image:loc>https://vadirajjoshiportfolio.in/assets/vadiraj.jpg</image:loc>
       <image:title>Vadiraj Joshi — Full-Stack MERN &amp; AI Developer</image:title>

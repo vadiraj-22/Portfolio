@@ -120,9 +120,14 @@ const NavbarGlass = () => {
                     <div className='flex justify-between items-center py-3 sm:py-4 px-4 sm:px-6 lg:px-10'>
                         <a 
                             href="/" 
-                            className='text-white font-logo text-lg sm:text-xl lg:text-2xl hover:text-orange-400 transition-colors flex items-center drop-shadow-lg'
+                            className='text-white font-logo text-lg sm:text-xl lg:text-2xl hover:text-orange-400 transition-colors flex items-center gap-3 drop-shadow-lg group'
                         > 
-                            Vadiraj Joshi - Portfolio
+                            <img 
+                                src="/assets/logo.png" 
+                                alt="Vadiraj Joshi Logo" 
+                                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-orange-500/60 shadow-md shadow-orange-500/20 group-hover:border-orange-400 group-hover:scale-105 transition-all duration-300 object-cover" 
+                            />
+                            <span>Vadiraj Joshi - Portfolio</span>
                         </a>
                         <nav className='flex' aria-label="Desktop Navigation">
                             <NavItems />
@@ -167,9 +172,14 @@ const NavbarGlass = () => {
                         <div className='flex items-center justify-between py-3 px-4'>
                             <a 
                                 href="/" 
-                                className='text-white font-logo text-base hover:text-orange-400 transition-colors flex items-center drop-shadow-lg truncate max-w-[70%]'
+                                className='text-white font-logo text-base hover:text-orange-400 transition-colors flex items-center gap-2.5 drop-shadow-lg truncate max-w-[70%]'
                             > 
-                                Vadiraj Joshi
+                                <img 
+                                    src="/assets/logo.png" 
+                                    alt="Vadiraj Joshi Logo" 
+                                    className="w-7 h-7 rounded-full border border-orange-500/60 shadow-sm shadow-orange-500/20 object-cover flex-shrink-0" 
+                                />
+                                <span className="truncate">Vadiraj Joshi</span>
                             </a>
                             <button 
                                 onClick={toggleMenu} 
