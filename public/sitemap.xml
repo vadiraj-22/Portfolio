@@ -10,14 +10,14 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://vadirajjoshiportfolio.in/assets/logo.png</image:loc>
-      <image:title>Vadiraj Joshi Official Logo</image:title>
-      <image:caption>Official Circular Avatar Logo for Vadiraj Joshi Portfolio</image:caption>
-    </image:image>
-    <image:image>
       <image:loc>https://vadirajjoshiportfolio.in/assets/vadiraj.jpg</image:loc>
       <image:title>Vadiraj Joshi — Full-Stack MERN &amp; AI Developer</image:title>
-      <image:caption>Vadiraj Joshi Profile Portrait</image:caption>
+      <image:caption>Official Profile Picture for Vadiraj Joshi Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://vadirajjoshiportfolio.in/assets/logo.png</image:loc>
+      <image:title>Vadiraj Joshi Official Avatar</image:title>
+      <image:caption>Official Circular Avatar Icon for Vadiraj Joshi Portfolio</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://vadirajjoshiportfolio.in/assets/quickAI.svg</image:loc>

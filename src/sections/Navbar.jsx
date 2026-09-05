@@ -98,8 +98,8 @@ const Navbar = () => {
                     <div className='flex justify-between items-center py-4 mx-auto c-space'>
                         <a href="/" className='text-white font-logo text-xl sm:text-2xl hover:text-orange-400 transition-colors flex items-center gap-3 group'> 
                             <img 
-                                src="/assets/logo.png" 
-                                alt="Vadiraj Joshi Logo" 
+                                src="/assets/vadiraj.jpg" 
+                                alt="Vadiraj Joshi" 
                                 className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-orange-500/60 shadow-md shadow-orange-500/20 group-hover:border-orange-400 group-hover:scale-105 transition-all duration-300 object-cover" 
                             />
                             <span>Vadiraj Joshi - Portfolio</span>
@@ -128,8 +128,8 @@ const Navbar = () => {
                                 className='text-white font-logo text-xl hover:text-orange-400 transition-colors flex items-center gap-2.5'
                             > 
                                 <img 
-                                    src="/assets/logo.png" 
-                                    alt="Vadiraj Joshi Logo" 
+                                    src="/assets/vadiraj.jpg" 
+                                    alt="Vadiraj Joshi" 
                                     className="w-7 h-7 rounded-full border border-orange-500/60 shadow-sm shadow-orange-500/20 object-cover flex-shrink-0" 
                                 />
                                 <span>Vadiraj Joshi - Portfolio</span>
