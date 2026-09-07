@@ -202,102 +202,49 @@ const DesktopPC = ({ playlist = defaultPlaylist, ...props }) => {
 
     return (
         <group {...props} dispose={null} ref={groupRef}>
-            {/* REALISTIC AMBIENT SETUP BACKLIGHTING (WALL GLOW BEHIND MONITOR) */}
-            {/* Central blue wall backlight glow behind monitor */}
+            {/* Natural workstation ambient setup lighting */}
+            {/* Soft bias light behind monitor */}
             <pointLight
                 position={[0, 3.5, -2.5]}
-                intensity={4.5}
-                color="#3b82f6"
-                distance={16}
-                decay={1.5}
-            />
-            {/* Left side purple wall backlight glow */}
-            <pointLight
-                position={[-3.5, 3.2, -2.5]}
-                intensity={3.5}
-                color="#8b5cf6"
-                distance={14}
-                decay={1.5}
-            />
-            {/* Right side cyan wall backlight glow */}
-            <pointLight
-                position={[3.5, 3.2, -2.5]}
-                intensity={3.5}
-                color="#06b6d4"
-                distance={14}
-                decay={1.5}
-            />
-            {/* Top-back rim backlight highlighting monitor bezel contours */}
-            <directionalLight
-                position={[0, 6, -4]}
                 intensity={1.8}
-                color="#93c5fd"
+                color="#f8fafc"
+                distance={12}
+                decay={1.8}
+            />
+            {/* Top-back rim light to softly outline monitor bezel */}
+            <directionalLight
+                position={[0, 6, -3]}
+                intensity={0.8}
+                color="#e2e8f0"
             />
 
-            {/* Main overhead lighting for the entire PC setup */}
+            {/* Overhead natural soft desk downlight */}
             <spotLight
-                position={[0, 8, 0]}
+                position={[0, 7, 1]}
                 angle={0.8}
-                penumbra={0.5}
-                intensity={2}
+                penumbra={0.6}
+                intensity={1.2}
                 castShadow
                 shadow-mapSize={[1024, 1024]}
                 color="#ffffff"
             />
             
-            {/* CPU case lighting from above-left */}
-            <spotLight
-                position={[-3, 6, 2]}
-                angle={0.6}
-                penumbra={0.3}
-                intensity={1.5}
-                color="#4a90e2"
-                target-position={[-1, 0, 0]}
-            />
-            
-            {/* CPU case lighting from above-right */}
-            <spotLight
-                position={[3, 6, 2]}
-                angle={0.6}
-                penumbra={0.3}
-                intensity={1.5}
-                color="#e24a90"
-                target-position={[1, 0, 0]}
-            />
-            
-            {/* Monitor screen forward glow onto keyboard/desk */}
+            {/* Monitor screen subtle forward illumination onto keyboard/desk */}
             <pointLight
-                position={[0, 2.5, 2]}
-                intensity={1.5}
-                color="#38bdf8"
-                distance={7}
+                position={[0, 2.2, 1.8]}
+                intensity={0.8}
+                color="#f1f5f9"
+                distance={6}
                 decay={2}
             />
             
-            {/* Keyboard area lighting */}
-            <spotLight
-                position={[0, 4, 4]}
-                angle={0.4}
-                penumbra={0.2}
-                intensity={1}
-                color="#ffffff"
-            />
-            
-            {/* CPU internal RGB lighting effect */}
+            {/* Subtle natural internal PC illumination */}
             <pointLight
                 position={[-1, 2, 0]}
-                intensity={0.6}
-                color="#ff6b6b"
+                intensity={0.4}
+                color="#e2e8f0"
                 distance={3}
-                decay={1}
-            />
-            
-            <pointLight
-                position={[1, 2, 0]}
-                intensity={0.6}
-                color="#4ecdc4"
-                distance={3}
-                decay={1}
+                decay={1.5}
             />
 
             <group scale={[1, 1, 1]} rotation={[Math.PI / 36, -Math.PI / 2, 0]}>

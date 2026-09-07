@@ -66,7 +66,7 @@ const NavbarGlass = () => {
                     <li key={id} className='w-full sm:w-auto'>
                         <a
                             href={href}
-                            className='block text-sm sm:text-base font-medium px-4 py-2.5 rounded-2xl transition-all duration-300 text-white/90 hover:text-black hover:bg-white/95 text-center'
+                            className='block text-sm sm:text-base font-medium px-4 py-2.5 rounded-2xl transition-all duration-300 text-white/90 hover:text-black hover:bg-gradient-to-r hover:from-amber-300 hover:to-orange-400 hover:shadow-md hover:shadow-orange-500/25 text-center'
                             onClick={(e) => handleNavClick(e, href)}
                         >
                             {name}

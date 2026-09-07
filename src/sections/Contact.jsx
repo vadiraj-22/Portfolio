@@ -74,16 +74,24 @@ const Contact = () => {
     <section className="c-space my-20" id="contact">
       {alert.show && <Alert {...alert} />}
 
-      <div className="relative min-h-screen flex items-center justify-center flex-col">
-        <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
+      <div className="mb-12">
+        <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-2">Get In Touch</p>
+        <h2 className="head-text">Let's Connect</h2>
+      </div>
 
-        <div className="contact-container pt-6 pb-12 sm:pb-16">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray_gradient mt-4 sm:mt-6">Let's Talk — Contact Vadiraj Joshi</h2>
-          <p className="text-base sm:text-lg text-white-600 mt-2">
+      <div className="relative flex items-center justify-center">
+        {/* Ambient warm glow backdrop */}
+        <div className="absolute w-[450px] h-[450px] bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+
+        <div className="portfolio-card w-full max-w-2xl p-6 sm:p-10">
+          <h3 className="text-xl sm:text-2xl font-semibold text-white">
+            Send a Direct Message
+          </h3>
+          <p className="text-sm sm:text-base text-white-600 mt-2">
             Looking for a full-stack developer, have a project idea, or want to discuss a collaboration? Drop me a message and I’ll get back to you promptly.
           </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="mt-6 sm:mt-8 flex flex-col space-y-5 pb-6 sm:pb-10">
+          <form ref={formRef} onSubmit={handleSubmit} className="mt-8 flex flex-col space-y-6">
             <label className="space-y-2">
               <span className="field-label">Full Name</span>
               <input
@@ -117,13 +125,13 @@ const Contact = () => {
                 value={form.message}
                 onChange={handleChange}
                 required
-                rows={3}
+                rows={4}
                 className="field-input"
-                placeholder="Share your thoughts or inquiries..."
+                placeholder="Share your thoughts, project details, or inquiries..."
               />
             </label>
 
-            <button className="field-btn mb-4 sm:mb-8" type="submit" disabled={loading}>
+            <button className="field-btn w-full sm:w-auto self-end mt-2" type="submit" disabled={loading}>
               {loading ? 'Sending...' : 'Send Message'}
 
               <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />

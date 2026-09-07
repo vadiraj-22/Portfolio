@@ -40,13 +40,13 @@ const Hero = () => {
                         {/* Vignette Overlay - Behind everything */}
                         <VignetteOverlay position={[0, 0, -25]} />
 
-                        {/* Perspective Grid Background */}
+                        {/* Infinite Natural Perspective Grid placed safely below the PC model */}
                         <PerspectiveGrid 
-                            size={100} 
-                            divisions={60} 
-                            color1="#d0d0d0" 
-                            color2="#a8a8a8"
-                            position={[0, -6, -10]}
+                            position={[0, -7.5, 0]}
+                            cellColor="#363a4d"
+                            sectionColor="#5a607a"
+                            fadeDistance={70}
+                            fadeStrength={1.0}
                         />
 
                         <HeroCamera isMobile={isMobile}>
@@ -57,76 +57,38 @@ const Hero = () => {
                             />
                         </HeroCamera>
 
+                        {/* Natural ambient studio lighting (no artificial tint) */}
+                        <ambientLight intensity={0.75} color="#ffffff" />
 
+                        {/* Natural hemisphere light: clean daylight from above, soft dark bounce from ground */}
+                        <hemisphereLight
+                            skyColor="#ffffff"
+                            groundColor="#18181b"
+                            intensity={0.5}
+                        />
 
-
-                        {/* Soft ambient light for overall scene illumination */}
-                        <ambientLight intensity={0.6} color="#ffff00" />
-
-                        {/* Top-down white light to illuminate keyboard and CPU */}
+                        {/* Primary key light: Natural top-right daylight */}
                         <directionalLight
-                            position={[0, 15, 5]}
-                            intensity={0.8}
+                            position={[6, 12, 8]}
+                            intensity={1.1}
                             color="#ffffff"
                             castShadow
                             shadow-mapSize={[1024, 1024]}
                             shadow-camera-far={50}
-                            shadow-camera-left={-10}
-                            shadow-camera-right={10}
-                            shadow-camera-top={10}
-                            shadow-camera-bottom={-10}
                         />
 
-                        {/* Additional soft top lighting for keyboard area */}
+                        {/* Soft front fill light to soften shadows naturally */}
                         <directionalLight
-                            position={[0, 12, 8]}
-                            intensity={0.4}
-                            color="#f8f9fa"
+                            position={[-6, 6, 8]}
+                            intensity={0.45}
+                            color="#f1f5f9"
                         />
 
-                        {/* Subtle side lighting for depth */}
-                        <directionalLight position={[10, 8, 10]} intensity={0.2} />
-
-                        {/* Environmental hemisphere lighting */}
-                        <hemisphereLight
-                            skyColor="#ffffff"
-                            groundColor="#333333"
-                            intensity={0.3}
-                        />
-
-                        {/* Rim lighting for better definition */}
+                        {/* Subtle top rim light to separate setup from background */}
                         <directionalLight
-                            position={[-8, 6, -8]}
-                            intensity={0.15}
-                            color="#4a90e2"
-                        />
-
-                        {/* Front lighting to separate CPU from black background */}
-                        <directionalLight
-                            position={[0, 5, 15]}
-                            intensity={0.6}
-                            color="#ffffff"
-                        />
-
-                        {/* Additional front-angled light for better definition */}
-                        <directionalLight
-                            position={[5, 3, 12]}
+                            position={[0, 8, -6]}
                             intensity={0.5}
-                            color="#f0f0f0"
-                        />
-
-                        {/* Left front light for CPU separation */}
-                        <directionalLight
-                            position={[-8, 4, 10]}
-                            intensity={0.4}
-                            color="#ffffff"
-                        />
-
-                        {/* Right front light for balanced illumination */}
-                        <directionalLight
-                            position={[8, 4, 10]}
-                            intensity={0.4}
-                            color="#ffffff"
+                            color="#cbd5e1"
                         />
                     </Suspense>
                 </Canvas>
@@ -146,7 +108,7 @@ const Hero = () => {
                         <lord-icon
                             src="https://cdn.lordicon.com/evxithfv.json"
                             trigger="loop"
-                            colors="primary:#ffffff,secondary:#08a88a"
+                            colors="primary:#ffffff,secondary:#f59e0b"
                             style={{ width: '50px', height: '50px' }}>
                         </lord-icon>
                         <a href="#about" className='w-fit'>

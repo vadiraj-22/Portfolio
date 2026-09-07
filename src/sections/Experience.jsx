@@ -14,10 +14,13 @@ const WorkExperience = () => {
   return (
     <section className="c-space my-20" id="work">
       <div className="w-full text-white-600">
-        <h2 className="head-text">My Work Experience</h2>
+        <div className="mb-12">
+          <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-2">Career Journey</p>
+          <h2 className="head-text">Work Experience</h2>
+        </div>
 
         <div className="work-container">
-          <div ref={containerRef} className="work-canvas relative hidden lg:block">
+          <div ref={containerRef} className="work-canvas relative hidden lg:block overflow-hidden">
             <Canvas frameloop={isInView ? 'always' : 'never'} dpr={[1, 1.5]}>
               <ambientLight intensity={7} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
@@ -32,7 +35,7 @@ const WorkExperience = () => {
               <lord-icon
                 src="https://cdn.lordicon.com/evxithfv.json"
                 trigger="loop"
-                colors="primary:#ffffff,secondary:#08a88a"
+                colors="primary:#ffffff,secondary:#f59e0b"
                 style={{ width: '40px', height: '40px' }}>
               </lord-icon>
             </div>
@@ -48,7 +51,7 @@ const WorkExperience = () => {
                   onPointerOut={() => setAnimationName('idle')}
                   className="work-content_container group">
                   <div className="flex flex-col h-full justify-start items-center py-2">
-                    <div className="work-content_logo">
+                    <div className="work-content_logo group-hover:border-amber-500/40 transition-colors">
                       <img className="w-full h-full object-contain" src={item.icon} alt={`${item.name} logo`} loading="lazy" />
                     </div>
 
@@ -56,11 +59,11 @@ const WorkExperience = () => {
                   </div>
 
                   <div className="sm:p-5 px-2.5 py-5">
-                    <h3 className="font-bold text-white-800 text-lg">{item.name}</h3>
-                    <p className="text-sm mb-5 text-gray-400">
-                      <span className="font-medium text-white-600">{item.pos}</span> — <time className="italic text-gray-400">{item.duration}</time>
+                    <h3 className="font-bold text-white-800 text-lg group-hover:text-amber-400 transition-colors">{item.name}</h3>
+                    <p className="text-sm mb-4 text-gray-400">
+                      <span className="font-medium text-amber-400/90">{item.pos}</span> — <time className="italic text-gray-400">{item.duration}</time>
                     </p>
-                    <p className="group-hover:text-white transition-all ease-in-out duration-500 leading-relaxed">{item.title}</p>
+                    <p className="group-hover:text-white transition-all ease-in-out duration-500 leading-relaxed text-sm sm:text-base">{item.title}</p>
                   </div>
                 </div>
               ))}

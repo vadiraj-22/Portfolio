@@ -59,15 +59,24 @@ body {
 
   /* button component */
   .btn {
-    @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300 transition-all active:scale-95 text-white mx-auto;
+    @apply flex gap-4 items-center justify-center cursor-pointer p-3 px-6 rounded-full bg-black-300/90 border border-white/10 hover:border-amber-500/40 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300 active:scale-95 text-white mx-auto;
   }
 
   .btn-ping {
-    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75;
   }
 
   .btn-ping_dot {
-    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
+    @apply relative inline-flex rounded-full h-3 w-3 bg-amber-500;
+  }
+
+  /* standardized card surfaces */
+  .portfolio-card {
+    @apply relative rounded-2xl bg-black-200/80 border border-white/[0.08] backdrop-blur-xl transition-all duration-300;
+  }
+
+  .portfolio-card-hover {
+    @apply hover:border-amber-500/30 hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-0.5;
   }
 
   /* hero section */
@@ -77,7 +86,7 @@ body {
 
   /* about section */
   .grid-container {
-    @apply w-full h-full border border-black-300 bg-black-200 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
+    @apply w-full h-full border border-white/[0.08] bg-black-200/80 backdrop-blur-xl rounded-2xl sm:p-7 p-4 flex flex-col gap-5;
   }
 
   .grid-headtext {
@@ -94,11 +103,11 @@ body {
 
   /* projects section  */
   .arrow-btn {
-    @apply w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient;
+    @apply w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient hover:border hover:border-amber-500/30;
   }
 
   .tech-logo {
-    @apply w-10 h-10 rounded-md p-2 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center;
+    @apply w-10 h-10 rounded-xl p-2 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg border border-white/5 flex justify-center items-center;
   }
 
   /* clients section */
@@ -107,7 +116,7 @@ body {
   }
 
   .client-review {
-    @apply rounded-lg md:p-10 p-5 col-span-1 bg-black-300 bg-opacity-50;
+    @apply rounded-2xl md:p-10 p-5 col-span-1 bg-black-300/80 border border-white/[0.08];
   }
 
   .client-content {
@@ -120,49 +129,49 @@ body {
   }
 
   .work-canvas {
-    @apply col-span-1 rounded-lg bg-black-200 border border-black-300;
+    @apply col-span-1 rounded-2xl bg-black-200/80 border border-white/[0.08] backdrop-blur-xl;
   }
 
   .work-content {
-    @apply col-span-2 rounded-lg bg-black-200 border border-black-300;
+    @apply col-span-2 rounded-2xl bg-black-200/80 border border-white/[0.08] backdrop-blur-xl;
   }
 
   .work-content_container {
-    @apply grid grid-cols-[auto_1fr] items-start gap-5 transition-all ease-in-out duration-500 cursor-pointer hover:bg-black-300 rounded-lg sm:px-5 px-2.5;
+    @apply grid grid-cols-[auto_1fr] items-start gap-5 transition-all ease-in-out duration-500 cursor-pointer hover:bg-white/[0.04] rounded-xl sm:px-5 px-2.5;
   }
 
   .work-content_logo {
-    @apply rounded-3xl w-16 h-16 p-2 bg-black-600;
+    @apply rounded-2xl w-16 h-16 p-2 bg-black-600/80 border border-white/10;
   }
 
   .work-content_bar {
-    @apply flex-1 w-0.5 mt-4 h-full bg-black-300 group-hover:bg-black-500 group-last:hidden;
+    @apply flex-1 w-0.5 mt-4 h-full bg-white/10 group-hover:bg-amber-500/60 transition-colors duration-300 group-last:hidden;
   }
 
   /* contact section */
   .contact-container {
-    @apply max-w-xl relative z-10 sm:px-10 px-5 mt-12 pb-10 sm:pb-14;
+    @apply max-w-2xl relative z-10 w-full sm:px-10 px-5 py-10;
   }
 
   .field-label {
-    @apply text-lg text-white-600;
+    @apply text-sm font-medium text-white-700 tracking-wide;
   }
 
   .field-input {
-    @apply w-full bg-black-300 px-5 py-2 min-h-14 rounded-lg placeholder:text-white-500 text-lg text-white-800 shadow-black-200 shadow-2xl focus:outline-none;
+    @apply w-full bg-black-300/80 border border-white/10 px-5 py-3.5 rounded-xl placeholder:text-white-500/60 text-base text-white shadow-inner focus:outline-none focus:border-amber-500/60 focus:ring-2 focus:ring-amber-500/20 transition-all duration-200;
   }
 
   .field-btn {
-    @apply bg-black-500 px-5 py-2 min-h-12 rounded-lg shadow-black-200 shadow-2xl flex justify-center items-center text-lg text-white gap-3;
+    @apply bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 px-6 py-3.5 rounded-xl shadow-lg shadow-orange-500/25 flex justify-center items-center text-base font-semibold text-white gap-3 transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] cursor-pointer;
   }
 
   .field-btn_arrow {
-    @apply w-2.5 h-2.5 object-contain invert brightness-0;
+    @apply w-3 h-3 object-contain invert brightness-0;
   }
 
   /*  footer */
   .social-icon {
-    @apply w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200;
+    @apply w-11 h-11 rounded-full flex justify-center items-center bg-black-300/80 border border-white/10 hover:border-amber-500/40 hover:bg-white/[0.06] hover:scale-105 transition-all duration-300;
   }
 }
 
@@ -523,4 +532,27 @@ body {
 @keyframes flBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+/* Globe Location Pin Drop/Reveal Animation */
+@keyframes pinReveal {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -180%) scale(0.2);
+  }
+  65% {
+    opacity: 1;
+    transform: translate(-50%, -95%) scale(1.15);
+  }
+  82% {
+    transform: translate(-50%, -103%) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -100%) scale(1);
+  }
+}
+
+.globe-pin-reveal {
+  animation: pinReveal 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }

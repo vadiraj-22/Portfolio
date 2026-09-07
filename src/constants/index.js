@@ -63,50 +63,6 @@ export const clientReviews = [
 
 export const myProjects = [
   {
-    title: 'Quick AI — All-in-One AI Assistant',
-    desc: 'Most AI tools live in separate apps. Quick AI consolidates six AI-powered features — article writing, blog title generation, image generation, background removal, object removal, and resume review — into a single platform so users have one login and one workflow.',
-    subdesc:
-      'Full-stack app built with React 19, Vite, Tailwind CSS, Node.js, and Express. Integrated OpenAI API for text generation, Cloudinary for server-side image processing, Clerk for authentication, and Neon PostgreSQL for persistent storage. Deployed on Vercel (frontend) and Render (API).',
-    href: 'https://quick-ai-gray.vercel.app/',
-    texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899007/Quick_AI_uftoda.mp4',
-    logo: '/assets/quickAI.svg',
-    logoStyle: {
-      backgroundColor: '#1a1a2e',
-      border: '0.2px solid #16213e',
-      boxShadow: '0px 0px 60px 0px rgba(59, 130, 246, 0.3)',
-    },
-    spotlight: '/assets/spotlight1.png',
-    tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: '/assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'Node.js',
-        path: '/assets/nodejs.png',
-      },
-      {
-        id: 4,
-        name: 'Gemini',
-        path: '/assets/gemini.jpeg',
-      },
-      {
-        id: 5,
-        name: 'Clipdrop',
-        path: '/assets/clipdrop.png',
-      },
-
-
-    ],
-  },
-  {
     title: 'CivicFix - Digitizing Municipal Services for Smart Cities',
     desc: 'Residents had no efficient way to report potholes, garbage, or broken infrastructure to their municipality. CleanStreet gives citizens a geo-tagged complaint system with image uploads, priority tracking, volunteer assignment, upvoting, real-time status updates, and an admin dashboard with analytics — turning passive complaints into actionable civic workflows.',
     subdesc: 'Built with React 19, Vite, Tailwind CSS, Node.js, Express, MongoDB with geospatial indexing, JWT authentication, Cloudinary for image uploads, and Leaflet for interactive maps. Developed during an 8-week Infosys Springboard Virtual Internship using Agile sprints.',
@@ -148,17 +104,58 @@ export const myProjects = [
     ],
   },
   {
+    title: 'LaTexume — LaTeX-Powered ATS Resume Builder',
+    desc: 'Professional resume builder leveraging LaTeX to create ATS-optimized resumes using Jake\'s Resume template — the industry standard trusted by engineers at Google, Meta, Amazon, and Microsoft. Zero LaTeX knowledge required.',
+    subdesc: 'Full-stack application built with React 18, Vite 5, Tailwind CSS 3, Node.js, and Express. Features instant PDF generation, clickable links, and publication-quality typography through LaTeX compilation.',
+    href: 'https://latexume.vercel.app/',
+    texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899007/laTexume_wvsc8t.mp4',
+    logo: '/assets/latexume.svg',
+    logoStyle: {
+      backgroundColor: '#000000',
+      border: '0.2px solid #A6FF5D',
+      boxShadow: '0px 0px 60px 0px rgba(166, 255, 93, 0.3)',
+    },
+    spotlight: '/assets/spotlight3.png',
+    tags: [
+      {
+        id: 1,
+        name: 'React.js',
+        path: '/assets/react.svg',
+      },
+      {
+        id: 2,
+        name: 'TailwindCSS',
+        path: '/assets/tailwindcss.png',
+      },
+      {
+        id: 3,
+        name: 'Node.js',
+        path: '/assets/nodejs.png',
+      },
+      {
+        id: 4,
+        name: 'Express.js',
+        path: '/assets/express.png',
+      },
+      {
+        id: 5,
+        name: 'LaTeX',
+        path: '/assets/latex.jpg',
+      },
+    ],
+  },
+  {
     title: 'SafePass — Password Security Suite',
     desc: 'Weak and reused passwords remain one of the biggest security risks online. SafePass combines a cryptographic password generator, a breach checker powered by the Have I Been Pwned API, and a secure credential vault — giving users one place to strengthen and manage their passwords.',
     subdesc:
       'Full-stack MERN app with React 19, Vite, Tailwind CSS 4, Node.js, Express, and MongoDB. Implements bcrypt password hashing, JWT-based route protection, and a polished dark-themed UI.',
     href: 'https://safepass-ewqi.onrender.com/',
     texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899052/Safepass_brjtpk.mp4',
-    logo: '/assets/safepass.png',
+    logo: '/assets/safepass_favicon.png',
     logoStyle: {
-      backgroundColor: '#0f172a', // Slate-900 for a security/dark theme vibe
-      border: '0.2px solid #3b82f6', // Blue border
-      boxShadow: '0px 0px 60px 0px rgba(59, 130, 246, 0.3)', // Blue glow
+      backgroundColor: '#0f172a',
+      border: '0.2px solid #3b82f6',
+      boxShadow: '0px 0px 60px 0px rgba(59, 130, 246, 0.3)',
     },
     spotlight: '/assets/spotlight2.png',
     tags: [
@@ -180,56 +177,57 @@ export const myProjects = [
       {
         id: 4,
         name: 'Express.js',
-        path: '/assets/express.png', // Assuming asset exists or following pattern
+        path: '/assets/express.png',
       },
       {
         id: 5,
         name: 'MongoDB',
-        path: '/assets/mongodb.png', // Assuming asset exists or following pattern
+        path: '/assets/mongodb.png',
       },
     ],
   },
-{
-  title: 'LaTexume — LaTeX-Powered ATS Resume Builder',
-  desc: 'Professional resume builder leveraging LaTeX to create ATS-optimized resumes using Jake\'s Resume template — the industry standard trusted by engineers at Google, Meta, Amazon, and Microsoft. Zero LaTeX knowledge required.',
-  subdesc: 'Full-stack application built with React 18, Vite 5, Tailwind CSS 3, Node.js, and Express. Features instant PDF generation, clickable links, and publication-quality typography through LaTeX compilation.',
-  href: 'https://latexume.vercel.app/',
-  texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899007/laTexume_wvsc8t.mp4',
-  logo: '/assets/latexume.svg',
-  logoStyle: {
-    backgroundColor: '#000000', // Black background matching the app theme
-    border: '0.2px solid #A6FF5D', // Signature lime green border
-    boxShadow: '0px 0px 60px 0px rgba(166, 255, 93, 0.3)', // Lime green glow
+  {
+    title: 'Quick AI — All-in-One AI Assistant',
+    desc: 'Most AI tools live in separate apps. Quick AI consolidates six AI-powered features — article writing, blog title generation, image generation, background removal, object removal, and resume review — into a single platform so users have one login and one workflow.',
+    subdesc:
+      'Full-stack app built with React 19, Vite, Tailwind CSS, Node.js, and Express. Integrated OpenAI API for text generation, Cloudinary for server-side image processing, Clerk for authentication, and Neon PostgreSQL for persistent storage. Deployed on Vercel (frontend) and Render (API).',
+    href: 'https://quick-ai-gray.vercel.app/',
+    texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899007/Quick_AI_uftoda.mp4',
+    logo: '/assets/quickAI.svg',
+    logoStyle: {
+      backgroundColor: '#1a1a2e',
+      border: '0.2px solid #16213e',
+      boxShadow: '0px 0px 60px 0px rgba(59, 130, 246, 0.3)',
+    },
+    spotlight: '/assets/spotlight1.png',
+    tags: [
+      {
+        id: 1,
+        name: 'React.js',
+        path: '/assets/react.svg',
+      },
+      {
+        id: 2,
+        name: 'TailwindCSS',
+        path: '/assets/tailwindcss.png',
+      },
+      {
+        id: 3,
+        name: 'Node.js',
+        path: '/assets/nodejs.png',
+      },
+      {
+        id: 4,
+        name: 'Gemini',
+        path: '/assets/gemini.jpeg',
+      },
+      {
+        id: 5,
+        name: 'Clipdrop',
+        path: '/assets/clipdrop.png',
+      },
+    ],
   },
-  spotlight: '/assets/spotlight3.png',
-  tags: [
-    {
-      id: 1,
-      name: 'React.js',
-      path: '/assets/react.svg',
-    },
-    {
-      id: 2,
-      name: 'TailwindCSS',
-      path: '/assets/tailwindcss.png',
-    },
-    {
-      id: 3,
-      name: 'Node.js',
-      path: '/assets/nodejs.png',
-    },
-    {
-      id: 4,
-      name: 'Express.js',
-      path: '/assets/express.png',
-    },
-    {
-      id: 5,
-      name: 'LaTeX',
-      path: '/assets/latex.jpg', // You may need to add this asset
-    },
-  ],
-},
   {
     title: 'K72 — Design Studio Portfolio Clone',
     desc: 'A high-fidelity recreation of the K72 design studio website, focused on performance-driven animations and immersive visual storytelling. Includes scroll-triggered GSAP animations, parallax effects, dynamic project galleries with hover interactions, responsive grid layouts, and image preloading for seamless transitions.',
@@ -266,10 +264,6 @@ export const myProjects = [
       },
     ],
   },
-
-
-
-
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {

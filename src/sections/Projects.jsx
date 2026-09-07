@@ -48,48 +48,54 @@ const Projects = () => {
 
     return (
         <section id="projects" className='c-space my-20'>
-            <h2 className='head-text'> My Projects </h2>
+            <div className="mb-12">
+                <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-2">Featured Work</p>
+                <h2 className='head-text'>My Projects</h2>
+            </div>
+
             <div className='grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full'>
-                <div className='flex flex-col gap-5 shadow-2xl shadow-black-200 sm:p-10 relative py-10 px-5 '>
-                    <div className='absolute top-0 right-0'>
-                        <img src={currentProject.spotlight} alt={`${currentProject.title} spotlight background`} loading="lazy" className='w-full h-96 object-cover rounded-xl' />
+                <div className='portfolio-card flex flex-col justify-between sm:p-10 relative py-10 px-5 overflow-hidden'>
+                    <div className='absolute top-0 right-0 pointer-events-none opacity-80'>
+                        <img src={currentProject.spotlight} alt={`${currentProject.title} spotlight background`} loading="lazy" className='w-full h-96 object-cover rounded-2xl' />
                     </div>
-                    <div className='p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-lg' style={currentProject.logoStyle}>
+                    <div className='p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-xl relative z-10' style={currentProject.logoStyle}>
                         <img src={currentProject.logo} alt={`${currentProject.title} logo`} loading="lazy" className='w-10 h-10 shadow-sm' />
                     </div>
-                    <div className='flex flex-col gap-5 text-white-600 my-5'>
+                    <div className='flex flex-col gap-4 text-white-600 my-5 relative z-10'>
                         <h3 className='text-white text-2xl font-semibold animatedText'>{currentProject.title}</h3>
-                        <p className='animatedText'>
+                        <p className='animatedText leading-relaxed'>
                             {getCombinedText()}
                         </p>
                         {shouldShowReadMore() && (
                             <button
                                 onClick={() => setIsExpanded(!isExpanded)}
-                                className='text-white-800 cursor-pointer underline hover:text-white transition-colors text-left w-fit'
+                                className='text-amber-400/90 cursor-pointer underline hover:text-amber-300 transition-colors text-left w-fit text-sm font-medium'
                                 aria-label={isExpanded ? 'Collapse description' : 'Expand description'}
                             >
                                 {isExpanded ? 'Read Less' : 'Read More'}
                             </button>
                         )}
                     </div>
-                    <div className='flex gap-5 flex-wrap justify-between items-center'>
-                        <div className=' flex items-center gap-3'>{currentProject.tags.map((tag, index) => (
-                            <div key={index} className='tech-logo'>
-                                <img src={tag.path} alt={`${tag.name} icon`} loading="lazy" />
-                            </div>
-                        ))}</div>
+                    <div className='flex gap-5 flex-wrap justify-between items-center relative z-10 pt-4 border-t border-white/5'>
+                        <div className='flex items-center gap-3'>
+                            {currentProject.tags.map((tag, index) => (
+                                <div key={index} className='tech-logo'>
+                                    <img src={tag.path} alt={`${tag.name} icon`} loading="lazy" />
+                                </div>
+                            ))}
+                        </div>
                         <a 
-                            className='flex gap-2 items-center cursor-pointer text-white-600 hover:text-white transition-colors' 
+                            className='flex gap-2 items-center cursor-pointer text-white-600 hover:text-amber-400 transition-colors' 
                             href={currentProject.href} 
                             target='_blank' 
                             rel='noopener noreferrer'
                             aria-label={`Check live site for ${currentProject.title}`}
                         >
-                            <p>Check live site</p>
+                            <p className="text-sm font-medium">Check live site</p>
                             <img src="/assets/arrow-up.png" alt="external link arrow" className='w-3 h-3' />
                         </a>
                     </div>
-                    <div className='flex justify-between items-center mt-7'>
+                    <div className='flex justify-between items-center mt-7 relative z-10'>
                         <button 
                             className='arrow-btn' 
                             onClick={() => handleNavigation('previous')}
@@ -106,7 +112,7 @@ const Projects = () => {
                         </button>
                     </div>
                 </div>
-                <div ref={containerRef} className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full relative hidden lg:block'>
+                <div ref={containerRef} className='portfolio-card h-96 md:h-full relative hidden lg:block overflow-hidden'>
                     <Canvas frameloop={isInView ? 'always' : 'never'} dpr={[1, 1.5]}>
                         <ambientLight intensity={Math.PI} />
                         <directionalLight position={[10, 10, 5]} />
@@ -123,7 +129,7 @@ const Projects = () => {
                         <lord-icon
                             src="https://cdn.lordicon.com/evxithfv.json"
                             trigger="loop"
-                            colors="primary:#ffffff,secondary:#08a88a"
+                            colors="primary:#ffffff,secondary:#f59e0b"
                             style={{ width: '40px', height: '40px' }}>
                         </lord-icon>
                     </div>
