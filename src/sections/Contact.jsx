@@ -71,7 +71,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="c-space my-20" id="contact">
+    <section className="c-space my-20 overflow-hidden" id="contact">
       {alert.show && <Alert {...alert} />}
 
       <div className="mb-12">
@@ -79,9 +79,9 @@ const Contact = () => {
         <h2 className="head-text">Let's Connect</h2>
       </div>
 
-      <div className="relative flex items-center justify-center">
+      <div className="relative flex items-center justify-center overflow-hidden py-4">
         {/* Ambient warm glow backdrop */}
-        <div className="absolute w-[450px] h-[450px] bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="absolute w-72 sm:w-[450px] h-72 sm:h-[450px] max-w-full bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
         <div className="portfolio-card w-full max-w-2xl p-6 sm:p-10">
           <h3 className="text-xl sm:text-2xl font-semibold text-white">

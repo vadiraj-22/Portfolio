@@ -234,11 +234,11 @@ export const myProjects = [
     subdesc: 'Built with React 19, Vite, GSAP with ScrollTrigger, and Tailwind CSS. Uses lazy loading, code splitting, responsive image optimization, and custom typography with Lausanne font family to deliver a premium browsing experience across all devices.',
     href: 'https://k72-project-3ig8.onrender.com/',
     texture: 'https://res.cloudinary.com/dchtvtkhi/video/upload/v1786899019/k72_u3gydj.mp4',
-    logo: '/assets/project-logo5.png',
+    logo: '/assets/K72.png',
     logoStyle: {
-      backgroundColor: '#000000',
-      border: '0.2px solid #333333',
-      boxShadow: '0px 0px 60px 0px rgba(255, 255, 255, 0.15)',
+      backgroundColor: '#ffffff',
+      border: '0.2px solid rgba(255, 255, 255, 0.6)',
+      boxShadow: '0px 0px 60px 0px rgba(255, 255, 255, 0.25)',
     },
     spotlight: '/assets/spotlight4.png',
     tags: [
@@ -268,8 +268,8 @@ export const myProjects = [
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
   return {
-    deskScale: isSmall ? 0.85 : isMobile ? 0.65 : 1.28,
-    deskPosition: isMobile ? [1, -2.5, 0] : [1.5, -3.6, 0],
+    deskScale: isSmall ? 0.65 : isMobile ? 0.75 : isTablet ? 0.95 : 1.28,
+    deskPosition: isSmall ? [1.75, -2.6, 0] : isMobile ? [1.95, -2.8, 0] : isTablet ? [1.3, -3.2, 0] : [1.5, -3.6, 0],
     cubePosition: isSmall ? [3, -5, 0] : isMobile ? [7, -5, 0] : isTablet ? [8, -5, 0] : [14, -5.5, 0],
     reactLogoPosition: isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12.5, 4, 0],
     ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-25, 10, 0],

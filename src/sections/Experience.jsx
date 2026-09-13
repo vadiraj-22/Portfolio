@@ -12,7 +12,7 @@ const WorkExperience = () => {
   const [animationName, setAnimationName] = useState('idle');
 
   return (
-    <section className="c-space my-20" id="work">
+    <section className="c-space my-20 overflow-hidden" id="work">
       <div className="w-full text-white-600">
         <div className="mb-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-2">Career Journey</p>
@@ -58,7 +58,7 @@ const WorkExperience = () => {
                     <div className="work-content_bar" />
                   </div>
 
-                  <div className="sm:p-5 px-2.5 py-5">
+                  <div className="sm:p-5 px-2.5 py-5 min-w-0 flex-1">
                     <h3 className="font-bold text-white-800 text-lg group-hover:text-amber-400 transition-colors">{item.name}</h3>
                     <p className="text-sm mb-4 text-gray-400">
                       <span className="font-medium text-amber-400/90">{item.pos}</span> — <time className="italic text-gray-400">{item.duration}</time>

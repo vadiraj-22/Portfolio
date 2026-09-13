@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className='c-space pt-7 pb-3 border-t border-white/20 flex justify-between items-center flex-wrap gap-5'>
+        <footer className='c-space pt-7 pb-3 border-t border-white/20 flex justify-between items-center flex-wrap gap-5 overflow-hidden'>
             <div className='text-white-500 flex mx-auto gap-3 text-sm'>
                 <p>Terms &amp; Conditions</p>
                 <p>|</p>
@@ -21,7 +21,7 @@ const Footer = () => {
                     <img src="/assets/leetcode.svg" alt="LeetCode icon" loading="lazy" className='w-1/2 h-1/2' />
                 </a>
             </div>
-            <p className='text-white-500 mx-auto text-sm'>© {new Date().getFullYear()} Vadiraj Joshi. All rights reserved.</p>
+            <p className='text-white-500 mx-auto text-sm text-center w-full sm:w-auto'>© {new Date().getFullYear()} Vadiraj Joshi. All rights reserved.</p>
         </footer>
     )
 }

@@ -11,9 +11,30 @@ const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
   const [isLocationRevealed, setIsLocationRevealed] = useState(false);
   const globeEl = useRef();
+  const globeContainerRef = useRef(null);
+  const [globeSize, setGlobeSize] = useState(320);
   const sectionRef = useRef(null);
   const isAnimatingRef = useRef(false);
   const isInViewRef = useRef(false);
+
+  // Responsive globe sizing to prevent mobile horizontal blowout
+  useEffect(() => {
+    const updateGlobeSize = () => {
+      if (globeContainerRef.current) {
+        const clientWidth = globeContainerRef.current.clientWidth;
+        if (clientWidth > 0) {
+          setGlobeSize(Math.min(Math.max(clientWidth - 16, 250), 390));
+          return;
+        }
+      }
+      const winW = typeof window !== 'undefined' ? window.innerWidth : 360;
+      setGlobeSize(Math.min(Math.max(winW - 80, 250), 390));
+    };
+
+    updateGlobeSize();
+    window.addEventListener('resize', updateGlobeSize);
+    return () => window.removeEventListener('resize', updateGlobeSize);
+  }, []);
 
   // Speed-ramp deceleration into Bengaluru, India
   const startSpeedRampToIndia = () => {
@@ -92,7 +113,7 @@ const About = () => {
   };
 
   return (
-    <section ref={sectionRef} className="c-space my-20" id="about">
+    <section ref={sectionRef} className="c-space my-20 overflow-hidden" id="about">
       {/* Standard Section Header */}
       <div className="mb-12">
         <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-2">About Me</p>
@@ -103,7 +124,7 @@ const About = () => {
         {/* ── Row 1: Bio (1 col), Globe (1 col), Contact (1 col) - THREE EQUAL COLUMNS ── */}
         
         {/* ── Card 1: Photo + About Me (1 column - equal width) ── */}
-        <div className="col-span-1">
+        <div className="col-span-1 min-w-0">
           <div className="grid-container h-full">
             <div className="flex flex-col gap-5 items-center h-full">
               {/* ── Image on top ── */}
@@ -130,13 +151,13 @@ const About = () => {
         </div>
 
         {/* ── Card 2: Globe (1 column - equal width, full-width globe) ── */}
-        <div className="col-span-1">
+        <div className="col-span-1 min-w-0">
           <div className="grid-container h-full flex flex-col">
-            <div className="flex-1 rounded-2xl w-full flex justify-center items-center overflow-hidden px-2">
+            <div ref={globeContainerRef} className="flex-1 rounded-2xl w-full flex justify-center items-center overflow-hidden px-2 max-w-full">
               <Globe
                 ref={globeEl}
-                height={400}
-                width={400}
+                height={globeSize}
+                width={globeSize}
                 backgroundColor="rgba(0, 0, 0, 0)"
                 backgroundImageOpacity={0.5}
                 showAtmosphere
@@ -194,7 +215,7 @@ const About = () => {
         </div>
 
         {/* ── Card 3: Contact (1 column - interactive and engaging) ── */}
-        <div className="col-span-1">
+        <div className="col-span-1 min-w-0">
           <div className="grid-container h-full flex flex-col justify-between">
             <div className="space-y-5">
               {/* Header with icon */}
@@ -269,7 +290,7 @@ const About = () => {
         </div>
 
         {/* ── Row 2: Core Stack (Full Width - 3 columns) ── */}
-        <div className="xl:col-span-3 md:col-span-2 col-span-1">
+        <div className="xl:col-span-3 md:col-span-2 col-span-1 min-w-0">
           <div className="grid-container">
             {/* Header */}
             <div className="mb-1">

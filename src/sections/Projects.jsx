@@ -47,7 +47,7 @@ const Projects = () => {
     }
 
     return (
-        <section id="projects" className='c-space my-20'>
+        <section id="projects" className='c-space my-20 overflow-hidden'>
             <div className="mb-12">
                 <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-2">Featured Work</p>
                 <h2 className='head-text'>My Projects</h2>
@@ -59,7 +59,7 @@ const Projects = () => {
                         <img src={currentProject.spotlight} alt={`${currentProject.title} spotlight background`} loading="lazy" className='w-full h-96 object-cover rounded-2xl' />
                     </div>
                     <div className='p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-xl relative z-10' style={currentProject.logoStyle}>
-                        <img src={currentProject.logo} alt={`${currentProject.title} logo`} loading="lazy" className='w-10 h-10 shadow-sm' />
+                        <img src={currentProject.logo} alt={`${currentProject.title} logo`} loading="lazy" className='w-10 h-10 shadow-sm object-contain' />
                     </div>
                     <div className='flex flex-col gap-4 text-white-600 my-5 relative z-10'>
                         <h3 className='text-white text-2xl font-semibold animatedText'>{currentProject.title}</h3>
@@ -77,7 +77,7 @@ const Projects = () => {
                         )}
                     </div>
                     <div className='flex gap-5 flex-wrap justify-between items-center relative z-10 pt-4 border-t border-white/5'>
-                        <div className='flex items-center gap-3'>
+                        <div className='flex items-center gap-2 sm:gap-3 flex-wrap'>
                             {currentProject.tags.map((tag, index) => (
                                 <div key={index} className='tech-logo'>
                                     <img src={tag.path} alt={`${tag.name} icon`} loading="lazy" />

@@ -55,9 +55,9 @@ const App = () => {
       {isLoading && (
         <FuturisticLoader progress={progress} onComplete={handleLoadComplete} />
       )}
-      <div style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s ease' }}>
+      <div className="w-full overflow-x-hidden relative" style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s ease' }}>
         <TechCursor />
-        <main className='max-w-7xl mx-auto '>
+        <main className='max-w-7xl mx-auto w-full overflow-x-hidden relative'>
           <NavbarGlass/>
           <Hero/>
           <About/>

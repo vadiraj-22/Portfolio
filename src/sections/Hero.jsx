@@ -15,7 +15,7 @@ const Hero = () => {
     const [heroRef, isInView] = useInView()
     const isSmall = useMediaQuery({ maxWidth: 440 });
     const isMobile = useMediaQuery({ maxWidth: 768 });
-    const isTablet = useMediaQuery({ maxWidth: 768, minWidth: 1024 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
 
     const sizes = calculateSizes(isSmall, isMobile, isTablet)
 
@@ -26,7 +26,7 @@ const Hero = () => {
                     Hi, I'm <span className="font-bold">Vadiraj Joshi</span> <span className='waving-hand'>✋</span>
                     <span className="sr-only"> - Welcome to my Developer Portfolio</span>
                 </h1>
-                <p className='hero_tag text-gray_gradient '>
+                <p className='hero_tag text-gray_gradient break-words px-2'>
                     Full-Stack Developer — MERN &amp; AI-Powered Web Apps
                 </p>
             </div>
@@ -111,8 +111,8 @@ const Hero = () => {
                             colors="primary:#ffffff,secondary:#f59e0b"
                             style={{ width: '50px', height: '50px' }}>
                         </lord-icon>
-                        <a href="#about" className='w-fit'>
-                            <Button name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96 " />
+                        <a href="#about" className='w-full max-w-xs sm:w-fit flex justify-center'>
+                            <Button name="Let's work together" isBeam containerClass="w-full sm:w-fit sm:min-w-96" />
                         </a>
                     </div>
                 </div>
