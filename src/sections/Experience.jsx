@@ -1,54 +1,56 @@
-import { Suspense, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-
-import Developer from '../components/Developer.jsx';
-import CanvasLoader from '../components/Loading.jsx';
+import React, { useRef } from 'react';
 import { workExperiences } from '../constants/index.js';
-import { useInView } from '../hooks/useInView.js';
+import IDCardLanyard from '@/components/ui/id-card-lanyard';
 
 const WorkExperience = () => {
-  const [containerRef, isInView] = useInView();
-  const [animationName, setAnimationName] = useState('idle');
+  const sectionRef = useRef(null);
+  const leftCardRef = useRef(null);
 
   return (
-    <section className="c-space my-20 overflow-hidden" id="work">
+    <section ref={sectionRef} className="c-space my-20 overflow-visible relative" id="work">
       <div className="w-full text-white-600">
         <div className="mb-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-2">Career Journey</p>
           <h2 className="head-text">Work Experience</h2>
         </div>
 
-        <div className="work-container">
-          <div ref={containerRef} className="work-canvas relative hidden lg:block overflow-hidden">
-            <Canvas frameloop={isInView ? 'always' : 'never'} dpr={[1, 1.5]}>
-              <ambientLight intensity={7} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <directionalLight position={[10, 10, 10]} intensity={1} />
-              <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+        {/* ── Responsive Grid: Equal Height Left & Right Columns (items-stretch) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12 items-stretch relative">
+          {/* ── Left Column: Anchor Pedestal for the Fourth-Wall Breaking ID Card (Matched Height) ── */}
+          <div
+            ref={leftCardRef}
+            className="col-span-1 lg:col-span-5 xl:col-span-4 rounded-2xl bg-black-200/80 border border-white/[0.08] backdrop-blur-xl relative overflow-visible h-full min-h-[560px] flex flex-col justify-between p-6 group"
+          >
+            {/* Ambient background glow */}
+            <div className="absolute -top-20 -left-20 w-52 h-52 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -right-20 w-52 h-52 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
-              <Suspense fallback={<CanvasLoader />}>
-                <Developer position-y={-3} scale={3} animationName={animationName} />
-              </Suspense>
-            </Canvas>
-            <div className='absolute bottom-4 left-0 right-0 flex justify-center'>
-              <lord-icon
-                src="https://cdn.lordicon.com/evxithfv.json"
-                trigger="loop"
-                colors="primary:#ffffff,secondary:#f59e0b"
-                style={{ width: '40px', height: '40px' }}>
-              </lord-icon>
+            {/* Top Header Tag - Wide central gap so the metallic clip & ribbon hang cleanly without overlapping */}
+            <div className="relative z-10 flex items-center justify-between">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Active Pass
+              </span>
+              <span className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                Drag &amp; Flip
+              </span>
+            </div>
+
+            {/* Subtle Pedestal Guideline (Visible behind the hanging card) */}
+            <div className="relative z-0 flex-1 flex flex-col items-center justify-end pb-4 text-center pointer-events-none opacity-40 group-hover:opacity-70 transition-opacity">
+              <div className="w-36 h-1 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent rounded-full mb-1.5" />
+              <span className="text-[9.5px] font-mono text-amber-400/80 tracking-widest uppercase">
+                ✦ Grab &amp; Drag Outside
+              </span>
             </div>
           </div>
 
-          <div className="work-content col-span-full lg:col-span-2">
-            <div className="sm:py-10 py-5 sm:px-5 px-2.5">
+          {/* ── Right Column: Work Experience Timeline (Matched Height) ── */}
+          <div className="col-span-1 lg:col-span-7 xl:col-span-8 rounded-2xl bg-black-200/80 border border-white/[0.08] backdrop-blur-xl flex flex-col justify-center h-full">
+            <div className="sm:py-8 py-5 sm:px-6 px-3">
               {workExperiences.map((item, index) => (
                 <div
                   key={index}
-                  onClick={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOver={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOut={() => setAnimationName('idle')}
                   className="work-content_container group">
                   <div className="flex flex-col h-full justify-start items-center py-2">
                     <div className="work-content_logo group-hover:border-amber-500/40 transition-colors">
@@ -70,9 +72,30 @@ const WorkExperience = () => {
             </div>
           </div>
         </div>
+
+        {/* ── Scoped Fourth-Wall Breaking ID Card: Anchored to left card, swings across entire section, 100% smooth scroll ── */}
+        <IDCardLanyard
+          sectionRef={sectionRef}
+          anchorElementRef={leftCardRef}
+          ropeLength={65}
+          name="Vadiraj Joshi"
+          role="Full-Stack & AI Developer"
+          brand="VADIRAJ"
+          brandTagline="Full-Stack Engineer"
+          pillars={["Build", "Solve", "Ship"]}
+          location="Bengaluru, IN"
+          validThru="12/2030"
+          photoUrl="/assets/vadiraj.jpg"
+          site="vadiraj-22.github.io"
+          githubUrl="https://github.com/vadiraj-22"
+          linkedinUrl="https://linkedin.com/in/vadiraj-joshi220504"
+          leetcodeUrl="https://leetcode.com/u/Vadiraj_22/"
+          anchorY={6}
+          showHint={true}
+        />
       </div>
     </section>
   );
 };
 
-export default WorkExperience;                                                      
+export default WorkExperience;
