@@ -5,7 +5,8 @@ import Button from '../components/Button.jsx';
 
 const TARGET_LAT = 12.9716;
 const TARGET_LNG = 77.5946;
-const TARGET_ALTITUDE = 2.0; // Less zoomed as requested
+const START_ALTITUDE = 1.8; // Zoomed in from start (default was 2.5)
+const TARGET_ALTITUDE = 1.6; // Refined zoom focused on Bengaluru, India
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
@@ -61,8 +62,11 @@ const About = () => {
   };
 
   // Continuous left-to-right rotation when waiting or scrolled away
-  const startAutoRotation = () => {
+  const startAutoRotation = (resetAltitude = false) => {
     if (!globeEl.current) return;
+    if (resetAltitude) {
+      globeEl.current.pointOfView({ altitude: START_ALTITUDE }, 1000);
+    }
     if (globeEl.current.controls) {
       const controls = globeEl.current.controls();
       controls.autoRotate = true;
@@ -90,7 +94,7 @@ const About = () => {
           }, 80);
         } else {
           // Resume rotation when scrolled away
-          startAutoRotation();
+          startAutoRotation(true);
         }
       },
       { threshold: 0.15 }
@@ -165,10 +169,13 @@ const About = () => {
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
                 bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
                 onGlobeReady={() => {
+                  if (globeEl.current) {
+                    globeEl.current.pointOfView({ altitude: START_ALTITUDE }, 0);
+                  }
                   if (isInViewRef.current) {
                     startSpeedRampToIndia();
                   } else {
-                    startAutoRotation();
+                    startAutoRotation(true);
                   }
                 }}
                 htmlElementsData={

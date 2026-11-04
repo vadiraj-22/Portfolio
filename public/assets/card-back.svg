@@ -1,0 +1,300 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1440" width="1024" height="1440">
+  <defs>
+    <!-- Crisp White / Subtle Light Slate Background -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+
+    <!-- Deep Blue Text & Accent Gradients -->
+    <linearGradient id="navyText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+
+    <!-- Soft Ambient Shadow for Showcase Box -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.04"/>
+    </filter>
+  </defs>
+
+  <!-- 1. BASE CLEAN WHITE BACKGROUND -->
+  <rect width="1024" height="1440" fill="url(#cardBg)"/>
+
+  <!-- Elegant Outer Hairline Perimeter -->
+  <rect x="36" y="36" width="952" height="1368" rx="26" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="44" y="44" width="936" height="1352" rx="20" fill="none" stroke="#f1f5f9" stroke-width="1.5"/>
+
+  <!-- Subtle Corner Alignment Marks -->
+  <g stroke="#cbd5e1" stroke-width="2" fill="none">
+    <path d="M 64 88 L 64 64 L 88 64"/>
+    <path d="M 960 88 L 960 64 L 936 64"/>
+    <path d="M 64 1352 L 64 1376 L 88 1376"/>
+    <path d="M 960 1352 L 960 1376 L 936 1376"/>
+  </g>
+
+  <!-- 2. TOP HARDWARE CLEARANCE ZONE (Centered at X=512, Y=83) -->
+  <!-- Left clean and open so the 3D lanyard ring punches cleanly without hitting any text -->
+  <g transform="translate(512, 118)">
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 4"/>
+  </g>
+
+  <!-- 3. HEADER & IDENTITY BLOCK (Y: 175 - 340) -->
+  <g transform="translate(92, 185)">
+    <!-- Category & Credential Pill -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="220" height="32" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <circle cx="16" cy="16" r="4" fill="#2563eb"/>
+      <text x="28" y="21" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#1d4ed8" letter-spacing="2">OFFICIAL CREDENTIAL</text>
+
+      <text x="840" y="21" font-family="'SF Mono', 'JetBrains Mono', Consolas, monospace" font-size="13" font-weight="700" fill="#64748b" text-anchor="end" letter-spacing="2">PASS ID: VJ-2026</text>
+    </g>
+
+    <!-- Main Name -->
+    <text x="0" y="82" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif" font-size="56" font-weight="900" fill="#0a192f" letter-spacing="3">VADIRAJ JOSHI</text>
+
+    <!-- Professional Role -->
+    <text x="0" y="122" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="700" fill="#1e3a8a" letter-spacing="1.5">Full-Stack &amp; AI Engineer</text>
+
+    <!-- Core Tagline -->
+    <text x="0" y="152" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="500" fill="#64748b" letter-spacing="2">WEB ARCHITECTURE  •  3D WEBGL  •  AUTONOMOUS AI</text>
+  </g>
+
+  <!-- Elegant Thin Hairline Divider -->
+  <line x1="92" y1="365" x2="932" y2="365" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- 4. UNCLUTTERED METADATA SPEC ROW (Y: 395 - 465) -->
+  <g transform="translate(92, 400)">
+    <!-- Column 1: Location -->
+    <g transform="translate(0, 0)">
+      <text x="0" y="0" font-family="'SF Mono', 'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="700" fill="#64748b" letter-spacing="2">LOCATION</text>
+      <text x="0" y="30" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="22" font-weight="800" fill="#0a192f">Bengaluru, IN</text>
+      <text x="0" y="52" font-family="'SF Mono', monospace" font-size="12" font-weight="500" fill="#94a3b8">12.9716°N, 77.5946°E</text>
+    </g>
+
+    <!-- Column 2: Status -->
+    <g transform="translate(320, 0)">
+      <text x="0" y="0" font-family="'SF Mono', 'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="700" fill="#64748b" letter-spacing="2">STATUS</text>
+      <g transform="translate(0, 10)">
+        <circle cx="8" cy="14" r="5" fill="#10b981"/>
+        <text x="24" y="20" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="22" font-weight="800" fill="#0a192f">Active Pass</text>
+      </g>
+      <text x="0" y="52" font-family="'SF Mono', monospace" font-size="12" font-weight="500" fill="#10b981">AUTHENTICATED</text>
+    </g>
+
+    <!-- Column 3: Validity -->
+    <g transform="translate(620, 0)">
+      <text x="0" y="0" font-family="'SF Mono', 'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="700" fill="#64748b" letter-spacing="2">VALIDITY</text>
+      <text x="0" y="30" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif" font-size="22" font-weight="800" fill="#0a192f">2026 – 2030</text>
+      <text x="0" y="52" font-family="'SF Mono', monospace" font-size="12" font-weight="500" fill="#94a3b8">RENEWABLE TIER</text>
+    </g>
+  </g>
+
+  <!-- 5. CENTRAL SHOWCASE: REAL SCANNABLE QR & DIRECT PROFILE (Y: 495 - 860) -->
+  <g transform="translate(92, 500)">
+    <!-- White Card Enclosure with Clean Subtle Border and Light Drop Shadow -->
+    <rect x="0" y="0" width="840" height="340" rx="18" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.8" filter="url(#cardShadow)"/>
+
+    <!-- Left: Real Scannable Vector QR Code pointing to https://github.com/vadiraj-22 -->
+    <g transform="translate(32, 28)">
+      <!-- Pure White Container with Soft Border -->
+      <rect x="0" y="0" width="284" height="284" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+      <!-- Real Scannable QR Matrix (25x25 scaled by 9.4 = 235x235) in Deep Midnight Navy -->
+      <g transform="translate(24.5, 20) scale(9.4)">
+        <path fill="#0a192f" d="M 0,0 l 1,0 0,1 -1,0 z M 1,0 l 1,0 0,1 -1,0 z M 2,0 l 1,0 0,1 -1,0 z M 3,0 l 1,0 0,1 -1,0 z M 4,0 l 1,0 0,1 -1,0 z M 5,0 l 1,0 0,1 -1,0 z M 6,0 l 1,0 0,1 -1,0 z M 12,0 l 1,0 0,1 -1,0 z M 13,0 l 1,0 0,1 -1,0 z M 16,0 l 1,0 0,1 -1,0 z M 18,0 l 1,0 0,1 -1,0 z M 19,0 l 1,0 0,1 -1,0 z M 20,0 l 1,0 0,1 -1,0 z M 21,0 l 1,0 0,1 -1,0 z M 22,0 l 1,0 0,1 -1,0 z M 23,0 l 1,0 0,1 -1,0 z M 24,0 l 1,0 0,1 -1,0 z M 0,1 l 1,0 0,1 -1,0 z M 6,1 l 1,0 0,1 -1,0 z M 8,1 l 1,0 0,1 -1,0 z M 10,1 l 1,0 0,1 -1,0 z M 12,1 l 1,0 0,1 -1,0 z M 14,1 l 1,0 0,1 -1,0 z M 15,1 l 1,0 0,1 -1,0 z M 16,1 l 1,0 0,1 -1,0 z M 18,1 l 1,0 0,1 -1,0 z M 24,1 l 1,0 0,1 -1,0 z M 0,2 l 1,0 0,1 -1,0 z M 2,2 l 1,0 0,1 -1,0 z M 3,2 l 1,0 0,1 -1,0 z M 4,2 l 1,0 0,1 -1,0 z M 6,2 l 1,0 0,1 -1,0 z M 11,2 l 1,0 0,1 -1,0 z M 12,2 l 1,0 0,1 -1,0 z M 14,2 l 1,0 0,1 -1,0 z M 16,2 l 1,0 0,1 -1,0 z M 18,2 l 1,0 0,1 -1,0 z M 20,2 l 1,0 0,1 -1,0 z M 21,2 l 1,0 0,1 -1,0 z M 22,2 l 1,0 0,1 -1,0 z M 24,2 l 1,0 0,1 -1,0 z M 0,3 l 1,0 0,1 -1,0 z M 2,3 l 1,0 0,1 -1,0 z M 3,3 l 1,0 0,1 -1,0 z M 4,3 l 1,0 0,1 -1,0 z M 6,3 l 1,0 0,1 -1,0 z M 8,3 l 1,0 0,1 -1,0 z M 9,3 l 1,0 0,1 -1,0 z M 10,3 l 1,0 0,1 -1,0 z M 13,3 l 1,0 0,1 -1,0 z M 18,3 l 1,0 0,1 -1,0 z M 20,3 l 1,0 0,1 -1,0 z M 21,3 l 1,0 0,1 -1,0 z M 22,3 l 1,0 0,1 -1,0 z M 24,3 l 1,0 0,1 -1,0 z M 0,4 l 1,0 0,1 -1,0 z M 2,4 l 1,0 0,1 -1,0 z M 3,4 l 1,0 0,1 -1,0 z M 4,4 l 1,0 0,1 -1,0 z M 6,4 l 1,0 0,1 -1,0 z M 9,4 l 1,0 0,1 -1,0 z M 11,4 l 1,0 0,1 -1,0 z M 12,4 l 1,0 0,1 -1,0 z M 13,4 l 1,0 0,1 -1,0 z M 16,4 l 1,0 0,1 -1,0 z M 18,4 l 1,0 0,1 -1,0 z M 20,4 l 1,0 0,1 -1,0 z M 21,4 l 1,0 0,1 -1,0 z M 22,4 l 1,0 0,1 -1,0 z M 24,4 l 1,0 0,1 -1,0 z M 0,5 l 1,0 0,1 -1,0 z M 6,5 l 1,0 0,1 -1,0 z M 8,5 l 1,0 0,1 -1,0 z M 9,5 l 1,0 0,1 -1,0 z M 12,5 l 1,0 0,1 -1,0 z M 13,5 l 1,0 0,1 -1,0 z M 14,5 l 1,0 0,1 -1,0 z M 15,5 l 1,0 0,1 -1,0 z M 16,5 l 1,0 0,1 -1,0 z M 18,5 l 1,0 0,1 -1,0 z M 24,5 l 1,0 0,1 -1,0 z M 0,6 l 1,0 0,1 -1,0 z M 1,6 l 1,0 0,1 -1,0 z M 2,6 l 1,0 0,1 -1,0 z M 3,6 l 1,0 0,1 -1,0 z M 4,6 l 1,0 0,1 -1,0 z M 5,6 l 1,0 0,1 -1,0 z M 6,6 l 1,0 0,1 -1,0 z M 8,6 l 1,0 0,1 -1,0 z M 10,6 l 1,0 0,1 -1,0 z M 12,6 l 1,0 0,1 -1,0 z M 14,6 l 1,0 0,1 -1,0 z M 16,6 l 1,0 0,1 -1,0 z M 18,6 l 1,0 0,1 -1,0 z M 19,6 l 1,0 0,1 -1,0 z M 20,6 l 1,0 0,1 -1,0 z M 21,6 l 1,0 0,1 -1,0 z M 22,6 l 1,0 0,1 -1,0 z M 23,6 l 1,0 0,1 -1,0 z M 24,6 l 1,0 0,1 -1,0 z M 9,7 l 1,0 0,1 -1,0 z M 10,7 l 1,0 0,1 -1,0 z M 11,7 l 1,0 0,1 -1,0 z M 12,7 l 1,0 0,1 -1,0 z M 14,7 l 1,0 0,1 -1,0 z M 0,8 l 1,0 0,1 -1,0 z M 1,8 l 1,0 0,1 -1,0 z M 2,8 l 1,0 0,1 -1,0 z M 3,8 l 1,0 0,1 -1,0 z M 4,8 l 1,0 0,1 -1,0 z M 6,8 l 1,0 0,1 -1,0 z M 7,8 l 1,0 0,1 -1,0 z M 8,8 l 1,0 0,1 -1,0 z M 9,8 l 1,0 0,1 -1,0 z M 13,8 l 1,0 0,1 -1,0 z M 14,8 l 1,0 0,1 -1,0 z M 15,8 l 1,0 0,1 -1,0 z M 17,8 l 1,0 0,1 -1,0 z M 19,8 l 1,0 0,1 -1,0 z M 21,8 l 1,0 0,1 -1,0 z M 23,8 l 1,0 0,1 -1,0 z M 1,9 l 1,0 0,1 -1,0 z M 3,9 l 1,0 0,1 -1,0 z M 7,9 l 1,0 0,1 -1,0 z M 10,9 l 1,0 0,1 -1,0 z M 11,9 l 1,0 0,1 -1,0 z M 12,9 l 1,0 0,1 -1,0 z M 14,9 l 1,0 0,1 -1,0 z M 16,9 l 1,0 0,1 -1,0 z M 19,9 l 1,0 0,1 -1,0 z M 23,9 l 1,0 0,1 -1,0 z M 2,10 l 1,0 0,1 -1,0 z M 4,10 l 1,0 0,1 -1,0 z M 5,10 l 1,0 0,1 -1,0 z M 6,10 l 1,0 0,1 -1,0 z M 7,10 l 1,0 0,1 -1,0 z M 10,10 l 1,0 0,1 -1,0 z M 13,10 l 1,0 0,1 -1,0 z M 14,10 l 1,0 0,1 -1,0 z M 15,10 l 1,0 0,1 -1,0 z M 19,10 l 1,0 0,1 -1,0 z M 20,10 l 1,0 0,1 -1,0 z M 21,10 l 1,0 0,1 -1,0 z M 23,10 l 1,0 0,1 -1,0 z M 24,10 l 1,0 0,1 -1,0 z M 0,11 l 1,0 0,1 -1,0 z M 2,11 l 1,0 0,1 -1,0 z M 5,11 l 1,0 0,1 -1,0 z M 16,11 l 1,0 0,1 -1,0 z M 17,11 l 1,0 0,1 -1,0 z M 18,11 l 1,0 0,1 -1,0 z M 19,11 l 1,0 0,1 -1,0 z M 24,11 l 1,0 0,1 -1,0 z M 4,12 l 1,0 0,1 -1,0 z M 6,12 l 1,0 0,1 -1,0 z M 7,12 l 1,0 0,1 -1,0 z M 8,12 l 1,0 0,1 -1,0 z M 9,12 l 1,0 0,1 -1,0 z M 10,12 l 1,0 0,1 -1,0 z M 11,12 l 1,0 0,1 -1,0 z M 12,12 l 1,0 0,1 -1,0 z M 13,12 l 1,0 0,1 -1,0 z M 14,12 l 1,0 0,1 -1,0 z M 17,12 l 1,0 0,1 -1,0 z M 18,12 l 1,0 0,1 -1,0 z M 20,12 l 1,0 0,1 -1,0 z M 22,12 l 1,0 0,1 -1,0 z M 23,12 l 1,0 0,1 -1,0 z M 24,12 l 1,0 0,1 -1,0 z M 0,13 l 1,0 0,1 -1,0 z M 5,13 l 1,0 0,1 -1,0 z M 7,13 l 1,0 0,1 -1,0 z M 9,13 l 1,0 0,1 -1,0 z M 11,13 l 1,0 0,1 -1,0 z M 12,13 l 1,0 0,1 -1,0 z M 17,13 l 1,0 0,1 -1,0 z M 19,13 l 1,0 0,1 -1,0 z M 21,13 l 1,0 0,1 -1,0 z M 23,13 l 1,0 0,1 -1,0 z M 0,14 l 1,0 0,1 -1,0 z M 2,14 l 1,0 0,1 -1,0 z M 4,14 l 1,0 0,1 -1,0 z M 5,14 l 1,0 0,1 -1,0 z M 6,14 l 1,0 0,1 -1,0 z M 8,14 l 1,0 0,1 -1,0 z M 9,14 l 1,0 0,1 -1,0 z M 12,14 l 1,0 0,1 -1,0 z M 15,14 l 1,0 0,1 -1,0 z M 17,14 l 1,0 0,1 -1,0 z M 18,14 l 1,0 0,1 -1,0 z M 19,14 l 1,0 0,1 -1,0 z M 20,14 l 1,0 0,1 -1,0 z M 21,14 l 1,0 0,1 -1,0 z M 23,14 l 1,0 0,1 -1,0 z M 24,14 l 1,0 0,1 -1,0 z M 0,15 l 1,0 0,1 -1,0 z M 2,15 l 1,0 0,1 -1,0 z M 4,15 l 1,0 0,1 -1,0 z M 7,15 l 1,0 0,1 -1,0 z M 8,15 l 1,0 0,1 -1,0 z M 11,15 l 1,0 0,1 -1,0 z M 12,15 l 1,0 0,1 -1,0 z M 14,15 l 1,0 0,1 -1,0 z M 18,15 l 1,0 0,1 -1,0 z M 19,15 l 1,0 0,1 -1,0 z M 20,15 l 1,0 0,1 -1,0 z M 24,15 l 1,0 0,1 -1,0 z M 0,16 l 1,0 0,1 -1,0 z M 3,16 l 1,0 0,1 -1,0 z M 4,16 l 1,0 0,1 -1,0 z M 6,16 l 1,0 0,1 -1,0 z M 10,16 l 1,0 0,1 -1,0 z M 11,16 l 1,0 0,1 -1,0 z M 12,16 l 1,0 0,1 -1,0 z M 13,16 l 1,0 0,1 -1,0 z M 14,16 l 1,0 0,1 -1,0 z M 15,16 l 1,0 0,1 -1,0 z M 16,16 l 1,0 0,1 -1,0 z M 17,16 l 1,0 0,1 -1,0 z M 18,16 l 1,0 0,1 -1,0 z M 19,16 l 1,0 0,1 -1,0 z M 20,16 l 1,0 0,1 -1,0 z M 22,16 l 1,0 0,1 -1,0 z M 8,17 l 1,0 0,1 -1,0 z M 11,17 l 1,0 0,1 -1,0 z M 15,17 l 1,0 0,1 -1,0 z M 16,17 l 1,0 0,1 -1,0 z M 20,17 l 1,0 0,1 -1,0 z M 21,17 l 1,0 0,1 -1,0 z M 0,18 l 1,0 0,1 -1,0 z M 1,18 l 1,0 0,1 -1,0 z M 2,18 l 1,0 0,1 -1,0 z M 3,18 l 1,0 0,1 -1,0 z M 4,18 l 1,0 0,1 -1,0 z M 5,18 l 1,0 0,1 -1,0 z M 6,18 l 1,0 0,1 -1,0 z M 8,18 l 1,0 0,1 -1,0 z M 10,18 l 1,0 0,1 -1,0 z M 14,18 l 1,0 0,1 -1,0 z M 16,18 l 1,0 0,1 -1,0 z M 18,18 l 1,0 0,1 -1,0 z M 20,18 l 1,0 0,1 -1,0 z M 22,18 l 1,0 0,1 -1,0 z M 23,18 l 1,0 0,1 -1,0 z M 24,18 l 1,0 0,1 -1,0 z M 0,19 l 1,0 0,1 -1,0 z M 6,19 l 1,0 0,1 -1,0 z M 10,19 l 1,0 0,1 -1,0 z M 12,19 l 1,0 0,1 -1,0 z M 16,19 l 1,0 0,1 -1,0 z M 20,19 l 1,0 0,1 -1,0 z M 21,19 l 1,0 0,1 -1,0 z M 23,19 l 1,0 0,1 -1,0 z M 24,19 l 1,0 0,1 -1,0 z M 0,20 l 1,0 0,1 -1,0 z M 2,20 l 1,0 0,1 -1,0 z M 3,20 l 1,0 0,1 -1,0 z M 4,20 l 1,0 0,1 -1,0 z M 6,20 l 1,0 0,1 -1,0 z M 8,20 l 1,0 0,1 -1,0 z M 9,20 l 1,0 0,1 -1,0 z M 10,20 l 1,0 0,1 -1,0 z M 12,20 l 1,0 0,1 -1,0 z M 13,20 l 1,0 0,1 -1,0 z M 14,20 l 1,0 0,1 -1,0 z M 15,20 l 1,0 0,1 -1,0 z M 16,20 l 1,0 0,1 -1,0 z M 17,20 l 1,0 0,1 -1,0 z M 18,20 l 1,0 0,1 -1,0 z M 19,20 l 1,0 0,1 -1,0 z M 20,20 l 1,0 0,1 -1,0 z M 22,20 l 1,0 0,1 -1,0 z M 23,20 l 1,0 0,1 -1,0 z M 0,21 l 1,0 0,1 -1,0 z M 2,21 l 1,0 0,1 -1,0 z M 3,21 l 1,0 0,1 -1,0 z M 4,21 l 1,0 0,1 -1,0 z M 6,21 l 1,0 0,1 -1,0 z M 8,21 l 1,0 0,1 -1,0 z M 10,21 l 1,0 0,1 -1,0 z M 11,21 l 1,0 0,1 -1,0 z M 13,21 l 1,0 0,1 -1,0 z M 17,21 l 1,0 0,1 -1,0 z M 18,21 l 1,0 0,1 -1,0 z M 20,21 l 1,0 0,1 -1,0 z M 21,21 l 1,0 0,1 -1,0 z M 22,21 l 1,0 0,1 -1,0 z M 23,21 l 1,0 0,1 -1,0 z M 24,21 l 1,0 0,1 -1,0 z M 0,22 l 1,0 0,1 -1,0 z M 2,22 l 1,0 0,1 -1,0 z M 3,22 l 1,0 0,1 -1,0 z M 4,22 l 1,0 0,1 -1,0 z M 6,22 l 1,0 0,1 -1,0 z M 8,22 l 1,0 0,1 -1,0 z M 9,22 l 1,0 0,1 -1,0 z M 12,22 l 1,0 0,1 -1,0 z M 21,22 l 1,0 0,1 -1,0 z M 22,22 l 1,0 0,1 -1,0 z M 24,22 l 1,0 0,1 -1,0 z M 0,23 l 1,0 0,1 -1,0 z M 6,23 l 1,0 0,1 -1,0 z M 8,23 l 1,0 0,1 -1,0 z M 9,23 l 1,0 0,1 -1,0 z M 10,23 l 1,0 0,1 -1,0 z M 11,23 l 1,0 0,1 -1,0 z M 12,23 l 1,0 0,1 -1,0 z M 14,23 l 1,0 0,1 -1,0 z M 16,23 l 1,0 0,1 -1,0 z M 19,23 l 1,0 0,1 -1,0 z M 20,23 l 1,0 0,1 -1,0 z M 21,23 l 1,0 0,1 -1,0 z M 24,23 l 1,0 0,1 -1,0 z M 0,24 l 1,0 0,1 -1,0 z M 1,24 l 1,0 0,1 -1,0 z M 2,24 l 1,0 0,1 -1,0 z M 3,24 l 1,0 0,1 -1,0 z M 4,24 l 1,0 0,1 -1,0 z M 5,24 l 1,0 0,1 -1,0 z M 6,24 l 1,0 0,1 -1,0 z M 8,24 l 1,0 0,1 -1,0 z M 13,24 l 1,0 0,1 -1,0 z M 14,24 l 1,0 0,1 -1,0 z M 18,24 l 1,0 0,1 -1,0 z M 19,24 l 1,0 0,1 -1,0 z M 20,24 l 1,0 0,1 -1,0 z M 21,24 l 1,0 0,1 -1,0 z M 22,24 l 1,0 0,1 -1,0 z M 23,24 l 1,0 0,1 -1,0 z M 24,24 l 1,0 0,1 -1,0 z "/>
+      </g>
+
+      <!-- Clean Scannable Subtext -->
+      <text x="142" y="272" font-family="'SF Mono', 'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle" letter-spacing="2">SCAN FOR GITHUB</text>
+    </g>
+
+    <!-- Right: Profile Information & Clean Social Badges -->
+    <g transform="translate(352, 38)">
+      <!-- Section Label -->
+      <text x="0" y="0" font-family="'SF Mono', monospace" font-size="12" font-weight="700" fill="#2563eb" letter-spacing="2">GITHUB PROFILE &amp; WORK</text>
+
+      <!-- Primary Link Headline -->
+      <text x="0" y="44" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif" font-size="34" font-weight="900" fill="#0a192f" letter-spacing="0.5">github.com/vadiraj-22</text>
+
+      <!-- Clean Concise Description -->
+      <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif" font-size="16" font-weight="400" fill="#475569">
+        Explore open-source repositories, interactive
+      </text>
+      <text x="0" y="104" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif" font-size="16" font-weight="400" fill="#475569">
+        3D applications, and autonomous AI architectures.
+      </text>
+
+      <!-- Three Clean Professional Pill Badges -->
+      <g transform="translate(0, 140)">
+        <!-- GitHub Pill -->
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="215" height="46" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+          <g transform="translate(14, 11) scale(0.75)" fill="#0a192f">
+            <path d="M16 0C7.16 0 0 7.16 0 16c0 7.08 4.58 13.06 10.94 15.18.8.15 1.1-.34 1.1-.76v-2.7c-4.44.96-5.38-2.14-5.38-2.14-.72-1.84-1.78-2.34-1.78-2.34-1.46-1 .12-.98.12-.98 1.6.12 2.46 1.66 2.46 1.66 1.42 2.44 3.74 1.74 4.66 1.32.14-1.04.56-1.74 1.02-2.14-3.54-.4-7.26-1.78-7.26-7.88 0-1.74.62-3.16 1.64-4.28-.16-.4-.7-2.02.16-4.22 0 0 1.34-.42 4.4 1.64 1.28-.36 2.64-.54 4-.54s2.72.18 4 .54c3.06-2.06 4.4-1.64 4.4-1.64.86 2.2.32 3.82.16 4.22 1.02 1.12 1.64 2.54 1.64 4.28 0 6.12-3.72 7.48-7.28 7.88.58.5 1.08 1.48 1.08 2.98v4.42c0 .44.3.92 1.12.76C27.42 29.06 32 23.08 32 16 32 7.16 24.84 0 16 0z"/>
+          </g>
+          <text x="44" y="21" font-family="'SF Mono', monospace" font-size="10" font-weight="700" fill="#64748b">PORTFOLIO</text>
+          <text x="44" y="37" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#0a192f">vadiraj-22.github.io</text>
+        </g>
+
+        <!-- LinkedIn Pill -->
+        <g transform="translate(235, 0)">
+          <rect x="0" y="0" width="225" height="46" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+          <g transform="translate(14, 11) scale(0.75)" fill="#0a66c2">
+            <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+          </g>
+          <text x="44" y="21" font-family="'SF Mono', monospace" font-size="10" font-weight="700" fill="#64748b">LINKEDIN</text>
+          <text x="44" y="37" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13.5" font-weight="700" fill="#0a192f">vadiraj-joshi</text>
+        </g>
+
+        <!-- LeetCode Pill -->
+        <g transform="translate(0, 58)">
+          <rect x="0" y="0" width="215" height="46" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+          <g transform="translate(14, 11) scale(0.75)" fill="#d97706">
+            <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.874 5.874 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.818 3.862c.31.034.624.051.937.051a5.875 5.875 0 0 0 4.155-1.722l3.854-4.126 5.406-5.788a1.375 1.375 0 0 0-2.008-1.874L13.483 0z"/>
+          </g>
+          <text x="44" y="21" font-family="'SF Mono', monospace" font-size="10" font-weight="700" fill="#64748b">LEETCODE</text>
+          <text x="44" y="37" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13.5" font-weight="700" fill="#0a192f">Vadiraj_22</text>
+        </g>
+
+        <!-- Contact Pill -->
+        <g transform="translate(235, 58)">
+          <rect x="0" y="0" width="225" height="46" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+          <g transform="translate(14, 11) scale(0.75)" fill="#059669">
+            <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+          </g>
+          <text x="44" y="21" font-family="'SF Mono', monospace" font-size="10" font-weight="700" fill="#64748b">EMAIL</text>
+          <text x="44" y="37" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#0a192f">Get in touch ↗</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- 6. AUTHORIZED SIGNATURE IN ELEGANT CURSIVE (Y: 885 - 1080) -->
+  <g transform="translate(92, 895)">
+    <!-- Section Label -->
+    <text x="0" y="0" font-family="'SF Mono', 'JetBrains Mono', Consolas, monospace" font-size="12" font-weight="700" fill="#64748b" letter-spacing="2.5">AUTHORIZED SIGNATURE</text>
+
+    <!-- Cursive Signature Block -->
+    <g transform="translate(0, 15)">
+      <!-- Name in Graceful Cursive Script in Deep Navy Blue -->
+      <text x="16" y="80" 
+            font-family="'Segoe Script', 'Snell Roundhand', 'Caveat', 'Dancing Script', 'Brush Script MT', 'Cedarville Cursive', cursive" 
+            font-size="62" 
+            font-weight="600" 
+            font-style="italic" 
+            fill="#0a192f">Vadiraj Joshi</text>
+
+      <!-- Fluid Underline Flourish -->
+      <path d="M 16 102 C 140 106, 280 108, 420 96 C 470 92, 510 88, 490 100 C 470 110, 410 112, 330 114" 
+            fill="none" stroke="#1e3a8a" stroke-width="2.2" stroke-linecap="round"/>
+
+      <!-- Clean Signature Baseline -->
+      <line x1="0" y1="120" x2="520" y2="120" stroke="#cbd5e1" stroke-width="1.5"/>
+
+      <!-- Signature Subtitle -->
+      <text x="0" y="145" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="13" font-weight="600" fill="#64748b">
+        Vadiraj Joshi — Principal Identity &amp; Signature
+      </text>
+    </g>
+
+    <!-- Right: Minimalist Official Verification Stamp -->
+    <g transform="translate(735, 75)">
+      <circle cx="0" cy="0" r="48" fill="#f8fafc" stroke="#1e3a8a" stroke-width="2"/>
+      <circle cx="0" cy="0" r="42" fill="none" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="0" y="8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24" font-weight="900" fill="#0a192f" text-anchor="middle" letter-spacing="1">VJ</text>
+      <text x="0" y="-22" font-family="'SF Mono', monospace" font-size="7.5" font-weight="700" fill="#2563eb" text-anchor="middle" letter-spacing="1.5">VERIFIED</text>
+      <text x="0" y="27" font-family="'SF Mono', monospace" font-size="7" font-weight="700" fill="#64748b" text-anchor="middle" letter-spacing="1.5">2026 PASS</text>
+    </g>
+  </g>
+
+  <!-- Thin Hairline Divider -->
+  <line x1="92" y1="1115" x2="932" y2="1115" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- 7. CLEAN PROFESSIONAL BARCODE & FOOTER (Y: 1145 - 1380) -->
+  <g transform="translate(92, 1145)">
+    <!-- Crisp High-Density Barcode in Deep Navy -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="13" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="24" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="34" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="46" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="58" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="68" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="80" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="92" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="104" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="114" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="125" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="137" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="148" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="160" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="172" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="183" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="194" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="207" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="218" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="229" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="242" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="253" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="263" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="275" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="287" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="297" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="309" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="321" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="333" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="343" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="354" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="366" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="377" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="389" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="401" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="412" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="423" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="436" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="447" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="458" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="471" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="482" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="492" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="505" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="517" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="527" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="539" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="551" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="562" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="574" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="585" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="597" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="609" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="620" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="632" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="644" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="655" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="666" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="679" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="690" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="701" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="713" y="0" width="2" height="56" fill="#0a192f"/>
+    <rect x="725" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="737" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="748" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="759" y="0" width="3" height="56" fill="#0a192f"/>
+    <rect x="771" y="0" width="5" height="56" fill="#0a192f"/>
+    <rect x="783" y="0" width="4" height="56" fill="#0a192f"/>
+    <rect x="794" y="0" width="3" height="56" fill="#0a192f"/>
+    </g>
+
+    <!-- Clean Serial & Authentication Line -->
+    <text x="420" y="86" font-family="'SF Mono', 'JetBrains Mono', Consolas, monospace" font-size="13.5" font-weight="700" fill="#64748b" text-anchor="middle" letter-spacing="5">
+      220504 · VADIRAJ JOSHI · PORTFOLIO IDENTIFIER · 2026
+    </text>
+
+    <!-- Professional Copyright & Location Footer -->
+    <text x="420" y="118" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif" font-size="12" font-weight="500" fill="#94a3b8" text-anchor="middle" letter-spacing="2">
+      © 2026 VADIRAJ JOSHI  •  FULL-STACK &amp; AI DEVELOPER  •  BENGALURU, INDIA
+    </text>
+  </g>
+</svg>

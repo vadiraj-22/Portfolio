@@ -1,12 +1,13 @@
-import { IDCardLanyard } from "@/components/ui/id-card-lanyard";
+import Lanyard from "@/components/ui/Lanyard";
 
 export default function DemoOne() {
   return (
-    <IDCardLanyard
-      githubUrl="https://github.com/vadiraj-22"
-      linkedinUrl="https://linkedin.com/in/vadiraj-joshi220504"
-      leetcodeUrl="https://leetcode.com/u/Vadiraj_22/"
-    />
+    <div style={{ width: "100%", height: "600px" }}>
+      <Lanyard
+        frontImage="/assets/vadiraj.jpg"
+        backImage="/assets/card-back.svg"
+      />
+    </div>
   );
 }
 

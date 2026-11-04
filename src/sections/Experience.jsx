@@ -1,26 +1,31 @@
 import React, { useRef } from 'react';
 import { workExperiences } from '../constants/index.js';
-import IDCardLanyard from '@/components/ui/id-card-lanyard';
+import Lanyard from '@/components/ui/Lanyard';
 
 const WorkExperience = () => {
   const sectionRef = useRef(null);
   const leftCardRef = useRef(null);
 
   return (
-    <section ref={sectionRef} className="c-space my-20 overflow-visible relative" id="work">
-      <div className="w-full text-white-600">
+    <section ref={sectionRef} className="c-space my-20 overflow-visible relative z-40" id="work">
+      <div className="w-full text-white-600 relative overflow-visible">
         <div className="mb-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 mb-2">Career Journey</p>
           <h2 className="head-text">Work Experience</h2>
         </div>
 
         {/* ── Responsive Grid: Equal Height Left & Right Columns (items-stretch) ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12 items-stretch relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12 items-stretch relative overflow-visible">
           {/* ── Left Column: Anchor Pedestal for the Fourth-Wall Breaking ID Card (Matched Height) ── */}
           <div
             ref={leftCardRef}
             className="col-span-1 lg:col-span-5 xl:col-span-4 rounded-2xl bg-black-200/80 border border-white/[0.08] backdrop-blur-xl relative overflow-visible h-full min-h-[560px] flex flex-col justify-between p-6 group"
           >
+            {/* Top Anchor Mount for Lanyard Strap */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex flex-col items-center">
+              <div className="w-14 h-1.5 bg-gradient-to-r from-neutral-800 via-neutral-600 to-neutral-800 rounded-b shadow-sm border border-t-0 border-white/20" />
+            </div>
+
             {/* Ambient background glow */}
             <div className="absolute -top-20 -left-20 w-52 h-52 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-20 -right-20 w-52 h-52 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -73,26 +78,33 @@ const WorkExperience = () => {
           </div>
         </div>
 
-        {/* ── Scoped Fourth-Wall Breaking ID Card: Anchored to left card, swings across entire section, 100% smooth scroll ── */}
-        <IDCardLanyard
-          sectionRef={sectionRef}
-          anchorElementRef={leftCardRef}
-          ropeLength={65}
-          name="Vadiraj Joshi"
-          role="Full-Stack & AI Developer"
-          brand="VADIRAJ"
-          brandTagline="Full-Stack Engineer"
-          pillars={["Build", "Solve", "Ship"]}
-          location="Bengaluru, IN"
-          validThru="12/2030"
-          photoUrl="/assets/vadiraj.jpg"
-          site="vadiraj-22.github.io"
-          githubUrl="https://github.com/vadiraj-22"
-          linkedinUrl="https://linkedin.com/in/vadiraj-joshi220504"
-          leetcodeUrl="https://leetcode.com/u/Vadiraj_22/"
-          anchorY={6}
-          showHint={true}
-        />
+        {/* ── 3D Interactive Lanyard ID Card: Full screen width so it never clips on left or right sides ── */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 w-screen -top-32 -bottom-16 pointer-events-none z-[60] overflow-visible"
+          style={{ width: '100vw' }}
+        >
+          <Lanyard
+            anchorElementRef={leftCardRef}
+            anchorYOffset={-0.015}
+            pointerEventsPassThrough={true}
+            frontImage="/assets/vadiraj.jpg"
+            backImage="/assets/card-back.svg"
+            cardColor="#ffffff"
+            strapColor="#18181b"
+            finish="glossy"
+            clearcoat={0.65}
+            clearcoatRoughness={0.15}
+            metal="silver"
+            size={0.5}
+            strapLength={0.22}
+            elasticity={0.6}
+            damping={0.42}
+            gravity={1.1}
+            breeze={0.15}
+            pendulum={1.2}
+            className="w-full h-full"
+          />
+        </div>
       </div>
     </section>
   );
