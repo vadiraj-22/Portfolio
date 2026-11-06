@@ -10,6 +10,7 @@ import Experience from './sections/Experience'
 import TechCursor from '@/components/ui/tech-cursor'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 import FuturisticLoader from './components/FuturisticLoader'
+import { Analytics } from '@vercel/analytics/react'
 
 const App = () => {
   useSmoothScroll()
@@ -68,6 +69,7 @@ const App = () => {
           <Footer />
         </main>
       </div>
+      <Analytics />
     </>
   )
 }
