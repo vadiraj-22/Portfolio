@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { navLinks } from '../constants/index.js';
-import { GlassFilter } from '../components/ui/liquid-glass.tsx';
 
 const NavbarGlass = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,10 +9,12 @@ const NavbarGlass = () => {
         const handleScroll = () => {
             if (window.innerWidth < 640) {
                 setIsScrolled(window.scrollY > 50);
+            } else {
+                setIsScrolled(false);
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         window.addEventListener('resize', handleScroll);
         
         return () => {
@@ -22,9 +23,44 @@ const NavbarGlass = () => {
         };
     }, []);
 
+    // Lock body scroll and pause Lenis while mobile menu is open
+    useEffect(() => {
+        const lenis = window.__lenis;
+        if (isOpen) {
+            if (lenis && typeof lenis.stop === 'function') lenis.stop();
+            document.body.style.overflow = 'hidden';
+        } else {
+            if (lenis && typeof lenis.start === 'function') lenis.start();
+            document.body.style.overflow = '';
+        }
+
+        return () => {
+            if (lenis && typeof lenis.start === 'function') lenis.start();
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
+
+    // Close on Escape key
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape' && isOpen) {
+                setIsOpen(false);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isOpen]);
+
     const handleNavClick = (e, href) => {
         e.preventDefault();
         setIsOpen(false);
+
+        // Resume smooth scroll if stopped
+        const lenis = window.__lenis;
+        if (lenis && typeof lenis.start === 'function') {
+            lenis.start();
+        }
+        document.body.style.overflow = '';
 
         const targetId = href.replace('#', '');
         const target = document.getElementById(targetId);
@@ -46,7 +82,6 @@ const NavbarGlass = () => {
         const breathingRoom = 32; // Extra space below navbar
         const totalOffset = -(topOffset + navbarHeight + breathingRoom);
 
-        const lenis = window.__lenis;
         if (lenis) {
             lenis.scrollTo(target, {
                 offset: totalOffset,
@@ -59,14 +94,18 @@ const NavbarGlass = () => {
         }
     };
 
-    const NavItems = () => {
+    const NavItems = ({ isMobileMenu = false }) => {
         return (
-            <ul className="flex flex-col items-center gap-2 sm:flex-row sm:gap-2 relative z-20">
+            <ul className={`flex ${isMobileMenu ? 'flex-col gap-1 w-full' : 'flex-col items-center gap-2 sm:flex-row sm:gap-2'} relative z-20`}>
                 {navLinks.map(({ id, href, name }) => (
-                    <li key={id} className='w-full sm:w-auto'>
+                    <li key={id} className={isMobileMenu ? 'w-full' : 'w-full sm:w-auto'}>
                         <a
                             href={href}
-                            className='block text-sm sm:text-base font-medium px-4 py-2.5 rounded-2xl transition-all duration-300 text-white/90 hover:text-black hover:bg-gradient-to-r hover:from-amber-300 hover:to-orange-400 hover:shadow-md hover:shadow-orange-500/25 text-center'
+                            className={`block font-medium rounded-2xl transition-all duration-300 text-center ${
+                                isMobileMenu
+                                    ? 'text-base text-white/90 hover:text-black hover:bg-gradient-to-r hover:from-amber-300 hover:to-orange-400 py-3 px-4 active:scale-[0.98]'
+                                    : 'text-sm sm:text-base px-4 py-2.5 text-white/90 hover:text-black hover:bg-gradient-to-r hover:from-amber-300 hover:to-orange-400 hover:shadow-md hover:shadow-orange-500/25'
+                            }`}
                             onClick={(e) => handleNavClick(e, href)}
                         >
                             {name}
@@ -79,41 +118,21 @@ const NavbarGlass = () => {
 
     const toggleMenu = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
-    // Glass navbar style
-    const glassStyle = {
-        boxShadow: "0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1)",
-        transitionTimingFunction: "cubic-bezier(0.175, 0.885, 0.32, 2.2)",
-    };
-    
     return (
         <>
-            <GlassFilter />
-            
-            {/* Desktop and tablet navbar with glass effect */}
+            {/* Desktop and tablet navbar with dark glass effect */}
             <header 
-                className='hidden sm:block fixed top-6 left-4 right-4 lg:left-20 lg:right-20 z-50 overflow-hidden transition-all duration-700 rounded-[2rem] hover:rounded-[2.5rem] group'
-                style={glassStyle}
+                className='hidden sm:block fixed top-6 left-4 right-4 lg:left-20 lg:right-20 z-50 overflow-hidden transition-all duration-500 rounded-[2rem] hover:rounded-[2.5rem] group'
+                style={{
+                    background: 'rgba(13, 14, 20, 0.75)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 1px 0 rgba(255, 255, 255, 0.12)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                }}
             >
-                {/* Glass Layers */}
-                <div
-                    className="absolute inset-0 z-0 overflow-hidden rounded-[2rem] group-hover:rounded-[2.5rem] transition-all duration-700"
-                    style={{
-                        backdropFilter: "blur(8px)",
-                        filter: "url(#glass-distortion)",
-                        isolation: "isolate",
-                    }}
-                />
-                <div
-                    className="absolute inset-0 z-10 rounded-[2rem] group-hover:rounded-[2.5rem] transition-all duration-700"
-                    style={{ background: "rgba(255, 255, 255, 0.05)" }}
-                />
-                <div
-                    className="absolute inset-0 z-20 rounded-[2rem] group-hover:rounded-[2.5rem] overflow-hidden transition-all duration-700"
-                    style={{
-                        boxShadow:
-                            "inset 2px 2px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.08)",
-                    }}
-                />
+                {/* Glass specular top highlight */}
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
 
                 {/* Content */}
                 <div className='relative z-30 max-w-7xl mx-auto'>
@@ -130,42 +149,36 @@ const NavbarGlass = () => {
                             <span>Vadiraj Joshi - Portfolio</span>
                         </a>
                         <nav className='flex' aria-label="Desktop Navigation">
-                            <NavItems />
+                            <NavItems isMobileMenu={false} />
                         </nav>
                     </div>
                 </div>
             </header>
 
-            {/* Mobile navbar with glass effect */}
+            {/* Mobile backdrop scrim - dims content underneath and closes menu on tap */}
+            <div 
+                className={`fixed inset-0 z-40 sm:hidden bg-black/60 backdrop-blur-sm transition-opacity duration-300 ease-out ${
+                    isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                }`}
+                onClick={() => setIsOpen(false)}
+                aria-hidden="true"
+            />
+
+            {/* Mobile navbar header */}
             <header 
-                className={`sm:hidden fixed top-4 z-50 shadow-2xl transition-all duration-700 overflow-hidden ${
+                className={`sm:hidden fixed top-4 z-50 transition-all duration-300 ease-out overflow-hidden ${
                     isScrolled 
                         ? 'left-auto right-4 rounded-full w-14 h-14 flex items-center justify-center' 
                         : 'left-4 right-4 rounded-[2rem]'
                 }`}
-                style={glassStyle}
+                style={{
+                    background: 'rgba(15, 16, 22, 0.88)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                }}
             >
-                {/* Glass Layers */}
-                <div
-                    className={`absolute inset-0 z-0 overflow-hidden ${isScrolled ? 'rounded-full' : 'rounded-[2rem]'}`}
-                    style={{
-                        backdropFilter: "blur(8px)",
-                        filter: isScrolled ? "none" : "url(#glass-distortion)",
-                        isolation: "isolate",
-                    }}
-                />
-                <div
-                    className={`absolute inset-0 z-10 ${isScrolled ? 'rounded-full' : 'rounded-[2rem]'}`}
-                    style={{ background: "rgba(255, 255, 255, 0.05)" }}
-                />
-                <div
-                    className={`absolute inset-0 z-20 overflow-hidden ${isScrolled ? 'rounded-full' : 'rounded-[2rem]'}`}
-                    style={{
-                        boxShadow:
-                            "inset 2px 2px 1px 0 rgba(255, 255, 255, 0.08), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.08)",
-                    }}
-                />
-
                 {/* Content */}
                 {!isScrolled && (
                     <div className='relative z-30 w-full'>
@@ -183,10 +196,15 @@ const NavbarGlass = () => {
                             </a>
                             <button 
                                 onClick={toggleMenu} 
-                                className='text-neutral-200 hover:text-white focus:outline-none flex relative z-30 flex-shrink-0' 
+                                className='text-neutral-200 hover:text-white focus:outline-none flex relative z-30 flex-shrink-0 p-1 rounded-full transition-transform active:scale-90' 
                                 aria-label="Toggle mobile navigation menu"
+                                aria-expanded={isOpen}
                             >
-                                <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle menu" className='w-6 h-6 drop-shadow-lg' />
+                                <img 
+                                    src={isOpen ? "/assets/close.svg" : "/assets/menu.svg"} 
+                                    alt="toggle menu" 
+                                    className={`w-6 h-6 drop-shadow-lg transition-transform duration-300 ${isOpen ? 'rotate-90' : 'rotate-0'}`} 
+                                />
                             </button>
                         </div>
                     </div>
@@ -195,50 +213,50 @@ const NavbarGlass = () => {
                 {isScrolled && (
                     <button 
                         onClick={toggleMenu} 
-                        className='text-neutral-200 hover:text-white focus:outline-none flex relative z-30 w-full h-full items-center justify-center' 
+                        className='text-neutral-200 hover:text-white focus:outline-none flex relative z-30 w-full h-full items-center justify-center transition-transform active:scale-90' 
                         aria-label="Toggle mobile navigation menu"
+                        aria-expanded={isOpen}
                     >
-                        <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle menu" className='w-6 h-6 drop-shadow-lg' />
+                        <img 
+                            src={isOpen ? "/assets/close.svg" : "/assets/menu.svg"} 
+                            alt="toggle menu" 
+                            className={`w-6 h-6 drop-shadow-lg transition-transform duration-300 ${isOpen ? 'rotate-90' : 'rotate-0'}`} 
+                        />
                     </button>
                 )}
             </header>
             
-            {/* Floating menu window for mobile with glass effect */}
+            {/* Floating menu window for mobile with smooth glass effect */}
             <div 
-                className={`fixed z-40 sm:hidden transition-all duration-700 ${
-                    isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                className={`fixed z-50 sm:hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isOpen 
+                        ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' 
+                        : 'opacity-0 -translate-y-3 scale-95 pointer-events-none'
                 } ${
                     isScrolled ? 'top-20 right-4 w-64' : 'top-[4.5rem] left-4 right-4'
                 }`}
             >
                 <div 
-                    className='rounded-[2rem] shadow-2xl border border-white/20 overflow-hidden relative'
-                    style={glassStyle}
+                    className='rounded-[2rem] overflow-hidden relative'
+                    style={{
+                        background: 'rgba(13, 14, 20, 0.94)',
+                        backdropFilter: 'blur(24px)',
+                        WebkitBackdropFilter: 'blur(24px)',
+                        boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.8), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2)',
+                        border: '1px solid rgba(255, 255, 255, 0.14)',
+                    }}
                 >
-                    {/* Glass Layers */}
-                    <div
-                        className="absolute inset-0 z-0 overflow-hidden rounded-[2rem]"
-                        style={{
-                            backdropFilter: "blur(8px)",
-                            filter: "url(#glass-distortion)",
-                            isolation: "isolate",
-                        }}
-                    />
-                    <div
-                        className="absolute inset-0 z-10 rounded-[2rem]"
-                        style={{ background: "rgba(255, 255, 255, 0.15)" }}
-                    />
-                    <div
-                        className="absolute inset-0 z-20 rounded-[2rem] overflow-hidden"
-                        style={{
-                            boxShadow:
-                                "inset 2px 2px 1px 0 rgba(255, 255, 255, 0.4), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.4)",
-                        }}
+                    {/* Top specular reflection line for liquid glass feel */}
+                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
+
+                    {/* Subtle internal gradient glow */}
+                    <div 
+                        className="absolute -top-10 left-1/2 -translate-x-1/2 w-48 h-20 bg-orange-500/10 blur-2xl rounded-full pointer-events-none"
                     />
 
                     {/* Content */}
-                    <nav className='p-4 relative z-30'>
-                        <NavItems />
+                    <nav className='p-3.5 relative z-30'>
+                        <NavItems isMobileMenu={true} />
                     </nav>
                 </div>
             </div>

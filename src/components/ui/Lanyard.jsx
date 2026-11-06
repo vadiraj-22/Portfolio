@@ -733,6 +733,7 @@ const Lanyard = ({
   anchorElementRef,
   pointerEventsPassThrough = false,
   anchorYOffset = 0,
+  maxCardWidthRatio,
   roughness,
   metalness,
   clearcoat,
@@ -767,6 +768,7 @@ const Lanyard = ({
     anchorElementRef,
     pointerEventsPassThrough,
     anchorYOffset,
+    maxCardWidthRatio,
     roughness,
     metalness,
     clearcoat,
@@ -935,8 +937,10 @@ const Lanyard = ({
     const frameView = () => {
       const s = settingsRef.current;
       const aspect = view.width / view.height;
-      let viewHeight = layout.height / clamp(s.size, 0.15, 0.9);
-      const minimumWidth = layout.width / 0.72;
+      const baseViewHeight = layout.height / clamp(s.size, 0.15, 0.9);
+      let viewHeight = baseViewHeight;
+      const maxCardWidth = s.maxCardWidthRatio || 0.72;
+      const minimumWidth = layout.width / maxCardWidth;
       if (viewHeight * aspect < minimumWidth) viewHeight = minimumWidth / aspect;
       const viewWidth = viewHeight * aspect;
       camera.aspect = aspect;
@@ -973,7 +977,8 @@ const Lanyard = ({
 
       const anchorX = (anchorFraction - 0.5) * viewWidth;
       const anchorY = anchorYVal;
-      const cardTop = anchorY - viewHeight * mix(0.12, 0.42, clamp(s.strapLength, 0, 1));
+      const strapScale = s.anchorElementRef ? Math.min(viewHeight, baseViewHeight) : viewHeight;
+      const cardTop = anchorY - strapScale * mix(0.12, 0.42, clamp(s.strapLength, 0, 1));
       const hangTop = cardTop + (layout.hangY - layout.height / 2);
       sim.anchor.set(anchorX, anchorY, 0);
       configureSimulation(sim, layout, anchorY - hangTop);

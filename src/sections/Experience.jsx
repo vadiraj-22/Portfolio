@@ -1,10 +1,21 @@
 import React, { useRef } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { workExperiences } from '../constants/index.js';
 import Lanyard from '@/components/ui/Lanyard';
 
 const WorkExperience = () => {
   const sectionRef = useRef(null);
   const leftCardRef = useRef(null);
+
+  const isSmall = useMediaQuery({ maxWidth: 480 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
+
+  // Responsive Lanyard settings to ensure clean proportions and prevent overflow on mobile
+  // Mobile size increased so the ID card is prominent (~20% smaller than the pedestal card)
+  const lanyardSize = isSmall ? 0.54 : isMobile ? 0.58 : isTablet ? 0.52 : 0.5;
+  const lanyardStrapLength = isMobile ? 0.08 : 0.22;
+  const lanyardMaxWidthRatio = isSmall ? 0.62 : isMobile ? 0.65 : 0.72;
 
   return (
     <section ref={sectionRef} className="c-space my-20 overflow-visible relative z-40" id="work">
@@ -19,7 +30,7 @@ const WorkExperience = () => {
           {/* ── Left Column: Anchor Pedestal for the Fourth-Wall Breaking ID Card (Matched Height) ── */}
           <div
             ref={leftCardRef}
-            className="col-span-1 lg:col-span-5 xl:col-span-4 rounded-2xl bg-black-200/80 border border-white/[0.08] backdrop-blur-xl relative overflow-visible h-full min-h-[560px] flex flex-col justify-between p-6 group"
+            className="col-span-1 lg:col-span-5 xl:col-span-4 rounded-2xl bg-black-200/80 border border-white/[0.08] backdrop-blur-xl relative overflow-visible h-full min-h-[500px] sm:min-h-[520px] lg:min-h-[560px] flex flex-col justify-between p-6 group"
           >
             {/* Top Anchor Mount for Lanyard Strap */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 pointer-events-none flex flex-col items-center">
@@ -76,34 +87,35 @@ const WorkExperience = () => {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* ── 3D Interactive Lanyard ID Card: Full screen width so it never clips on left or right sides ── */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2 w-screen -top-32 -bottom-16 pointer-events-none z-[60] overflow-visible"
-          style={{ width: '100vw' }}
-        >
-          <Lanyard
-            anchorElementRef={leftCardRef}
-            anchorYOffset={-0.015}
-            pointerEventsPassThrough={true}
-            frontImage="/assets/vadiraj.jpg"
-            backImage="/assets/card-back.svg"
-            cardColor="#ffffff"
-            strapColor="#18181b"
-            finish="glossy"
-            clearcoat={0.65}
-            clearcoatRoughness={0.15}
-            metal="silver"
-            size={0.5}
-            strapLength={0.22}
-            elasticity={0.6}
-            damping={0.42}
-            gravity={1.1}
-            breeze={0.15}
-            pendulum={1.2}
-            className="w-full h-full"
-          />
+          {/* ── 3D Interactive Lanyard ID Card: Full screen width so it never clips on left or right sides ── */}
+          <div
+            className="absolute left-1/2 -translate-x-1/2 w-screen pointer-events-none z-[60] overflow-visible -top-8 h-[520px] sm:h-[550px] lg:h-auto lg:-top-32 lg:-bottom-16"
+            style={{ width: '100vw' }}
+          >
+            <Lanyard
+              anchorElementRef={leftCardRef}
+              anchorYOffset={-0.015}
+              pointerEventsPassThrough={true}
+              frontImage="/assets/vadiraj.jpg"
+              backImage="/assets/card-back.svg"
+              cardColor="#ffffff"
+              strapColor="#18181b"
+              finish="glossy"
+              clearcoat={0.65}
+              clearcoatRoughness={0.15}
+              metal="silver"
+              size={lanyardSize}
+              strapLength={lanyardStrapLength}
+              maxCardWidthRatio={lanyardMaxWidthRatio}
+              elasticity={0.6}
+              damping={0.42}
+              gravity={1.1}
+              breeze={0.15}
+              pendulum={1.2}
+              className="w-full h-full"
+            />
+          </div>
         </div>
       </div>
     </section>
