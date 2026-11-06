@@ -1,4 +1,6 @@
 import React, { useState, useCallback } from 'react'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import NavbarGlass from './sections/NavbarGlass'
 import Hero from './sections/Hero'
 import About from './sections/About'
@@ -68,6 +70,8 @@ const App = () => {
           <Footer />
         </main>
       </div>
+      <Analytics />
+      <SpeedInsights />
     </>
   )
 }
